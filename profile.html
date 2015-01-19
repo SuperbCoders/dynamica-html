@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8" />
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<title>Dynamica</title>
+	<link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico" />
+	<link rel="stylesheet" href="css/style.css" />
+	<!--[if lt IE 9]>
+		<script type="text/javascript" src="js/vendor/html5shiv.js"></script>
+	<![endif]-->
+	<script type="text/javascript" src="js/vendor/jquery.min.js"></script>
+	<script type="text/javascript" src="js/vendor/jquery.placeholder.min.js"></script>
+	<script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
+	<script type="text/javascript" src="js/script.js"></script>
+</head>
+<body>
+	<div class="page">
+		<header class="page-header navbar navbar-default">
+			<div class="container-fluid globalwidth">
+				<div class="navbar-header">
+					<button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a href="#" class="navbar-brand">DYNAMICA</a>
+				</div>
+				<nav class="collapse navbar-collapse bs-navbar-collapse">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="projects.html">Projects</a></li>
+						<li><a href="#">Team</a></li>
+					</ul>
+					<ul class="nav navbar-right hidden-xs">
+						<li>
+							<div class="user dropdown">
+								<div class="arrow"></div>
+								<a class="user-toggle dropdown-toggle" data-toggle="dropdown" href="#">
+									<span class="user-pic"><img class="img-circle" width="40" height="40" src="images/avatar1_40x40.jpg" alt="" /></span>
+									<span class="user-name">Yaroslav Samoilov<i class="icon fa fa-angle-down"></i></span>
+								</a>
+								<div class="user-menu dropdown-menu right">
+									<ul>
+										<li><a href="billing.html">Billing</a></li>
+										<li><a href="profile.html">Profile</a></li>
+										<li><a href="#">Help</a></li>
+										<li class="clear"><a href="#">Log out</a></li>
+									</ul>
+								</div>
+							</div>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<section class="page-body">
+			<div class="container-fluid globalwidth">
+				<section class="case case-profile">
+					<div class="case-capt">
+						<ul class="nav nav-pills">
+							<li class="active"><a href="profile.html">Profile</a></li>
+							<li><a href="billing.html">Billing</a></li>
+							<li class="pull-right"><a href="#">Help</a></li>
+						</ul>
+					</div>
+					<div class="case-cnt wrap-b">
+						<div class="form form-horizontal">
+							<form method="post" action="">
+								<div class="form-group">
+									<label class="control-label col-md-3 col-sm-3" for="input1">Personal</label>
+									<div class="col-md-7 col-sm-9">
+										<div class="control-box">
+											<div class="upload-box">
+												<div class="user-pic"><img class="img-circle" width="100" height="100" src="images/avatar1_100x100.jpg" alt="" /><a class="btn-delete" href="#"><i class="icon fa fa-trash"></i></a></div>
+												<div class="descript">Drag and drop new avatar <a href="#">or choose</a></div>
+											</div>
+										</div>
+										<div class="control-box"><input class="form-control" id="input1" type="text" placeholder="Name" value="Yaroslav Samoilov" /></div>
+										<div class="control-box"><input class="form-control" type="text" placeholder="Email adress" /></div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3 col-sm-3">Import data from<br /> social networks</label>
+									<div class="col-md-7 col-sm-9">
+										<div class="control-box">
+											<a class="btn-social btn-facebook" href="#"><i class="icon fa fa-facebook"></i>Facebook</a><a class="btn-social btn-twitter" href="#"><i class="icon fa fa-twitter"></i>Facebook</a>
+										</div>
+									</div>
+								</div>
+								<div class="form-group">
+									<label class="control-label col-md-3 col-sm-3" for="input2">Password</label>
+									<div class="col-md-7 col-sm-9">
+										<div class="control-box"><input class="form-control" id="input2" type="password" placeholder="New password" /></div>
+										<div class="control-box"><input class="form-control" type="password" placeholder="Conﬁrm new password" /></div>
+										<div class="control-box"><input class="form-control" type="password" placeholder="Current password" /></div>
+									</div>
+								</div>
+								<div class="form-group">
+									<div class="col-md-offset-3 col-md-7 col-sm-offset-3 col-sm-9">
+										<button class="btn btn-lg btn-danger" type="submit">Save</button>
+									</div>
+								</div>
+							</form>
+						</div>
+					</div>
+				</section>
+			</div>
+		</section>
+	</div>
+</body>
+</html>
