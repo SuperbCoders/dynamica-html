@@ -136,9 +136,12 @@
 						<div class="form">
 							<form method="post" action="">
 								<div class="form-group">
-									<div class="control-box"><input class="form-control" type="password" placeholder="Confirm password" /></div>
 									<div class="control-box has-error"><input class="form-control" type="text" placeholder="Email" /></div>
-									<div class="control-box has-error"><input class="form-control" type="password" placeholder="Password" /></div>
+									<div class="control-box has-error">
+										<input class="form-control" type="password" placeholder="Password" />
+										<div class="alert-error"><span>Enter your email<br /> and password</span></div>
+									</div>
+									<div class="control-box"><input class="form-control" type="password" placeholder="Confirm password" /></div>
 									<div class="control-box"><button class="btn btn-lg btn-danger" type="submit">Log in</button></div>
 								</div>
 							</form>
@@ -146,7 +149,6 @@
 					</div>
 				</section>
 			</div>
-			<div class="alert-error">Enter your email<br /> and password</div>
 		</div>
 	</div>
 </body>

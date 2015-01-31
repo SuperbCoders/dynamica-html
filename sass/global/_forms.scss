@@ -24,15 +24,22 @@
 }
 
 .alert-error {
-  padding: 15px 100px 15px 15px;
-  margin-top: -40px;
-  position: fixed;
-  top: 50%;
-  right: 0;
-  color: #fff;
-  font-size: 18px;
-  background: #ff6363;
-  z-index: 1001;
+	padding-top: 15px;
+	padding-left: 25px;
+	padding-bottom: 15px;
+	padding-right: 9999px;
+	margin-left: 54px;
+	position: absolute;
+	bottom: 0;
+	left: 100%;
+	color: #fff;
+	font-size: 18px;
+	background: #ff6363;
+	z-index: 1001;
+	span {
+		display: block;
+		width: 200px;
+	}
 }
 
 .has-error {

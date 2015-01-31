@@ -15,6 +15,7 @@
 	<script type="text/javascript" src="js/vendor/jquery.placeholder.min.js"></script>
 	<script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/vendor/bootstrap-switch.js"></script>
+	<script type="text/javascript" src="js/vendor/bootstrap-select.min.js"></script>
 	<script type="text/javascript" src="js/script.js"></script>
 </head>
 <body>
@@ -80,7 +81,10 @@
 										<h3 class="control-label col-md-3 col-sm-3">Forecast 1</h3>
 										<div class="col-md-7 col-sm-8">
 											<div class="control-box has-error"><input class="form-control" type="text" placeholder="Product name" /></div>
-											<div class="control-box has-error"><div class="form-control upload-box">Drop file here <a href="#">or choose</a> from computer</div></div>
+											<div class="control-box has-error">
+												<div class="form-control upload-box">Drop file here <a href="#">or choose</a> from computer</div>
+												<div class="alert-error"><span>Enter Product name<br /> and upload data</span></div>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -118,6 +122,13 @@
 									<div class="col-sm-9">
 										<div class="forecast-box wrap-b">
 											<img style="max-width:100%;" src="images/graphic5.png" alt="" />
+											<div class="period-sel text-center">
+												<select class="selectpicker">
+													<option>Time days</option>
+													<option>Time months</option>
+													<option>Time years</option>
+												</select>
+											</div>
 										</div>
 									</div>
 								</div>
@@ -129,6 +140,5 @@
 			</div>
 		</section>
 	</div>
-	<div class="alert-error">Enter Product name<br /> and upload data</div>
 </body>
 </html>

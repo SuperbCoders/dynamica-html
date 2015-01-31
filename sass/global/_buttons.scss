@@ -43,3 +43,30 @@
 		background-color: #2795e9;
 	}
 }
+
+.bootstrap-select {
+	.btn {
+		padding: 13px 25px 13px 20px;
+		font-size: 16px;
+		border: 1px solid #e3e3e3;
+		background: #fff;
+		border-radius: 0;
+		outline: none;
+		&:hover, &:focus {
+			outline: none!important;
+		}
+	}
+	.dropdown-menu {
+		width: auto;
+		margin: 0;
+		padding: 6px 0;
+		li {
+			padding: 0;
+			outline: none!important;
+			a {
+				padding: 8px 20px;
+				outline: none!important;
+			}
+		}
+	}
+}
