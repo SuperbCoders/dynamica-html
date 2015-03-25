@@ -21,6 +21,23 @@
 	border-radius: 36px;
 }
 
+.btn-danger {
+	color: #fff;
+	background-color: #ff370d;
+	border-color: #ff370d;
+}
+
+.btn-danger:hover,
+.btn-danger:focus,
+.btn-danger.focus,
+.btn-danger:active,
+.btn-danger.active,
+.open>.btn-danger.dropdown-toggle {
+	color: #fff;
+	background-color: #ff6140;
+	border-color: #ff6140;
+}
+
 .btn-social {
 	display: inline-block;
 	min-width: 190px;
