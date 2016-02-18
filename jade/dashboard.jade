@@ -1,0 +1,103 @@
+include mixins
+
+doctype html
+html(lang='ru')
+  +dev_head('Dynamica dashboard')
+  
+  body
+    .page.dashboard_page
+      header.page-header.navbar.navbar-default
+        .container-fluid.globalwidth
+          .navbar-header
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='.bs-navbar-collapse')
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            .navbar-project-switch
+              a.navbar-brand(href='#') Dynamica
+              span  of 
+              .hover-select-box
+                select.selectpicker
+                  option(value='Bling-Blings') Bling-Blings
+                  option(value='Apple Store') Apple Store
+                  option(value='Helvetica') Helvetica
+                  
+                //ul.hover-select-list
+                //  li.hover-select-item.active: a.projectBtn(href='#') Bling-Blings
+                //  li.hover-select-item: a.projectBtn(href='#') Apple Store
+                //  li.hover-select-item: a.projectBtn(href='#') Helvetica
+                //i.icon.fa.fa-angle-down.hover-select-icon
+
+          nav.collapse.navbar-collapse.bs-navbar-collapse
+            ul.nav.navbar-nav
+              li.active
+                a(href='projects.html') Projects
+              li
+                a(href='#') Team
+            ul.nav.navbar-right.hidden-xs
+              li
+                .user.dropdown
+                  .arrow
+                  a.user-toggle.dropdown-toggle(data-toggle='dropdown', href='#')
+                    span.user-pic
+                      img.img-circle(width='40', height='40', src='images/avatar1_40x40.jpg', alt='')
+                    span.user-name
+                      | Yaroslav Samoilov
+                      i.icon.fa.fa-angle-down
+                  .user-menu.dropdown-menu.right
+                    ul
+                      li
+                        a(href='billing.html') Billing
+                      li
+                        a(href='profile.html') Profile
+                      li
+                        a(href='#') Help
+                      li.clear
+                        a(href='#') Log out
+                        
+      section.dashboard-body
+        .container-fluid.globalwidth
+          section.dashboard.projects-dashboard
+            .row
+              .col-sm-12
+                ul.dashboard-panel
+                  li: a.dashboard-panel-link.current(href='#') Overview
+                  li 
+                    .hover-select-box.filter-mod
+                      select.selectpicker.filterSelect
+                        option(value='Finance') Finance
+                        option(value='Gross Revenue') Gross Revenue
+                        option(value='Avg. order') Avg. order  
+                        option(value='Avg. revenue per customer') Avg. revenue per customer
+                        option(value='Sales per visitor') Sales per visitor 
+                        option(value='Avg. Customer Lifetime Value') Avg. Customer Lifetime Value
+                        option(value='Shipping cost as a percentage of total revenue') Shipping cost as a percentage of total revenue
+                      
+                  li 
+                    .hover-select-box.filter-mod
+                      select.selectpicker.filterSelect
+                        option(value='Customers') Customers
+                        option(value='Gross Revenue') Gross Revenue
+                        option(value='Avg. order') Avg. order  
+                        option(value='Avg. revenue per customer') Avg. revenue per customer
+                        option(value='Sales per visitor') Sales per visitor 
+                        option(value='Avg. Customer Lifetime Value') Avg. Customer Lifetime Value
+                        option(value='Shipping cost as a percentage of total revenue') Shipping cost as a percentage of total revenue
+                      
+                  li 
+                    .hover-select-box.filter-mod
+                      select.selectpicker.filterSelect
+                        option(value='Products') Products
+                        option(value='Gross Revenue') Gross Revenue
+                        option(value='Avg. order') Avg. order  
+                        option(value='Avg. revenue per customer') Avg. revenue per customer
+                        option(value='Sales per visitor') Sales per visitor 
+                        option(value='Avg. Customer Lifetime Value') Avg. Customer Lifetime Value
+                        option(value='Shipping cost as a percentage of total revenue') Shipping cost as a percentage of total revenue
+                      
+                      
+            .row
+              .col-sm-6: h2 Bling-Blings Dashboard
+              .col-sm-6
+                .pull-right Dec 31, 2015 — Jan 30, 2016
+          

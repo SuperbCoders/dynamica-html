@@ -1,0 +1,248 @@
+@import "select2";
+
+%clearfix {
+  &::after {
+    position: static;
+    display: block;
+    height: 0;
+    clear: both;
+    content: "";
+    visibility: hidden;
+  }
+}
+
+.dashboard-body {
+  padding: 18px 0;
+}
+
+.dashboard {
+  h2 {
+    font-weight: 300;
+  }
+}
+
+.hover-select-box {
+  height: 40px;
+  position: relative;
+  z-index: 1;
+
+  &.opened {
+    z-index: 2;
+  }
+
+  .hover-select-icon {
+    z-index: 1;
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    font-size: 17px;
+    margin-top: -6px;
+    color: #9e9e9e;
+    pointer-events: none;
+  }
+
+  &:hover .hover-select-icon {
+    color: #2f2f2f;
+  }
+
+  .dropdown-menu {
+    margin: -6px -14px 0 -14px;
+    border-radius: 10px;
+    padding-top: 45px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .28);
+
+    li {
+      font-size: 14px;
+
+      a {
+        padding-right: 45px;
+
+        &:hover {
+          background: none;
+          color: #ff6140;
+        }
+      }
+
+      &.selected {
+        background-color: transparent !important;
+        position: absolute;
+        top: 0;
+        left: 0;
+
+        a {
+          cursor: default;
+          padding: 13px 15px 7px 19px;
+          font-size: 15px;
+          background: none;
+          position: relative;
+          display: block;
+          color: #51545c !important;
+
+          &:before {
+            @extend .fa;
+            @extend .fa-angle-down;
+            @extend .hover-select-icon;
+            right: -4px;
+            margin-top: -5px;
+          }
+        }
+      }
+    }
+  }
+
+  .bootstrap-select {
+    width: auto !important;
+    z-index: 1;
+
+    > .btn {
+      border: none;
+      padding: 7px 15px 7px 5px;
+      font-size: 15px;
+      color: #2f2f2f;
+      background-color: transparent !important;
+
+      .caret {
+        @extend .fa;
+        @extend .fa-angle-down;
+        @extend .hover-select-icon;
+        border: none !important;
+        right: 11px;
+        margin-top: -8px;
+      }
+
+    }
+
+    &.open {
+      z-index: 10;
+    }
+
+  }
+
+  .dropdown-menu {
+    top: 0;
+  }
+
+  &.filter-mod {
+    .dropdown-menu {
+      padding-top: 55px;
+
+      &:before {
+        content: '';
+        position: absolute;
+        top: 48px;
+        right: 20px;
+        left: 20px;
+        border-top: 1px solid #d9d9d9;
+      }
+
+      li:not(.selected) {
+        a {
+          padding-right: 30px;
+          line-height: 1;
+        }
+      }
+    }
+  }
+
+}
+
+.hover-select-list {
+  padding: 40px 22px 12px 0;
+  position: relative;
+  border-radius: 10px;
+  margin: -3px -15px;
+  pointer-events: none;
+
+  &:hover {
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .28);
+    background: #fff;
+
+    .hover-select-item {
+      pointer-events: all;
+      opacity: 1;
+    }
+  }
+
+  .hover-select-box:hover {
+    pointer-events: all;
+  }
+
+}
+
+.hover-select-item {
+  position: relative;
+  margin-right: -22px;
+  opacity: 0;
+  pointer-events: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  a {
+    display: block;
+    padding: 7px 42px 7px 20px;
+    color: #8e8e8e;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 16px;
+
+    &:hover {
+      color: #2f2f2f;
+    }
+
+    &.current {
+      color: #ff6140;
+      cursor: default;
+    }
+  }
+
+  &.active {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 8px;
+    padding-right: 22px;
+    max-width: 100%;
+    pointer-events: all;
+    opacity: 1;
+
+    a {
+      color: #2f2f2f;
+      font-size: 15px;
+      line-height: 18px;
+    }
+
+  }
+
+}
+
+.dashboard-panel {
+  @extend %clearfix;
+  line-height: 40px;
+  margin-left: -25px;
+  margin-bottom: 25px;
+
+  > li {
+    float: left;
+    padding-left: 25px;
+  }
+}
+
+.dashboard-panel-link {
+  display: inline-block;
+  vertical-align: middle;
+  color: #34373b;
+  font-size: 15px;
+  line-height: 30px;
+  border-bottom: 2px solid transparent;
+
+  &.current {
+    border-bottom-color: #000;
+  }
+
+  &:hover {
+    color: #333;
+  }
+
+}

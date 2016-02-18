@@ -2,6 +2,10 @@ html, body {
 	height: 100%;
 }
 
+html {
+	overflow-y: scroll;
+}
+
 .page {
 	min-width: 320px;
 	min-height: 100%;

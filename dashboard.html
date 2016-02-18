@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title>Dynamica dashboard</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
+    <link rel="stylesheet" href="css/style.css"/> 
+    <!--[if lt IE 9]>
+          <script type="text/javascript" src="js/vendor/html5shiv.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/vendor/jquery.min.js"></script>
+    <script type="text/javascript" src="js/vendor/jquery.placeholder.min.js"></script>
+    <script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/vendor/select2.js"></script>
+    <script type="text/javascript" src="js/vendor/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/dashboard_script.js"></script>
+  </head>
+  <body>
+    <div class="page dashboard_page">
+      <header class="page-header navbar navbar-default">
+        <div class="container-fluid globalwidth">
+          <div class="navbar-header">
+            <button type="button" data-toggle="collapse" data-target=".bs-navbar-collapse" class="navbar-toggle collapsed"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            <div class="navbar-project-switch"><a href="#" class="navbar-brand">Dynamica</a><span> of </span>
+              <div class="hover-select-box">
+                <select class="selectpicker">
+                  <option value="Bling-Blings">Bling-Blings</option>
+                  <option value="Apple Store">Apple Store</option>
+                  <option value="Helvetica">Helvetica</option>
+                </select>
+                <!--ul.hover-select-list-->
+                <!--  li.hover-select-item.active: a.projectBtn(href='#') Bling-Blings-->
+                <!--  li.hover-select-item: a.projectBtn(href='#') Apple Store-->
+                <!--  li.hover-select-item: a.projectBtn(href='#') Helvetica-->
+                <!--i.icon.fa.fa-angle-down.hover-select-icon-->
+              </div>
+            </div>
+          </div>
+          <nav class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="projects.html">Projects</a></li>
+              <li><a href="#">Team</a></li>
+            </ul>
+            <ul class="nav navbar-right hidden-xs">
+              <li>
+                <div class="user dropdown">
+                  <div class="arrow"></div><a data-toggle="dropdown" href="#" class="user-toggle dropdown-toggle"><span class="user-pic"><img width="40" height="40" src="images/avatar1_40x40.jpg" alt="" class="img-circle"></span><span class="user-name">Yaroslav Samoilov<i class="icon fa fa-angle-down"></i></span></a>
+                  <div class="user-menu dropdown-menu right">
+                    <ul>
+                      <li><a href="billing.html">Billing</a></li>
+                      <li><a href="profile.html">Profile</a></li>
+                      <li><a href="#">Help</a></li>
+                      <li class="clear"><a href="#">Log out</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <section class="dashboard-body">
+        <div class="container-fluid globalwidth">
+          <section class="dashboard projects-dashboard">
+            <div class="row">
+              <div class="col-sm-12">
+                <ul class="dashboard-panel">
+                  <li><a href="#" class="dashboard-panel-link current">Overview</a></li>
+                  <li> 
+                    <div class="hover-select-box filter-mod">
+                      <select class="selectpicker filterSelect">
+                        <option value="Finance">Finance</option>
+                        <option value="Gross Revenue">Gross Revenue</option>
+                        <option value="Avg. order">Avg. order  </option>
+                        <option value="Avg. revenue per customer">Avg. revenue per customer</option>
+                        <option value="Sales per visitor">Sales per visitor </option>
+                        <option value="Avg. Customer Lifetime Value">Avg. Customer Lifetime Value</option>
+                        <option value="Shipping cost as a percentage of total revenue">Shipping cost as a percentage of total revenue</option>
+                      </select>
+                    </div>
+                  </li>
+                  <li> 
+                    <div class="hover-select-box filter-mod">
+                      <select class="selectpicker filterSelect">
+                        <option value="Customers">Customers</option>
+                        <option value="Gross Revenue">Gross Revenue</option>
+                        <option value="Avg. order">Avg. order  </option>
+                        <option value="Avg. revenue per customer">Avg. revenue per customer</option>
+                        <option value="Sales per visitor">Sales per visitor </option>
+                        <option value="Avg. Customer Lifetime Value">Avg. Customer Lifetime Value</option>
+                        <option value="Shipping cost as a percentage of total revenue">Shipping cost as a percentage of total revenue</option>
+                      </select>
+                    </div>
+                  </li>
+                  <li> 
+                    <div class="hover-select-box filter-mod">
+                      <select class="selectpicker filterSelect">
+                        <option value="Products">Products</option>
+                        <option value="Gross Revenue">Gross Revenue</option>
+                        <option value="Avg. order">Avg. order  </option>
+                        <option value="Avg. revenue per customer">Avg. revenue per customer</option>
+                        <option value="Sales per visitor">Sales per visitor </option>
+                        <option value="Avg. Customer Lifetime Value">Avg. Customer Lifetime Value</option>
+                        <option value="Shipping cost as a percentage of total revenue">Shipping cost as a percentage of total revenue</option>
+                      </select>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-sm-6">
+                <h2>Bling-Blings Dashboard</h2>
+              </div>
+              <div class="col-sm-6">
+                <div class="pull-right">Dec 31, 2015 — Jan 30, 2016</div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+    </div>
+  </body>
+</html>

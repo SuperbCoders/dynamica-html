@@ -1,0 +1,20 @@
+mixin dev_head(page_title)
+    head
+        meta(name='viewport', content='width=device-width, initial-scale=1')
+        meta(charset='utf-8')
+        meta(name='keywords', content='')
+        meta(name='description', content='')
+        title=page_title 
+        link(rel='shortcut icon', type='image/x-icon', href='img/favicon.ico')
+        link(rel='stylesheet', href='css/style.css')
+        | 
+        | <!--[if lt IE 9]>
+        |       <script type="text/javascript" src="js/vendor/html5shiv.js"></script>
+        | <![endif]-->
+        script(type='text/javascript', src='js/vendor/jquery.min.js')
+        script(type='text/javascript', src='js/vendor/jquery.placeholder.min.js')
+        script(type='text/javascript', src='js/vendor/bootstrap.min.js')
+        script(type='text/javascript', src='js/vendor/select2.js')
+        script(type='text/javascript', src='js/vendor/bootstrap-select.min.js')
+        script(type='text/javascript', src='js/script.js')
+        script(type='text/javascript', src='js/dashboard_script.js')
