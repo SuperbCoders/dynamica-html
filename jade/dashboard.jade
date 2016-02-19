@@ -96,8 +96,87 @@ html(lang='ru')
                         option(value='Shipping cost as a percentage of total revenue') Shipping cost as a percentage of total revenue
                       
                       
-            .row
+            .row.dashboard-title-row
               .col-sm-6: h2 Bling-Blings Dashboard
               .col-sm-6
                 .pull-right Dec 31, 2015 — Jan 30, 2016
-          
+                 
+            .graph-unit
+              .graph-unit-large
+                h5.graph-name Current status of your primary data
+                .graph-filters
+                  div(class="btn-group" role="group")
+                    button(type="button" class="btn btn-default") Day
+                    button(type="button" class="btn btn-default") Week
+                    button(type="button" class="btn btn-default") Month
+                  
+                .graph-block
+                  .graph_2.lineAreaChart_1.d3graph
+              ul.graph-unit-legend
+                +loop_while(5)
+                  | <li class="legend_item" style="color: rgb(145, 232, 115);"><div class="legend_name"><span>New</span></div><div class="legend_val">66</div></li>
+                    
+                    
+            .dashboard-caption
+                h3.caption-text Finance overview
+                i.icon.fa.fa-angle-right
+                
+            .row
+              +loop_while(4)
+                .col-lg-3.col-md-4.col-sm-6
+                  .graph-unit
+                    h5.graph-name Gross Revenue
+                    .graph-value 
+                      span.val $4,490
+                      sup.graph-dynamica.dynamica_up +8%
+                     .graph-block
+                       .graph_2.lineAreaChart_1.d3graph
+              
+            .dashboard-caption
+                h3.caption-text Customers overview
+                i.icon.fa.fa-angle-right
+                
+            .row
+              +loop_while(2)
+                .col-lg-3.col-md-4.col-sm-6
+                  .graph-unit
+                    h5.graph-name Gross Revenue
+                    .graph-value 
+                      span.val $4,490
+                      sup.graph-dynamica.dynamica_up +8%
+                     .graph-block
+                       .graph_2.areaChart_1.d3graph
+                                      
+              .col-lg-3.col-md-4.col-sm-6
+                .graph-unit
+                  h5.graph-name New & repeat customers
+                  .graph-value 
+                    span.val 3.2
+                    sup.graph-dynamica.dynamica_up +8%
+                   .graph-block
+                     .graph_1.donutChart_1.d3graph
+                         
+              .col-lg-3.col-md-4.col-sm-6
+                .graph-unit
+                  h5.graph-name Gross Revenue
+                  .graph-value 
+                    span.val $4,490
+                    sup.graph-dynamica.dynamica_up +8%
+                   .graph-block
+                     .graph_2.areaChart_2.d3graph
+                       
+              
+            .dashboard-caption
+                h3.caption-text Products overview
+                i.icon.fa.fa-angle-right
+                
+            .row
+              +loop_while(4)
+                .col-lg-3.col-md-4.col-sm-6
+                  .graph-unit
+                    h5.graph-name Gross Revenue
+                    .graph-value
+                      span.val $4,490
+                      sup.graph-dynamica.dynamica_up +8%
+                    .graph-block
+                      .graph_2.lineAreaChart_1.d3graph

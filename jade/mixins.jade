@@ -14,7 +14,13 @@ mixin dev_head(page_title)
         script(type='text/javascript', src='js/vendor/jquery.min.js')
         script(type='text/javascript', src='js/vendor/jquery.placeholder.min.js')
         script(type='text/javascript', src='js/vendor/bootstrap.min.js')
-        script(type='text/javascript', src='js/vendor/select2.js')
+        script(type='text/javascript', src='js/vendor/d3.min.js')
         script(type='text/javascript', src='js/vendor/bootstrap-select.min.js')
         script(type='text/javascript', src='js/script.js')
         script(type='text/javascript', src='js/dashboard_script.js')
+            
+mixin loop_while(counter)
+    -i=0;
+    while i < counter
+        -i++;
+        block

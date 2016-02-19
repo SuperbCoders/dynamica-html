@@ -14,7 +14,7 @@
     <script type="text/javascript" src="js/vendor/jquery.min.js"></script>
     <script type="text/javascript" src="js/vendor/jquery.placeholder.min.js"></script>
     <script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
-    <script type="text/javascript" src="js/vendor/select2.js"></script>
+    <script type="text/javascript" src="js/vendor/d3.min.js"></script>
     <script type="text/javascript" src="js/vendor/bootstrap-select.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript" src="js/dashboard_script.js"></script>
@@ -112,12 +112,152 @@
                 </ul>
               </div>
             </div>
-            <div class="row">
+            <div class="row dashboard-title-row">
               <div class="col-sm-6">
                 <h2>Bling-Blings Dashboard</h2>
               </div>
               <div class="col-sm-6">
                 <div class="pull-right">Dec 31, 2015 — Jan 30, 2016</div>
+              </div>
+            </div>
+            <div class="graph-unit">
+              <div class="graph-unit-large">
+                <h5 class="graph-name">Current status of your primary data</h5>
+                <div class="graph-filters">
+                  <div role="group" class="btn-group">
+                    <button type="button" class="btn btn-default">Day</button>
+                    <button type="button" class="btn btn-default">Week</button>
+                    <button type="button" class="btn btn-default">Month</button>
+                  </div>
+                </div>
+                <div class="graph-block">
+                  <div class="graph_2 lineAreaChart_1 d3graph"></div>
+                </div>
+              </div>
+              <ul class="graph-unit-legend"><li class="legend_item" style="color: rgb(145, 232, 115);"><div class="legend_name"><span>New</span></div><div class="legend_val">66</div></li><li class="legend_item" style="color: rgb(145, 232, 115);"><div class="legend_name"><span>New</span></div><div class="legend_val">66</div></li><li class="legend_item" style="color: rgb(145, 232, 115);"><div class="legend_name"><span>New</span></div><div class="legend_val">66</div></li><li class="legend_item" style="color: rgb(145, 232, 115);"><div class="legend_name"><span>New</span></div><div class="legend_val">66</div></li><li class="legend_item" style="color: rgb(145, 232, 115);"><div class="legend_name"><span>New</span></div><div class="legend_val">66</div></li>
+              </ul>
+            </div>
+            <div class="dashboard-caption">
+              <h3 class="caption-text">Finance overview</h3><i class="icon fa fa-angle-right"></i>
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="graph-unit">
+                  <h5 class="graph-name">Gross Revenue</h5>
+                  <div class="graph-value"> <span class="val">$4,490</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
+                  <div class="graph-block">
+                    <div class="graph_2 lineAreaChart_1 d3graph"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="graph-unit">
+                  <h5 class="graph-name">Gross Revenue</h5>
+                  <div class="graph-value"> <span class="val">$4,490</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
+                  <div class="graph-block">
+                    <div class="graph_2 lineAreaChart_1 d3graph"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="graph-unit">
+                  <h5 class="graph-name">Gross Revenue</h5>
+                  <div class="graph-value"> <span class="val">$4,490</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
+                  <div class="graph-block">
+                    <div class="graph_2 lineAreaChart_1 d3graph"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="graph-unit">
+                  <h5 class="graph-name">Gross Revenue</h5>
+                  <div class="graph-value"> <span class="val">$4,490</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
+                  <div class="graph-block">
+                    <div class="graph_2 lineAreaChart_1 d3graph"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dashboard-caption">
+              <h3 class="caption-text">Customers overview</h3><i class="icon fa fa-angle-right"></i>
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="graph-unit">
+                  <h5 class="graph-name">Gross Revenue</h5>
+                  <div class="graph-value"> <span class="val">$4,490</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
+                  <div class="graph-block">
+                    <div class="graph_2 areaChart_1 d3graph"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="graph-unit">
+                  <h5 class="graph-name">Gross Revenue</h5>
+                  <div class="graph-value"> <span class="val">$4,490</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
+                  <div class="graph-block">
+                    <div class="graph_2 areaChart_1 d3graph"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="graph-unit">
+                  <h5 class="graph-name">New & repeat customers</h5>
+                  <div class="graph-value"> <span class="val">3.2</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
+                  <div class="graph-block">
+                    <div class="graph_1 donutChart_1 d3graph"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="graph-unit">
+                  <h5 class="graph-name">Gross Revenue</h5>
+                  <div class="graph-value"> <span class="val">$4,490</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
+                  <div class="graph-block">
+                    <div class="graph_2 areaChart_2 d3graph"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="dashboard-caption">
+              <h3 class="caption-text">Products overview</h3><i class="icon fa fa-angle-right"></i>
+            </div>
+            <div class="row">
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="graph-unit">
+                  <h5 class="graph-name">Gross Revenue</h5>
+                  <div class="graph-value"><span class="val">$4,490</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
+                  <div class="graph-block">
+                    <div class="graph_2 lineAreaChart_1 d3graph"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="graph-unit">
+                  <h5 class="graph-name">Gross Revenue</h5>
+                  <div class="graph-value"><span class="val">$4,490</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
+                  <div class="graph-block">
+                    <div class="graph_2 lineAreaChart_1 d3graph"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="graph-unit">
+                  <h5 class="graph-name">Gross Revenue</h5>
+                  <div class="graph-value"><span class="val">$4,490</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
+                  <div class="graph-block">
+                    <div class="graph_2 lineAreaChart_1 d3graph"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-3 col-md-4 col-sm-6">
+                <div class="graph-unit">
+                  <h5 class="graph-name">Gross Revenue</h5>
+                  <div class="graph-value"><span class="val">$4,490</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
+                  <div class="graph-block">
+                    <div class="graph_2 lineAreaChart_1 d3graph"></div>
+                  </div>
+                </div>
               </div>
             </div>
           </section>
