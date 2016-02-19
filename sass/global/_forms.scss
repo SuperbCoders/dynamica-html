@@ -5,6 +5,12 @@
 	&:focus {
 		border-color: #c8c8c8;
 	}
+  
+  &.form-control-small {
+    padding: 5px 20px;
+    height: 36px;
+  }
+  
 }
 
 .form {

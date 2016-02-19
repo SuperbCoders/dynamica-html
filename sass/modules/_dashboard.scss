@@ -277,6 +277,7 @@
   padding: 20px;
   margin-bottom: 30px;
   background: #fff;
+  overflow: hidden;
   box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
 
 }
@@ -284,17 +285,35 @@
 .graph-unit-large {
   height: 282px;
   margin: -20px -20px 0;
-  padding: 20px;
+  padding: 20px 20px;
+  overflow: hidden;
   position: relative;
+  background: #323847;
+  line-height: 34px;
 
   .graph-name {
     float: left;
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    letter-spacing: 0;
   }
 
   .graph-filters {
     float: right;
+    position: relative;
+    z-index: 1;
   }
+}
 
+.graph-filter-v1 {
+
+  .btn {
+    border-radius: 4px;
+    background: none;
+    color: #fff;
+    font-size: 15px;
+  }
 }
 
 .graph-name {
@@ -310,7 +329,6 @@
     font-size: 30px;
     font-weight: 300;
   }
-
 }
 
 .graph-dynamica {
@@ -325,7 +343,6 @@
   &.dynamica_down {
     color: #f32e21;
   }
-
 }
 
 .graph-block {
@@ -360,22 +377,12 @@
 }
 
 .graph-unit-legend {
-  display: table;
-  border-collapse: collapse;
-  table-layout: fixed;
-  width: 100%;
   margin: 23px 0 0;
 
   .legend_item {
-    margin: 0;
-    display: table-cell;
-    padding-left: 20px;
-    border-left: 1px solid #d8d8d8;
-
-    &:first-child {
-      border-left: none;
-      padding-left: 0;
-    }
+    float: left;
+    min-width: 30%;
+    padding-left: 5px;
 
     .legend_name {
       margin-bottom: 3px;
@@ -386,6 +393,31 @@
         display: inline-block;
         vertical-align: middle;
         left: 10px;
+      }
+    }
+  }
+}
+
+@media (min-width: 768px) {
+
+  .graph-unit-legend {
+    display: table;
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+    margin: 23px 0 0;
+
+    .legend_item {
+      margin: 0;
+      display: table-cell;
+      min-width: 0;
+      float: none;
+      padding-left: 20px;
+      border-left: 1px solid #d8d8d8;
+
+      &:first-child {
+        border-left: none;
+        padding-left: 0;
       }
     }
   }
@@ -422,6 +454,7 @@
   color: #1f1f1f;
   font-size: 30px;
   font-weight: 300;
+  white-space: nowrap;
 }
 
 .d3graph {

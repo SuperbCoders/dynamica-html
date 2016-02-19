@@ -99,23 +99,31 @@ html(lang='ru')
             .row.dashboard-title-row
               .col-sm-6: h2 Bling-Blings Dashboard
               .col-sm-6
-                .pull-right Dec 31, 2015 — Jan 30, 2016
+                .pull-right
+                  .pull-left: input.form-control.datePicker.datepicker.form-control-small(type='text')
+                  .pull-left
+                    select.selectpicker.graphFilterDate
+                      option(value='Current month') Current month
+                      option(value='Previous month') Previous month 
+                      option(value='Last 3 month') Last 3 month 
+                      option(value='Last 6 month') Last 6 month 
+                      option(value='Last year') Last year 
+                      option(value='All time') All time 
                  
             .graph-unit
               .graph-unit-large
                 h5.graph-name Current status of your primary data
-                .graph-filters
+                .graph-filters.graph-filter-v1
                   div(class="btn-group" role="group")
                     button(type="button" class="btn btn-default") Day
                     button(type="button" class="btn btn-default") Week
                     button(type="button" class="btn btn-default") Month
                   
                 .graph-block
-                  .graph_2.lineAreaChart_1.d3graph
-              ul.graph-unit-legend
+                  .graph_2.areaChartFamily_1.d3graph
+              //ul.graph-unit-legend.legend_v2
                 +loop_while(5)
                   | <li class="legend_item" style="color: rgb(145, 232, 115);"><div class="legend_name"><span>New</span></div><div class="legend_val">66</div></li>
-                    
                     
             .dashboard-caption
                 h3.caption-text Finance overview
