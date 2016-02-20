@@ -338,25 +338,20 @@
 
 .graph-filter-v1 {
 
+  .btn-group {
+    border: 1px solid #fff;
+    border-radius: 6px;
+  }
+
   .btn {
-    border-radius: 4px;
     background: none;
     color: #fff;
     font-size: 15px;
-    border-width: 1px 0;
+    border-width: 0;
+    border-radius: 4px !important;
 
     &:hover {
       color: #ffc4b8;
-    }
-
-    &.first {
-      border-top-left-radius: 4px !important;
-      border-bottom-left-radius: 4px !important;
-      border-left-width: 1px;
-    }
-
-    &.last {
-      border-right-width: 1px;
     }
   }
 
@@ -596,15 +591,50 @@
 }
 
 .d3graph {
-  .axis path,
-  .axis line {
-    fill: none;
-    stroke: #000;
-    shape-rendering: crispEdges;
+
+  .gray_grid .tick {
+    opacity: 0.7;
   }
 
-  .x.axis path {
+  .gray_grid path {
+    //stroke-width: 0;
+  }
+
+  &.show_y_axis {
+    .y.axis path,
+    .y.axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+  }
+
+  &.show_x_axis {
+    .x.axis path,
+    .x.axis line {
+      fill: none;
+      stroke: #000;
+      shape-rendering: crispEdges;
+    }
+  }
+
+  &.hide_x_axis .x.axis path {
     display: none;
+  }
+
+  &.hide_y_axis {
+    .domain {
+      display: none;
+    }
+  }
+
+  &.hide_y_axis .y.axis path {
+    display: none;
+
+    line {
+      display: none;
+    }
+
   }
 
   .line {
@@ -659,7 +689,7 @@
     }
 
     .legend_name {
-      font-size: 15px;
+      font-size: 16px;
 
       &:after {
         left: -15px;
@@ -715,29 +745,20 @@
     vertical-align: middle;
     color: #1f1f1f;
     padding: 5px 20px;
+    height: 50px;
   }
 
   .table-row {
     .table-cell {
-      height: 50px;
+      font-size: 14px;
+      border-top: 1px solid #ddd;
     }
-  }
 
-  .col_1 {
-    width: 15%;
-  }
-
-  .col_2 {
-    width: 25%;
-  }
-
-  .col_3 {
-    width: 35%;
-  }
-
-  .col_4 {
-    width: 25%;
-    text-align: right;
+    &:hover {
+      .table-cell {
+        background: #fafafa;
+      }
+    }
   }
 
   .table-header {
@@ -745,20 +766,37 @@
     .table-cell {
       background: #879cef;
       color: #fff;
-      height: 50px;
       font-size: 16px;
+      border: none;
     }
 
   }
 
   .table-footer {
+    font-weight: 700;
 
     .table-cell {
       background: #eef7fc;
       font-size: 16px;
-      height: 54px;
     }
 
+  }
+
+  .col_1 {
+    width: 21%;
+  }
+
+  .col_2 {
+    width: 23%;
+  }
+
+  .col_3 {
+    width: 40%;
+  }
+
+  .col_4 {
+    width: 26%;
+    text-align: right;
   }
 
 }

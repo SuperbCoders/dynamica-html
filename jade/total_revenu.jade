@@ -22,12 +22,6 @@ html(lang='ru')
                   option(value='Apple Store') Apple Store
                   option(value='Helvetica') Helvetica
                   
-                //ul.hover-select-list
-                //  li.hover-select-item.active: a.projectBtn(href='#') Bling-Blings
-                //  li.hover-select-item: a.projectBtn(href='#') Apple Store
-                //  li.hover-select-item: a.projectBtn(href='#') Helvetica
-                //i.icon.fa.fa-angle-down.hover-select-icon
-
           nav.collapse.navbar-collapse.bs-navbar-collapse
             ul.nav.navbar-nav
               li.active
@@ -100,16 +94,12 @@ html(lang='ru')
                       
                       
             .row.dashboard-title-row
-              .col-sm-6: h2 Bling-Blings Dashboard
+              .col-sm-6: h2 Monthly Total Revenue
               .col-sm-6
                 .pull-right.datepicker-v1.datepickerComponent
                   .pull-left.datepicker-parent
                     input.form-control.datePicker.form-control-small(type='text')
-                    //-.input-group.input-daterange.datePickerRange.input-daterange-v1
-                      input.form-control(type='text', name='start' value='2012-04-05')
-                      span.input-group-addon &#8212;
-                      input.form-control(type='text', name='end' value='2012-04-19')
-
+                    
                   .pull-left
                     select.selectpicker.graphFilterDate
                       option(value=-1 data-hidden="true") 
@@ -125,9 +115,7 @@ html(lang='ru')
                 span.val 42,489$
                 sup.graph-dynamica.dynamica_up +8%
               .graph-unit-large-v2
-                  
-                .graph-block
-                  .graph_2.areaChartTotal_1.d3graph
+                .graph-block.areaChartTotal_1.d3graph.hide_y_axis.hide_x_axis
 
             .graph-unit-info
               .graph-unit-info-table
@@ -143,7 +131,7 @@ html(lang='ru')
                     .table-cell.col_3 9
                     .table-cell.col_4 130$
                 .table-footer
-                  .table-cell.col_1 21 feb, 2016
-                  .table-cell.col_2 3
-                  .table-cell.col_3 9
-                  .table-cell.col_4 130$
+                  .table-cell.col_1 Total
+                  .table-cell.col_2 448
+                  .table-cell.col_3 31
+                  .table-cell.col_4 5,876$

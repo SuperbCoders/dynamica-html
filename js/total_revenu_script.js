@@ -112,15 +112,41 @@ function init_line_area3_chart(el) {
 
     el.empty();
 
-    var margin = {top: 0, right: 0, bottom: 0, left: 0},
+    var margin = {top: 30, right: 35, bottom: 50, left: 80},
         width = el.width() - margin.left - margin.right,
         height = el.height() - margin.top - margin.bottom;
 
     var parseDate = d3.time.format("%d-%b-%y").parse;
 
+    var commasFormatter = d3.format(",.0f");
+
+
+
+    function make_y_axis() {
+        return d3.svg.axis()
+            .scale(y)
+            .orient("left")
+            .ticks(5)
+    }
+
+    function make_x_axis() {
+        return d3.svg.axis()
+            .scale(x)
+            .orient("bottom")
+            .ticks(5)
+    }
+
     var x = d3.time.scale().range([0, width]);
     var y = d3.scale.linear().range([height, 0]);
 
+    var line = d3.svg.line()
+        .x(function (d) {
+            return x(d.x);
+        })
+        .y(function (d) {
+            return y(d.y);
+        });
+    
     var area_x = d3.time.scale().range([0, width]);
     var area_y = d3.scale.linear().range([height, 0]);
 
@@ -145,6 +171,22 @@ function init_line_area3_chart(el) {
         });
     //.interpolate("cardinal");
 
+    var xAxis = d3.svg.axis()
+        .scale(x)
+        .ticks(5)
+        .tickFormat(function (d) {
+            return moment(d).format('MMM d');
+        })
+        .orient("bottom");
+
+    var yAxis = d3.svg.axis()
+        .scale(y)
+        .ticks(5)
+        .tickFormat(function (d) {
+            return d == 0 ? "" : commasFormatter(d * 1000) + "$";
+        })
+        .orient("left");
+
     var svg = d3.select(el[0])
         .append("svg")
         .attr("width", width + margin.left + margin.right)
@@ -153,14 +195,47 @@ function init_line_area3_chart(el) {
         .attr("transform",
         "translate(" + margin.left + "," + margin.top + ")");
 
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
+
+    svg.append("g")
+        .attr("class", "y axis")
+        .attr("transform", "translate(" + (-25) + ", 0)")
+        .style("font-size", '14px')
+        .style("color", '#A5ADB3')
+        .attr("class", "grid")
+        .call(yAxis);
+
+    /*    svg.append("g")
+     .attr("class", "grid")
+     .attr("transform", "translate(0," + height + ")")
+     .call(make_x_axis()
+     .tickSize(-height, 0, 0)
+     .tickFormat("")
+     );*/
+
+/*    svg.append("g")
+        .attr("class", "gray_grid")
+        .call(make_y_axis()
+            .tickSize(-width, 0, 0)
+            .tickFormat("")
+    );*/
+
     var data = [
-        {"date": "9-Apr-12", "close": 436},
-        {"date": "7-Apr-12", "close": 221},
-        {"date": "5-Apr-12", "close": 313},
-        {"date": "4-Apr-12", "close": 264},
-        {"date": "3-Apr-12", "close": 229},
-        {"date": "2-Apr-12", "close": 218}
+        {"date": "9-Apr-12", "close": 1436},
+        {"date": "7-Apr-12", "close": 2221},
+        {"date": "5-Apr-12", "close": 1313},
+        {"date": "4-Apr-12", "close": 3264},
+        {"date": "3-Apr-12", "close": 2229},
+        {"date": "2-Apr-12", "close": 1218}
     ];
+
+/*    svg.append("path")
+        .data(data)
+        .attr("class", "grid_line")
+        .attr("d", line);*/
 
 // Get the data
     data.forEach(function (d) {
@@ -169,9 +244,11 @@ function init_line_area3_chart(el) {
     });
 
 // Scale the range of the data
+
     x.domain(d3.extent(data, function (d) {
         return d.date;
     }));
+
     y.domain([0, d3.max(data, function (d) {
         return Math.max(d.close);
     })]);
@@ -219,11 +296,9 @@ function init_line_area3_chart(el) {
         .enter().append("circle")
         .attr("r", 5.5)
         .attr('class', function (d, i) {
-            var cls;
+            var cls = '';
 
-            if (i == 0 || (i == data.length - 1)) {
-                cls = 'hidden'
-            }
+            if (i == 0 || (i == data.length - 1)) cls = 'hidden';
 
             return 'mark ' + cls;
         })
