@@ -65,6 +65,7 @@ html(lang='ru')
                   li 
                     .hover-select-box.filter-mod
                       select.selectpicker.filterSelect
+                        //option(value=-1 data-hidden="true")
                         option(value='Finance') Finance
                         option(value='Gross Revenue') Gross Revenue
                         option(value='Avg. order') Avg. order  
@@ -76,6 +77,7 @@ html(lang='ru')
                   li 
                     .hover-select-box.filter-mod
                       select.selectpicker.filterSelect
+                        //option(value=-1 data-hidden="true")
                         option(value='Customers') Customers
                         option(value='Gross Revenue') Gross Revenue
                         option(value='Avg. order') Avg. order  
@@ -87,6 +89,7 @@ html(lang='ru')
                   li 
                     .hover-select-box.filter-mod
                       select.selectpicker.filterSelect
+                        //option(value=-1 data-hidden="true")
                         option(value='Products') Products
                         option(value='Gross Revenue') Gross Revenue
                         option(value='Avg. order') Avg. order  
@@ -99,25 +102,35 @@ html(lang='ru')
             .row.dashboard-title-row
               .col-sm-6: h2 Bling-Blings Dashboard
               .col-sm-6
-                .pull-right
-                  .pull-left: input.form-control.datePicker.datepicker.form-control-small(type='text')
+                .pull-right.datepicker-v1.datepickerComponent
+                  .pull-left.datepicker-parent
+                    input.form-control.datePicker.form-control-small(type='text')
+                    //-.input-group.input-daterange.datePickerRange.input-daterange-v1
+                      input.form-control(type='text', name='start' value='2012-04-05')
+                      span.input-group-addon &#8212;
+                      input.form-control(type='text', name='end' value='2012-04-19')
+
                   .pull-left
                     select.selectpicker.graphFilterDate
-                      option(value='Current month') Current month
-                      option(value='Previous month') Previous month 
-                      option(value='Last 3 month') Last 3 month 
-                      option(value='Last 6 month') Last 6 month 
-                      option(value='Last year') Last year 
-                      option(value='All time') All time 
+                      option(value=-1 data-hidden="true") 
+                      option(value=0) Current month
+                      option(value=1) Previous month 
+                      option(value=2) Last 3 month 
+                      option(value=3) Last 6 month 
+                      option(value=4) Last year 
+                      option(value=5) All time 
                  
             .graph-unit
               .graph-unit-large
                 h5.graph-name Current status of your primary data
                 .graph-filters.graph-filter-v1
                   div(class="btn-group" role="group")
-                    button(type="button" class="btn btn-default") Day
-                    button(type="button" class="btn btn-default") Week
-                    button(type="button" class="btn btn-default") Month
+                    input#graph_filter_1(type='radio' hidden name='graph_filter' checked)
+                    label(type="button" for='graph_filter_1' class="btn btn-default first") Day
+                    input#graph_filter_2(type='radio' hidden name='graph_filter')
+                    label(type="button" for='graph_filter_2' class="btn btn-default") Week
+                    input#graph_filter_3(type='radio' hidden name='graph_filter')
+                    label(type="button" for='graph_filter_3' class="btn btn-default last") Month
                   
                 .graph-block
                   .graph_2.areaChartFamily_1.d3graph

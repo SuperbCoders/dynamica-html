@@ -26,13 +26,43 @@ $(function ($) {
      });
 
      }, 500);*/
+    //
 
-    $('.datePicker').datepicker({
-        beforeShowYear: function (date) {
-            if (date.getFullYear() == 2007) {
-                return false;
+    $('.datePicker').each(function () {
+        var datePckr = $(this);
+
+        datePckr.datepicker({
+            multidate: 2,
+            //clearBtn: true,
+            toggleActive: true,
+            startDate: '-477d',
+            endDate: '0',
+            orientation: "bottom left",
+            format: 'M dd, yyyy',
+            container: datePckr.parent(),
+            //multidateSeparator: ' — ',
+            multidateSeparator: ' – ',
+            beforeShowDay: function (date, e) {
+                var dates = e.dates, curDate = moment(date),
+                    rangeStart = moment(dates[0]), rangeEnd = moment(dates[1]);
+
+                if (dates.length == 2) {
+
+                    if (rangeStart.isAfter(rangeEnd, 'day')) {
+                        rangeStart = [rangeEnd, rangeEnd = rangeStart][0];
+                    }
+
+                    if (curDate.isSame(rangeStart, 'day')) return "start-range";
+                    if (curDate.isSame(rangeEnd, 'day')) return "end-range";
+                    if (curDate.isBetween(rangeStart, rangeEnd)) return "in-range";
+                }
             }
-        }
+        }).on('show', function (e) {
+
+        }).on('changeDate', function (e, w) {
+
+
+        });
     });
 
     $('body')
@@ -44,15 +74,57 @@ $(function ($) {
         });
 
     $('.graphFilterDate').on('change', function () {
-        var firedEl = $(this);
+        var firedEl = $(this),
+            datePckr = firedEl.closest('.datepickerComponent').find('.datePicker'),
+            rangeStart, rangeEnd,
+            newRange = firedEl.val(), today = moment();
 
-        console.log(firedEl.val());
+        if (newRange == 0) {         //  Current month       
+            rangeStart = moment(today).startOf('month');
+            rangeEnd = moment(today).endOf('month');
 
-        return false;
+        } else if (newRange == 1) {  //  Previous month 
+            rangeStart = moment(today).subtract(1, 'month').startOf('month');
+            rangeEnd = moment(today).subtract(1, 'month').endOf('month');
+
+        } else if (newRange == 2) {  //  Last 3 month 
+            rangeStart = moment(today).subtract(3, 'month');
+            rangeEnd = moment(today);
+
+        } else if (newRange == 3) {  //  Last 6 month 
+            rangeStart = moment(today).subtract(6, 'month');
+            rangeEnd = moment(today);
+
+        } else if (newRange == 4) {  //  Last year 
+            rangeStart = moment(today).subtract(12, 'month');
+            rangeEnd = moment(today);
+
+        } else if (newRange == 5) {  //  All time 
+            rangeStart = moment(datePckr.datepicker('getStartDate'));
+            rangeEnd = moment(datePckr.datepicker('getEndDate'));
+        }
+
+        datePckr.datepicker("setDates", [
+            fit2Limits(datePckr, rangeStart, true),
+            fit2Limits(datePckr, rangeEnd)
+        ]).datepicker("update");
+
     });
 
 
 });
+
+function fit2Limits(pckr, date, max) {
+    var start = moment(pckr.datepicker('getStartDate')),
+        end = moment(pckr.datepicker('getEndDate'));
+
+    if (max) {
+        return moment.max(start, date).startOf('day')._d;
+    } else {
+        return moment.min(end, date).startOf('day')._d;
+    }
+}
+
 
 function init_charts() {
 
@@ -419,11 +491,16 @@ function init_area_family_chart(el, data_files, data_colors) {
 
     legendBlock.empty();
 
+    var tooltip = $('<table class="graph-tooltip-table" />');
+
     var margin = {top: 0, right: 0, bottom: 0, left: 0},
         width = el.width() - margin.left - margin.right,
         height = el.height() - margin.top - margin.bottom;
 
-    var parseDate = d3.time.format("%d-%b-%y").parse;
+    var bisectDate = d3.bisector(function (d) {
+            return d.date;
+        }).left,
+        parseDate = d3.time.format("%d-%b-%y").parse;
 
     var area_x = d3.time.scale()
         .range([0, width]);
@@ -440,12 +517,60 @@ function init_area_family_chart(el, data_files, data_colors) {
             return area_y(d.close);
         });
 
+    //var xScale = d3.scale.ordinal()
+    //    .domain(d3.range(dataset.length))
+    //    .rangeRoundBands([0, w], 0.05);
 
     var svg = d3.select(el[0]).append("svg")
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+        .on('mousemove', function () {
+
+            var x0 = area_x.invert(d3.mouse(this)[0]),
+                i = bisectDate(data, x0, 1),
+                d0 = data[i - 1],
+                d1 = data[i]
+                //d = x0 - d0.date > d1.date - x0 ? d1 : d0
+                ;
+            //focus.attr("transform", "translate(" + x(d.date) + "," + y(d.close) + ")");
+            //focus.select("text").text(d.close);
+
+            console.log(
+                //area_x(d.date), area_y(d.close), d.close,
+                //d0, d1
+                data, i
+            );
+
+
+        })
+        .on("mousemove_", function (d, e) {
+
+            var coordinates = [];
+            coordinates = d3.mouse(this);
+            var x = coordinates[0];
+            var y = coordinates[1];
+
+            console.log(x, y);
+
+            //Get this bar's x/y values, then augment for the tooltip
+            var xPosition = parseFloat(d3.select(this).attr("x"));
+            //var yPosition = parseFloat(d3.select(this).attr("y")) / 2 + h / 2;
+
+            //Update the tooltip position and value
+            d3.select("#tooltip")
+                .style("left", x + "px")
+                //.style("top", yPosition + "px")
+            ;
+
+            //Show the tooltip
+            //d3.select("#tooltip").classed("hidden", false);
+
+        })
+        .on("mouseout", function () {
+            //d3.select("#tooltip").classed("hidden", true);
+        });
 
     for (var i = 0; i < data_files.length; i++) {
         var data = data_files[i].data;
@@ -465,21 +590,57 @@ function init_area_family_chart(el, data_files, data_colors) {
         svg.append("path")
             .datum(data)
             .attr("class", "area area_v1")
+            .attr("id", 'family_area_' + i)
             .attr("d", area)
             .style("fill", function (d) {
 
                 var color = data_files[i].color,
+
                     legendItem = $('<li class="legend_item" />')
                         .append($('<div class="legend_name" />').css('color', color).append($('<span/>').text(data_files[i].name)))
                         .append($('<div class="legend_val" />')
                             .append($('<span class="val" />').text(data_files[i].value))
-                            .append($('<sup class="graph-dynamica" />').addClass(/-/g.test(data_files[i].diff) ? 'dynamica_down' : 'dynamica_up').text(data_files[i].diff)));
+                            .append($('<sup class="graph-dynamica" />').addClass(/-/g.test(data_files[i].diff) ? 'dynamica_down' : 'dynamica_up').text(data_files[i].diff))),
+
+                    tooltip_item = $('<tr class="tooltip_row" />').attr('data-graph', 'family_area_' + i)
+                        .append($('<td class="tooltip_name" />').append($('<div class="legend_name" />').css('color', color).append($('<span/>').text(data_files[i].name))))
+                        .append($('<td class="tooltip_val" />').append($('<b class="" />').text(data_files[i].value)));
+
+                legendItem.attr('data-graph', '#family_area_' + i).on('click', function () {
+                    var firedEl = $(this),
+                        graph = d3.select(firedEl.attr('data-graph')),
+                        tip = $(('.tooltip_row[data-graph=' + graph.attr('id') + ']')),
+                        graph_cls = graph.attr('class');
+
+                    if (/hidden/g.test(graph_cls)) {
+                        firedEl.removeClass('disabled');
+                        tip.removeClass('disabled');
+                        graph.classed('hidden', false);
+                    } else {
+                        firedEl.addClass('disabled');
+                        tip.addClass('disabled');
+                        graph.classed('hidden', true);
+                    }
+
+                    return false;
+                });
+
+                tooltip.append(tooltip_item);
 
                 legendBlock.append(legendItem);
+
                 return color;
             })
-            .style("opacity", .6);
+            .style("opacity", .6)
+            .on('mouseenter', function () {
+                var firedEl = $(this);
+
+                return false;
+            });
+
     }
+
+    el.append($('<div id="tooltip" class="graph-tooltip hidden_" />').append($('<div class="tooltip-title" />')).append(tooltip));
 
 }
 

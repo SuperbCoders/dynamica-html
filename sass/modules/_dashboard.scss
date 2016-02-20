@@ -260,6 +260,7 @@
 .dashboard-caption {
   font-size: 18px;
   padding-left: 20px;
+
 }
 
 .caption-text {
@@ -268,6 +269,15 @@
   font-weight: 400;
   font-size: 22px;
   letter-spacing: -.13px;
+  cursor: pointer;
+
+  &:hover {
+    color: #ff6140;
+
+    + .icon {
+      color: #ff6140;
+    }
+  }
 }
 
 .graph-unit {
@@ -313,6 +323,27 @@
     background: none;
     color: #fff;
     font-size: 15px;
+    border-width: 1px 0;
+
+    &:hover {
+      color: #ffc4b8;
+    }
+
+    &.first {
+      border-top-left-radius: 4px !important;
+      border-bottom-left-radius: 4px !important;
+      border-left-width: 1px;
+    }
+
+    &.last {
+      border-right-width: 1px;
+    }
+  }
+
+  input[type='radio']:checked + .btn {
+    background: #fff;
+    color: #323847;
+    cursor: default;
   }
 }
 
@@ -383,6 +414,7 @@
     float: left;
     min-width: 30%;
     padding-left: 5px;
+    cursor: pointer;
 
     .legend_name {
       margin-bottom: 3px;
@@ -395,32 +427,118 @@
         left: 10px;
       }
     }
+
+    &.disabled {
+      opacity: .5;
+    }
   }
 }
 
-@media (min-width: 768px) {
+.datepicker-v1 {
+  position: relative;
 
-  .graph-unit-legend {
-    display: table;
-    border-collapse: collapse;
-    table-layout: fixed;
-    width: 100%;
-    margin: 23px 0 0;
+  .bootstrap-select {
+    position: static;
 
-    .legend_item {
-      margin: 0;
-      display: table-cell;
-      min-width: 0;
-      float: none;
-      padding-left: 20px;
-      border-left: 1px solid #d8d8d8;
+    .dropdown-menu {
+      right: 0;
+    }
 
-      &:first-child {
-        border-left: none;
-        padding-left: 0;
+  }
+
+  .btn-group {
+    width: 42px !important;
+
+    .btn {
+      padding: 6px 0;
+      width: 42px !important;
+      margin-left: -1px;
+      border-radius: 0 4px 4px 0;
+
+      .caret {
+        @extend .fa;
+        @extend .fa-angle-down;
+        @extend .hover-select-icon;
+        border: none !important;
+        right: 27px;
+        margin-top: -13px;
+        font-size: 26px;
+        color: #979797;
+      }
+    }
+
+    .filter-option {
+      display: none !important;
+    }
+  }
+
+  .datepicker-parent {
+    width: 232px;
+
+    .form-control {
+      border-radius: 4px 0 0 4px;
+      font-size: 15px;
+      letter-spacing: -.5px;
+
+      &:focus {
+        position: relative;
+        z-index: 3;
       }
     }
   }
+
+  .datepicker {
+    top: 100% !important;
+    margin: 0;
+    border-radius: 0 0 4px 4px;
+    border: none;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, .28);
+
+    &:after,
+    &:before {
+      display: none;
+    }
+
+    table {
+      margin: 0 auto;
+
+      .in-range:not(.disabled) {
+        color: #ff6140;
+      }
+
+      td.day:not(.disabled) {
+        border-radius: 10px;
+
+        &.active,
+        &:hover {
+          background: #ff6140 !important;
+          color: #fff;
+        }
+
+        &.start-range {
+          border-radius: 10px 0 0 10px;
+        }
+
+        &.end-range {
+          border-radius: 0 10px 10px 0;
+        }
+      }
+    }
+  }
+}
+
+.datepicker-parent {
+  position: relative;
+
+  .dropdown-menu {
+    //width: auto;
+    //margin: 0; 
+  }
+
+  .daterangepicker_input {
+    //display: none;
+  }
+
 }
 
 .legend_item {
@@ -484,5 +602,97 @@
     fill: #3e6cfe;
     stroke: #fff;
     stroke-width: 2px;
+  }
+
+  .graph-tooltip {
+    top: 50%;
+    position: absolute;
+    z-index: 3;
+    background: #fff;
+    border-radius: 10px;
+    padding: 15px 20px 20px;
+    font-size: 15px;
+    line-height: 19px;
+    box-shadow: 0 2px 14px rgba(0, 0, 0, .21);
+    -webkit-transform: translate(0, -50%);
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    //opacity: 0;
+
+    &:before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      margin-top: -10px;
+      left: 100%;
+      border-top: 10px solid transparent;
+      border-left: 10px solid #fff;
+      border-bottom: 10px solid transparent;
+    }
+
+  }
+
+  .tooltip_row {
+
+    td {
+      padding-bottom: 1px;
+    }
+
+    .legend_name {
+      font-size: 15px;
+
+      &:after {
+        left: -15px;
+      }
+    }
+
+    &.disabled {
+      opacity: .5;
+    }
+  }
+
+  .graph-tooltip-table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .tooltip_name {
+    width: 75%;
+  }
+
+  .tooltip_val {
+    width: 25%;
+    color: #101010;
+  }
+
+  .tooltip-title {
+    color: #101010;
+    margin-bottom: 10px;
+  }
+
+}
+
+@media (min-width: 768px) {
+
+  .graph-unit-legend {
+    display: table;
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+    margin: 23px 0 0;
+
+    .legend_item {
+      margin: 0;
+      display: table-cell;
+      min-width: 0;
+      float: none;
+      padding-left: 20px;
+      border-left: 1px solid #d8d8d8;
+
+      &:first-child {
+        border-left: none;
+        padding-left: 0;
+      }
+    }
   }
 }

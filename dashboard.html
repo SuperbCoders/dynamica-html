@@ -16,8 +16,8 @@
     <script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
     <script type="text/javascript" src="js/vendor/d3.min.js"></script>
     <script type="text/javascript" src="js/vendor/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="js/vendor/moment.min.js"></script>
     <script type="text/javascript" src="js/vendor/bootstrap-datepicker.js"></script>
-    <script type="text/javascript" src="js/vendor/bootstrap-datepicker.ru.min.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
     <script type="text/javascript" src="js/dashboard_script.js"></script>
   </head>
@@ -75,6 +75,7 @@
                   <li> 
                     <div class="hover-select-box filter-mod">
                       <select class="selectpicker filterSelect">
+                        <!--option(value=-1 data-hidden="true")-->
                         <option value="Finance">Finance</option>
                         <option value="Gross Revenue">Gross Revenue</option>
                         <option value="Avg. order">Avg. order  </option>
@@ -88,6 +89,7 @@
                   <li> 
                     <div class="hover-select-box filter-mod">
                       <select class="selectpicker filterSelect">
+                        <!--option(value=-1 data-hidden="true")-->
                         <option value="Customers">Customers</option>
                         <option value="Gross Revenue">Gross Revenue</option>
                         <option value="Avg. order">Avg. order  </option>
@@ -101,6 +103,7 @@
                   <li> 
                     <div class="hover-select-box filter-mod">
                       <select class="selectpicker filterSelect">
+                        <!--option(value=-1 data-hidden="true")-->
                         <option value="Products">Products</option>
                         <option value="Gross Revenue">Gross Revenue</option>
                         <option value="Avg. order">Avg. order  </option>
@@ -119,18 +122,19 @@
                 <h2>Bling-Blings Dashboard</h2>
               </div>
               <div class="col-sm-6">
-                <div class="pull-right">
-                  <div class="pull-left">
-                    <input type="text" class="form-control datePicker datepicker form-control-small">
+                <div class="pull-right datepicker-v1 datepickerComponent">
+                  <div class="pull-left datepicker-parent">
+                    <input type="text" class="form-control datePicker form-control-small">
                   </div>
                   <div class="pull-left">
                     <select class="selectpicker graphFilterDate">
-                      <option value="Current month">Current month</option>
-                      <option value="Previous month">Previous month </option>
-                      <option value="Last 3 month">Last 3 month </option>
-                      <option value="Last 6 month">Last 6 month </option>
-                      <option value="Last year">Last year </option>
-                      <option value="All time">All time </option>
+                      <option value="-1" data-hidden="true"> </option>
+                      <option value="0">Current month</option>
+                      <option value="1">Previous month </option>
+                      <option value="2">Last 3 month </option>
+                      <option value="3">Last 6 month </option>
+                      <option value="4">Last year </option>
+                      <option value="5">All time </option>
                     </select>
                   </div>
                 </div>
@@ -141,9 +145,12 @@
                 <h5 class="graph-name">Current status of your primary data</h5>
                 <div class="graph-filters graph-filter-v1">
                   <div role="group" class="btn-group">
-                    <button type="button" class="btn btn-default">Day</button>
-                    <button type="button" class="btn btn-default">Week</button>
-                    <button type="button" class="btn btn-default">Month</button>
+                    <input id="graph_filter_1" type="radio" hidden name="graph_filter" checked>
+                    <label type="button" for="graph_filter_1" class="btn btn-default first">Day</label>
+                    <input id="graph_filter_2" type="radio" hidden name="graph_filter">
+                    <label type="button" for="graph_filter_2" class="btn btn-default">Week</label>
+                    <input id="graph_filter_3" type="radio" hidden name="graph_filter">
+                    <label type="button" for="graph_filter_3" class="btn btn-default last">Month</label>
                   </div>
                 </div>
                 <div class="graph-block">
