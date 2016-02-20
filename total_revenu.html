@@ -5,7 +5,7 @@
     <meta charset="utf-8"/>
     <meta name="keywords" content=""/>
     <meta name="description" content=""/>
-    <title>Dynamica dashboard</title>
+    <title>Dynamica total revenu</title>
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
     <link rel="stylesheet" href="css/style.css"/> 
     <!--[if lt IE 9]>
@@ -19,7 +19,7 @@
     <script type="text/javascript" src="js/vendor/moment.min.js"></script>
     <script type="text/javascript" src="js/vendor/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
-    <script type="text/javascript" src="js/dashboard_script.js"></script>
+    <script type="text/javascript" src="js/total_revenu_script.js"></script>
   </head>
   <body>
     <div class="page dashboard_page">
@@ -141,143 +141,68 @@
               </div>
             </div>
             <div class="graph-unit">
-              <div class="graph-unit-large">
-                <h5 class="graph-name">Current status of your primary data</h5>
-                <div class="graph-filters graph-filter-v1">
-                  <div role="group" class="btn-group">
-                    <input id="graph_filter_1" type="radio" hidden name="graph_filter" checked>
-                    <label type="button" for="graph_filter_1" class="btn btn-default first">Day</label>
-                    <input id="graph_filter_2" type="radio" hidden name="graph_filter">
-                    <label type="button" for="graph_filter_2" class="btn btn-default">Week</label>
-                    <input id="graph_filter_3" type="radio" hidden name="graph_filter">
-                    <label type="button" for="graph_filter_3" class="btn btn-default last">Month</label>
-                  </div>
-                </div>
+              <div class="graph-value"><span class="val">42,489$</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
+              <div class="graph-unit-large-v2">
                 <div class="graph-block">
-                  <div class="graph_2 areaChartFamily_1 d3graph"></div>
+                  <div class="graph_2 areaChartTotal_1 d3graph"></div>
                 </div>
               </div>
             </div>
-            <div class="dashboard-caption">
-              <h3 class="caption-text">Finance overview</h3><i class="icon fa fa-angle-right"></i>
-            </div>
-            <div class="row">
-              <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="graph-unit"><a href="total_revenu.html" class="graph-u-link"></a>
-                  <h5 class="graph-name">Gross Revenue</h5>
-                  <div class="graph-value"> <span class="val">$4,490</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
-                  <div class="graph-block">
-                    <div class="graph_2 lineAreaChart_1 d3graph"></div>
-                  </div>
+            <div class="graph-unit-info">
+              <div class="graph-unit-info-table">
+                <div class="table-header">
+                  <div class="table-cell col_1">Date</div>
+                  <div class="table-cell col_2">Orders</div>
+                  <div class="table-cell col_3">Product sold</div>
+                  <div class="table-cell col_4">Day Revenue</div>
                 </div>
-              </div>
-              <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="graph-unit"><a href="total_revenu.html" class="graph-u-link"></a>
-                  <h5 class="graph-name">Gross Revenue</h5>
-                  <div class="graph-value"> <span class="val">$4,490</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
-                  <div class="graph-block">
-                    <div class="graph_2 lineAreaChart_1 d3graph"></div>
-                  </div>
+                <div class="table-row">
+                  <div class="table-cell col_1">21 feb, 2016</div>
+                  <div class="table-cell col_2">3</div>
+                  <div class="table-cell col_3">9</div>
+                  <div class="table-cell col_4">130$</div>
                 </div>
-              </div>
-              <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="graph-unit"><a href="total_revenu.html" class="graph-u-link"></a>
-                  <h5 class="graph-name">Gross Revenue</h5>
-                  <div class="graph-value"> <span class="val">$4,490</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
-                  <div class="graph-block">
-                    <div class="graph_2 lineAreaChart_1 d3graph"></div>
-                  </div>
+                <div class="table-row">
+                  <div class="table-cell col_1">21 feb, 2016</div>
+                  <div class="table-cell col_2">3</div>
+                  <div class="table-cell col_3">9</div>
+                  <div class="table-cell col_4">130$</div>
                 </div>
-              </div>
-              <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="graph-unit"><a href="total_revenu.html" class="graph-u-link"></a>
-                  <h5 class="graph-name">Gross Revenue</h5>
-                  <div class="graph-value"> <span class="val">$4,490</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
-                  <div class="graph-block">
-                    <div class="graph_2 lineAreaChart_1 d3graph"></div>
-                  </div>
+                <div class="table-row">
+                  <div class="table-cell col_1">21 feb, 2016</div>
+                  <div class="table-cell col_2">3</div>
+                  <div class="table-cell col_3">9</div>
+                  <div class="table-cell col_4">130$</div>
                 </div>
-              </div>
-            </div>
-            <div class="dashboard-caption">
-              <h3 class="caption-text">Customers overview</h3><i class="icon fa fa-angle-right"></i>
-            </div>
-            <div class="row">
-              <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="graph-unit"><a href="total_revenu.html" class="graph-u-link"></a>
-                  <h5 class="graph-name">Gross Revenue</h5>
-                  <div class="graph-value"> <span class="val">$4,490</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
-                  <div class="graph-block">
-                    <div class="graph_2 areaChart_1 d3graph"></div>
-                  </div>
+                <div class="table-row">
+                  <div class="table-cell col_1">21 feb, 2016</div>
+                  <div class="table-cell col_2">3</div>
+                  <div class="table-cell col_3">9</div>
+                  <div class="table-cell col_4">130$</div>
                 </div>
-              </div>
-              <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="graph-unit"><a href="total_revenu.html" class="graph-u-link"></a>
-                  <h5 class="graph-name">Gross Revenue</h5>
-                  <div class="graph-value"> <span class="val">$4,490</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
-                  <div class="graph-block">
-                    <div class="graph_2 areaChart_1 d3graph"></div>
-                  </div>
+                <div class="table-row">
+                  <div class="table-cell col_1">21 feb, 2016</div>
+                  <div class="table-cell col_2">3</div>
+                  <div class="table-cell col_3">9</div>
+                  <div class="table-cell col_4">130$</div>
                 </div>
-              </div>
-              <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="graph-unit"><a href="total_revenu.html" class="graph-u-link"></a>
-                  <h5 class="graph-name">New & repeat customers</h5>
-                  <div class="graph-value"> <span class="val">3.2</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
-                  <div class="graph-block">
-                    <div class="graph_1 donutChart_1 d3graph"></div>
-                  </div>
+                <div class="table-row">
+                  <div class="table-cell col_1">21 feb, 2016</div>
+                  <div class="table-cell col_2">3</div>
+                  <div class="table-cell col_3">9</div>
+                  <div class="table-cell col_4">130$</div>
                 </div>
-              </div>
-              <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="graph-unit"><a href="total_revenu.html" class="graph-u-link"></a>
-                  <h5 class="graph-name">Gross Revenue</h5>
-                  <div class="graph-value"> <span class="val">$4,490</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
-                  <div class="graph-block">
-                    <div class="graph_2 areaChart_2 d3graph"></div>
-                  </div>
+                <div class="table-row">
+                  <div class="table-cell col_1">21 feb, 2016</div>
+                  <div class="table-cell col_2">3</div>
+                  <div class="table-cell col_3">9</div>
+                  <div class="table-cell col_4">130$</div>
                 </div>
-              </div>
-            </div>
-            <div class="dashboard-caption">
-              <h3 class="caption-text">Products overview</h3><i class="icon fa fa-angle-right"></i>
-            </div>
-            <div class="row">
-              <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="graph-unit"><a href="total_revenu.html" class="graph-u-link"></a>
-                  <h5 class="graph-name">Gross Revenue</h5>
-                  <div class="graph-value"><span class="val">$4,490</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
-                  <div class="graph-block">
-                    <div class="graph_2 lineAreaChart_1 d3graph"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="graph-unit"><a href="total_revenu.html" class="graph-u-link"></a>
-                  <h5 class="graph-name">Gross Revenue</h5>
-                  <div class="graph-value"><span class="val">$4,490</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
-                  <div class="graph-block">
-                    <div class="graph_2 lineAreaChart_1 d3graph"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="graph-unit"><a href="total_revenu.html" class="graph-u-link"></a>
-                  <h5 class="graph-name">Gross Revenue</h5>
-                  <div class="graph-value"><span class="val">$4,490</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
-                  <div class="graph-block">
-                    <div class="graph_2 lineAreaChart_1 d3graph"></div>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-3 col-md-4 col-sm-6">
-                <div class="graph-unit"><a href="total_revenu.html" class="graph-u-link"></a>
-                  <h5 class="graph-name">Gross Revenue</h5>
-                  <div class="graph-value"><span class="val">$4,490</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
-                  <div class="graph-block">
-                    <div class="graph_2 lineAreaChart_1 d3graph"></div>
-                  </div>
+                <div class="table-footer">
+                  <div class="table-cell col_1">21 feb, 2016</div>
+                  <div class="table-cell col_2">3</div>
+                  <div class="table-cell col_3">9</div>
+                  <div class="table-cell col_4">130$</div>
                 </div>
               </div>
             </div>

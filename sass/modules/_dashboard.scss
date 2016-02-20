@@ -292,6 +292,20 @@
 
 }
 
+.graph-u-link {
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+}
+
 .graph-unit-large {
   height: 282px;
   margin: -20px -20px 0;
@@ -314,6 +328,12 @@
     position: relative;
     z-index: 1;
   }
+
+}
+
+.graph-unit-large-v2 {
+  height: 340px;
+  position: relative;
 }
 
 .graph-filter-v1 {
@@ -672,6 +692,77 @@
 
 }
 
+.graph-unit-info {
+  margin-bottom: 30px;
+}
+
+.graph-unit-info-table {
+  border-collapse: collapse;
+  display: table;
+  width: 100%;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
+
+  .table-footer,
+  .table-row,
+  .table-header {
+    display: table-row;
+  }
+
+  .table-cell {
+    display: table-cell;
+    vertical-align: middle;
+    color: #1f1f1f;
+    padding: 5px 20px;
+  }
+
+  .table-row {
+    .table-cell {
+      height: 50px;
+    }
+  }
+
+  .col_1 {
+    width: 15%;
+  }
+
+  .col_2 {
+    width: 25%;
+  }
+
+  .col_3 {
+    width: 35%;
+  }
+
+  .col_4 {
+    width: 25%;
+    text-align: right;
+  }
+
+  .table-header {
+
+    .table-cell {
+      background: #879cef;
+      color: #fff;
+      height: 50px;
+      font-size: 16px;
+    }
+
+  }
+
+  .table-footer {
+
+    .table-cell {
+      background: #eef7fc;
+      font-size: 16px;
+      height: 54px;
+    }
+
+  }
+
+}
+
 @media (min-width: 768px) {
 
   .graph-unit-legend {
@@ -695,4 +786,20 @@
       }
     }
   }
+
+  .graph-unit-info {
+
+    .table-cell {
+      display: table-cell;
+      float: none;
+    }
+
+    .table-footer,
+    .table-row,
+    .table-header {
+
+    }
+
+  }
+
 }

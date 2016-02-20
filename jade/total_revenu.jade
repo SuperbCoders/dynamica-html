@@ -2,7 +2,7 @@ include mixins
 
 doctype html
 html(lang='ru')
-  +dev_head('Dynamica dashboard', true)
+  +dev_head('Dynamica total revenu', false, true)
   
   body
     .page.dashboard_page
@@ -121,85 +121,29 @@ html(lang='ru')
                       option(value=5) All time 
                  
             .graph-unit
-              .graph-unit-large
-                h5.graph-name Current status of your primary data
-                .graph-filters.graph-filter-v1
-                  div(class="btn-group" role="group")
-                    input#graph_filter_1(type='radio' hidden name='graph_filter' checked)
-                    label(type="button" for='graph_filter_1' class="btn btn-default first") Day
-                    input#graph_filter_2(type='radio' hidden name='graph_filter')
-                    label(type="button" for='graph_filter_2' class="btn btn-default") Week
-                    input#graph_filter_3(type='radio' hidden name='graph_filter')
-                    label(type="button" for='graph_filter_3' class="btn btn-default last") Month
+              .graph-value
+                span.val 42,489$
+                sup.graph-dynamica.dynamica_up +8%
+              .graph-unit-large-v2
                   
                 .graph-block
-                  .graph_2.areaChartFamily_1.d3graph
-                    
-            .dashboard-caption
-                h3.caption-text Finance overview
-                i.icon.fa.fa-angle-right
-                
-            .row
-              +loop_while(4)
-                .col-lg-3.col-md-4.col-sm-6
-                  .graph-unit
-                    a.graph-u-link(href='total_revenu.html')
-                    h5.graph-name Gross Revenue
-                    .graph-value 
-                      span.val $4,490
-                      sup.graph-dynamica.dynamica_up +8%
-                    .graph-block
-                       .graph_2.lineAreaChart_1.d3graph
-              
-            .dashboard-caption
-                h3.caption-text Customers overview
-                i.icon.fa.fa-angle-right
-                
-            .row
-              +loop_while(2)
-                .col-lg-3.col-md-4.col-sm-6
-                  .graph-unit
-                    a.graph-u-link(href='total_revenu.html')
-                    h5.graph-name Gross Revenue
-                    .graph-value 
-                      span.val $4,490
-                      sup.graph-dynamica.dynamica_up +8%
-                    .graph-block
-                       .graph_2.areaChart_1.d3graph
-                                      
-              .col-lg-3.col-md-4.col-sm-6
-                .graph-unit
-                  a.graph-u-link(href='total_revenu.html')
-                  h5.graph-name New & repeat customers
-                  .graph-value 
-                    span.val 3.2
-                    sup.graph-dynamica.dynamica_up +8%
-                  .graph-block
-                     .graph_1.donutChart_1.d3graph
-                         
-              .col-lg-3.col-md-4.col-sm-6
-                .graph-unit
-                  a.graph-u-link(href='total_revenu.html')
-                  h5.graph-name Gross Revenue
-                  .graph-value 
-                    span.val $4,490
-                    sup.graph-dynamica.dynamica_up +8%
-                  .graph-block
-                     .graph_2.areaChart_2.d3graph
-                       
-              
-            .dashboard-caption
-                h3.caption-text Products overview
-                i.icon.fa.fa-angle-right
-                
-            .row
-              +loop_while(4)
-                .col-lg-3.col-md-4.col-sm-6
-                  .graph-unit
-                    a.graph-u-link(href='total_revenu.html')
-                    h5.graph-name Gross Revenue
-                    .graph-value
-                      span.val $4,490
-                      sup.graph-dynamica.dynamica_up +8%
-                    .graph-block
-                      .graph_2.lineAreaChart_1.d3graph
+                  .graph_2.areaChartTotal_1.d3graph
+
+            .graph-unit-info
+              .graph-unit-info-table
+                .table-header
+                  .table-cell.col_1 Date
+                  .table-cell.col_2 Orders
+                  .table-cell.col_3 Product sold
+                  .table-cell.col_4 Day Revenue
+                +loop_while(7)
+                  .table-row
+                    .table-cell.col_1 21 feb, 2016
+                    .table-cell.col_2 3
+                    .table-cell.col_3 9
+                    .table-cell.col_4 130$
+                .table-footer
+                  .table-cell.col_1 21 feb, 2016
+                  .table-cell.col_2 3
+                  .table-cell.col_3 9
+                  .table-cell.col_4 130$
