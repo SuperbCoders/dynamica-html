@@ -112,6 +112,27 @@ function init_line_area3_chart(el) {
 
     el.empty();
 
+    var data = [
+        {"date": "9-Apr-12", "close": 4236},
+        {"date": "7-Apr-12", "close": 2221},
+        {"date": "5-Apr-12", "close": 1313},
+        {"date": "4-Apr-12", "close": 3264},
+        {"date": "3-Apr-12", "close": 2229},
+        {"date": "2-Apr-12", "close": 3818}
+    ];
+
+    var dates = [], values = [];
+
+    for (var i = 0; i < data.length; i++) {
+        var obj = data[i];
+        dates.push(moment(obj.date));
+        values.push(obj.close);
+    }
+
+    //console.log(Math.min.apply(null, values), Math.max.apply(null, values));
+
+    //console.log(moment.min(data));
+
     var margin = {top: 30, right: 35, bottom: 50, left: 80},
         width = el.width() - margin.left - margin.right,
         height = el.height() - margin.top - margin.bottom;
@@ -120,7 +141,12 @@ function init_line_area3_chart(el) {
 
     var commasFormatter = d3.format(",.0f");
 
-
+    var x = d3.time.scale()
+        .domain([moment.min(dates), moment.max(dates)])
+        .range([0, width]);
+    var y = d3.scale.linear()
+        .domain([0, 1000 * Math.floor((Math.max.apply(null, values) / 1000) + 1)])
+        .range([height, 0]);
 
     function make_y_axis() {
         return d3.svg.axis()
@@ -136,9 +162,6 @@ function init_line_area3_chart(el) {
             .ticks(5)
     }
 
-    var x = d3.time.scale().range([0, width]);
-    var y = d3.scale.linear().range([height, 0]);
-
     var line = d3.svg.line()
         .x(function (d) {
             return x(d.x);
@@ -146,7 +169,7 @@ function init_line_area3_chart(el) {
         .y(function (d) {
             return y(d.y);
         });
-    
+
     var area_x = d3.time.scale().range([0, width]);
     var area_y = d3.scale.linear().range([height, 0]);
 
@@ -162,28 +185,24 @@ function init_line_area3_chart(el) {
 
     var valueline = d3.svg.line()
         .x(function (d) {
-            //console.log(d);
             return x(d.date);
         })
         .y(function (d) {
-            //console.log(d);
             return y(d.close);
         });
     //.interpolate("cardinal");
 
     var xAxis = d3.svg.axis()
         .scale(x)
-        .ticks(5)
-        .tickFormat(function (d) {
-            return moment(d).format('MMM d');
-        })
+        .ticks(data.length - 1)
+        .tickFormat(d3.time.format("%b %d"))
         .orient("bottom");
 
     var yAxis = d3.svg.axis()
         .scale(y)
         .ticks(5)
         .tickFormat(function (d) {
-            return d == 0 ? "" : commasFormatter(d * 1000) + "$";
+            return d == 0 ? "" : commasFormatter(d) + "$";
         })
         .orient("left");
 
@@ -197,6 +216,8 @@ function init_line_area3_chart(el) {
 
     svg.append("g")
         .attr("class", "x axis")
+        .style("font-size", '14px')
+        .style("fill", '#A5ADB3')
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis);
 
@@ -204,38 +225,29 @@ function init_line_area3_chart(el) {
         .attr("class", "y axis")
         .attr("transform", "translate(" + (-25) + ", 0)")
         .style("font-size", '14px')
-        .style("color", '#A5ADB3')
+        .style("fill", '#A5ADB3')
         .attr("class", "grid")
         .call(yAxis);
 
-    /*    svg.append("g")
-     .attr("class", "grid")
+    /*   svg.append("g")
+     .attr("class", "gray_grid")
      .attr("transform", "translate(0," + height + ")")
      .call(make_x_axis()
      .tickSize(-height, 0, 0)
      .tickFormat("")
      );*/
 
-/*    svg.append("g")
+    svg.append("g")
         .attr("class", "gray_grid")
         .call(make_y_axis()
             .tickSize(-width, 0, 0)
             .tickFormat("")
-    );*/
+    );
 
-    var data = [
-        {"date": "9-Apr-12", "close": 1436},
-        {"date": "7-Apr-12", "close": 2221},
-        {"date": "5-Apr-12", "close": 1313},
-        {"date": "4-Apr-12", "close": 3264},
-        {"date": "3-Apr-12", "close": 2229},
-        {"date": "2-Apr-12", "close": 1218}
-    ];
-
-/*    svg.append("path")
-        .data(data)
-        .attr("class", "grid_line")
-        .attr("d", line);*/
+    /*    svg.append("path")
+     .data(data)
+     .attr("class", "grid_line")
+     .attr("d", line);*/
 
 // Get the data
     data.forEach(function (d) {
@@ -291,24 +303,61 @@ function init_line_area3_chart(el) {
 
 
     // Add the scatterplot
+
+
+    svg.selectAll("dot")
+        .data(data)
+        .enter().append("line")
+        .attr("class", function (d, i) {
+            var cls = '';
+
+            if (i == 0 || (i == data.length - 1)) cls = ' hidden';
+
+            return 'line_for_dot_' + i + cls;
+        })
+        .style("stroke", "#D0E3EE")
+        .style("stroke-width", "2")
+        .style("display", 'none')
+        .attr("x1", function (d) {
+            return x(d.date);
+        })
+        .attr("x2", function (d) {
+            return x(d.date);
+        })
+        .attr("y1", height)
+        .attr("y2", function (d) {
+            return y(d.close);
+        });
+    
     svg.selectAll("dot")
         .data(data)
         .enter().append("circle")
         .attr("r", 5.5)
+        .attr("data-line", function (d, i) {
+            return 'line_for_dot_' + i;
+        })
         .attr('class', function (d, i) {
             var cls = '';
 
             if (i == 0 || (i == data.length - 1)) cls = 'hidden';
 
-            return 'mark ' + cls;
+            return 'mark_v2 vis_on_hover ' + cls;
         })
         .attr("cx", function (d) {
             return x(d.date);
         })
         .attr("cy", function (d) {
             return y(d.close);
-        });
+        }).on('mouseenter', function () {
+            var firedEl = $(this);
+            $('.' + firedEl.addClass('vis').attr('data-line')).show();
 
+        }).on('mouseleave', function () {
+            var firedEl = $(this);
+            $('.' + firedEl.attr('data-line')).hide();
+
+        });
+    
 }
 
 $(window).resize(function () {

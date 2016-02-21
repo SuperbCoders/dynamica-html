@@ -136,10 +136,12 @@ function init_charts() {
             "diff": "+8%",
             "data": [
                 {"date": "9-Apr-12", "close": 180},
-                {"date": "7-Apr-12", "close": 221},
+                {"date": "8-Apr-12", "close": 260},
+                {"date": "7-Apr-12", "close": 218},
+                {"date": "6-Apr-12", "close": 308},
                 {"date": "5-Apr-12", "close": 400},
-                {"date": "4-Apr-12", "close": 320},
-                {"date": "3-Apr-12", "close": 229},
+                {"date": "4-Apr-12", "close": 220},
+                {"date": "3-Apr-12", "close": 329},
                 {"date": "2-Apr-12", "close": 150}
             ]
         },
@@ -150,7 +152,9 @@ function init_charts() {
             "diff": "-9%",
             "data": [
                 {"date": "9-Apr-12", "close": 240},
+                {"date": "8-Apr-12", "close": 290},
                 {"date": "7-Apr-12", "close": 368},
+                {"date": "6-Apr-12", "close": 308},
                 {"date": "5-Apr-12", "close": 150},
                 {"date": "4-Apr-12", "close": 264},
                 {"date": "3-Apr-12", "close": 120},
@@ -163,11 +167,13 @@ function init_charts() {
             "value": "9,483",
             "diff": "-9%",
             "data": [
-                {"date": "9-Apr-12", "close": 436},
-                {"date": "7-Apr-12", "close": 221},
+                {"date": "9-Apr-12", "close": 340},
+                {"date": "8-Apr-12", "close": 290},
+                {"date": "7-Apr-12", "close": 368},
+                {"date": "6-Apr-12", "close": 208},
                 {"date": "5-Apr-12", "close": 313},
                 {"date": "4-Apr-12", "close": 264},
-                {"date": "3-Apr-12", "close": 229},
+                {"date": "3-Apr-12", "close": 129},
                 {"date": "2-Apr-12", "close": 218}
             ]
         },
@@ -177,8 +183,10 @@ function init_charts() {
             "value": "109,330",
             "diff": "-1%",
             "data": [
-                {"date": "9-Apr-12", "close": 336},
-                {"date": "7-Apr-12", "close": 260},
+                {"date": "9-Apr-12", "close": 326},
+                {"date": "8-Apr-12", "close": 200},
+                {"date": "7-Apr-12", "close": 318},
+                {"date": "6-Apr-12", "close": 308},
                 {"date": "5-Apr-12", "close": 120},
                 {"date": "4-Apr-12", "close": 300},
                 {"date": "3-Apr-12", "close": 250},
@@ -191,8 +199,10 @@ function init_charts() {
             "value": "477",
             "diff": "+2",
             "data": [
-                {"date": "9-Apr-12", "close": 136},
-                {"date": "7-Apr-12", "close": 321},
+                {"date": "9-Apr-12", "close": 126},
+                {"date": "8-Apr-12", "close": 300},
+                {"date": "7-Apr-12", "close": 218},
+                {"date": "6-Apr-12", "close": 108},
                 {"date": "5-Apr-12", "close": 213},
                 {"date": "4-Apr-12", "close": 364},
                 {"date": "3-Apr-12", "close": 129},
@@ -480,7 +490,7 @@ function init_line_chart(el) {
 
 function init_area_family_chart(el, data_files, data_colors) {
 
-    el.empty();
+    el.find('svg').remove();
 
     var legendBlock = el.parents('.graph-unit').find('.legend_v2');
 
@@ -491,21 +501,32 @@ function init_area_family_chart(el, data_files, data_colors) {
 
     legendBlock.empty();
 
+    var dates = [], values = [];
+
+    for (var i = 0; i < data_files[0].data.length; i++) {
+        var obj = data_files[0].data[i];
+        dates.push(moment(obj.date));
+        values.push(obj.close);
+    }
+
     var tooltip = $('<table class="graph-tooltip-table" />');
 
-    var margin = {top: 0, right: 0, bottom: 0, left: 0},
+    var margin = {top: 20, right: 0, bottom: 0, left: 0},
         width = el.width() - margin.left - margin.right,
         height = el.height() - margin.top - margin.bottom;
 
     var bisectDate = d3.bisector(function (d) {
+            //console.log(d);
             return d.date;
         }).left,
         parseDate = d3.time.format("%d-%b-%y").parse;
 
     var area_x = d3.time.scale()
+        .domain([moment.min(dates), moment.max(dates)])
         .range([0, width]);
 
     var area_y = d3.scale.linear()
+        .domain([0, 1000 * Math.floor((Math.max.apply(null, values) / 1000) + 1)])
         .range([height, 0]);
 
     var area = d3.svg.area()
@@ -526,51 +547,56 @@ function init_area_family_chart(el, data_files, data_colors) {
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-        .on('mousemove', function () {
+        .on('mousemove', function (d) {
+            //console.log(d3.mouse(this));
+            var tooltip = d3.select("#tooltip"),
+                tooltip_content = $("#tooltip_content"),
+                tool_table = $('<table class="graph-tooltip-table" />'),
+                x = d3.mouse(this)[0],
+                x0 = area_x.invert(x),
+                ind,
+                y0 = area_y.invert(d3.mouse(this)[1])
 
-            var x0 = area_x.invert(d3.mouse(this)[0]),
-                i = bisectDate(data, x0, 1),
-                d0 = data[i - 1],
-                d1 = data[i]
-                //d = x0 - d0.date > d1.date - x0 ? d1 : d0
+            //d0 = data[i - 1],
+            //d1 = data[i]
+            //d = x0 - d0.date > d1.date - x0 ? d1 : d0
                 ;
             //focus.attr("transform", "translate(" + x(d.date) + "," + y(d.close) + ")");
             //focus.select("text").text(d.close);
 
-            console.log(
-                //area_x(d.date), area_y(d.close), d.close,
-                //d0, d1
-                data, i
-            );
+            for (var k = 0; k < dates.length; k++) {
+                var obj1 = dates[k];
 
+                if (moment(x0).startOf('day').isSame(obj1, 'day')) {
+                    ind = k;
+                    break;
+                }
+            }
 
-        })
-        .on("mousemove_", function (d, e) {
+            for (var j = 0; j < data_files.length; j++) {
+                var color = data_files[j].color, data = data_files[j].data;
 
-            var coordinates = [];
-            coordinates = d3.mouse(this);
-            var x = coordinates[0];
-            var y = coordinates[1];
+                var i = bisectDate(data, x0, 1);
 
-            console.log(x, y);
+                var tooltip_item = $('<tr class="tooltip_row" />').attr('data-graph', 'family_area_' + j)
+                    .addClass($('.graph-unit-legend .legend_item[data-graph=#family_area_' + j + ']').hasClass('disabled') ? 'disabled' : '')
+                    .append($('<td class="tooltip_name" />').append($('<div class="legend_name" />').css('color', color).append($('<span/>').text(data_files[j].name))))
+                    .append($('<td class="tooltip_val" />').append($('<b class="" />').text(data_files[j].data[ind].close)));
 
-            //Get this bar's x/y values, then augment for the tooltip
-            var xPosition = parseFloat(d3.select(this).attr("x"));
-            //var yPosition = parseFloat(d3.select(this).attr("y")) / 2 + h / 2;
+                tool_table.append(tooltip_item);
+            }
 
-            //Update the tooltip position and value
-            d3.select("#tooltip")
-                .style("left", x + "px")
-                //.style("top", yPosition + "px")
-            ;
+            tooltip_content.empty()
+                .append($('<div class="tooltip-title" />').text(moment(x0).format('D MMMM YYYY')))
+                .append(tool_table);
 
-            //Show the tooltip
-            //d3.select("#tooltip").classed("hidden", false);
+            tooltip
+                //.classed("hidden", false)
+                .classed('flipped_left', x < tooltip_content.outerWidth() + 25)
+                .style("left", x + "px");
 
-        })
-        .on("mouseout", function () {
-            //d3.select("#tooltip").classed("hidden", true);
-        });
+        }
+    );
 
     for (var i = 0; i < data_files.length; i++) {
         var data = data_files[i].data;
@@ -639,8 +665,6 @@ function init_area_family_chart(el, data_files, data_colors) {
             });
 
     }
-
-    el.append($('<div id="tooltip" class="graph-tooltip hidden_" />').append($('<div class="tooltip-title" />')).append(tooltip));
 
 }
 

@@ -318,7 +318,7 @@
   .graph-name {
     float: left;
     position: relative;
-    z-index: 1;
+    z-index: 3;
     color: #fff;
     letter-spacing: 0;
   }
@@ -326,7 +326,7 @@
   .graph-filters {
     float: right;
     position: relative;
-    z-index: 1;
+    z-index: 3;
   }
 
 }
@@ -413,6 +413,14 @@
   left: 0;
   right: 0;
   height: 180px;
+}
+
+.graph_3 {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
 }
 
 .legend_v1 {
@@ -593,7 +601,8 @@
 .d3graph {
 
   .gray_grid .tick {
-    opacity: 0.7;
+    stroke: #e5e5e5;
+    stroke-width: 1;
   }
 
   .gray_grid path {
@@ -651,75 +660,136 @@
   .mark {
     fill: #3e6cfe;
     stroke: #fff;
-    stroke-width: 2px;
-  }
+    stroke-width: 2;
 
-  .graph-tooltip {
-    top: 50%;
-    position: absolute;
-    z-index: 3;
-    background: #fff;
-    border-radius: 10px;
-    padding: 15px 20px 20px;
-    font-size: 15px;
-    line-height: 19px;
-    box-shadow: 0 2px 14px rgba(0, 0, 0, .21);
-    -webkit-transform: translate(0, -50%);
-    -ms-transform: translate(0, -50%);
-    transform: translate(0, -50%);
-    //opacity: 0;
+    &.vis_on_hover {
+      opacity: 0;
 
-    &:before {
-      content: '';
-      position: absolute;
-      top: 50%;
-      margin-top: -10px;
-      left: 100%;
-      border-top: 10px solid transparent;
-      border-left: 10px solid #fff;
-      border-bottom: 10px solid transparent;
-    }
-
-  }
-
-  .tooltip_row {
-
-    td {
-      padding-bottom: 1px;
-    }
-
-    .legend_name {
-      font-size: 16px;
-
-      &:after {
-        left: -15px;
+      &:hover {
+        opacity: 1;
       }
     }
+  }
 
-    &.disabled {
-      opacity: .5;
+  .mark_v2 {
+    position: relative;
+    z-index: 1;
+    fill: #fff;
+    stroke: #3e6cfe;
+    stroke-width: 2;
+
+    &.vis_on_hover {
+      opacity: 0;
+
+      &:hover {
+        opacity: 1;
+      }
     }
   }
 
-  .graph-tooltip-table {
-    border-collapse: collapse;
-    width: 100%;
+}
+
+.graph-tooltip-holder {
+  position: absolute;
+  z-index: 2;
+  top: -82px;
+  bottom: 0;
+  width: 4px;
+  background: rgba(0, 0, 0, .21);
+  display: none;
+  pointer-events: none;
+
+  .d3graph:hover & {
+    display: block;
+  }
+}
+
+.graph-tooltip {
+  top: 50%;
+  position: absolute;
+  right: 100%;
+  min-width: 185px;
+  margin-right: 15px;
+  z-index: 3;
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px 20px 20px;
+  font-size: 15px;
+  line-height: 19px;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, .21);
+  -webkit-transform: translate(0, -50%);
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  pointer-events: none;
+
+  //opacity: 0;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    margin-top: -10px;
+    left: 100%;
+    border-top: 10px solid transparent;
+    border-left: 10px solid #fff;
+    border-bottom: 10px solid transparent;
   }
 
-  .tooltip_name {
-    width: 75%;
+  .flipped_left & {
+    right: auto;
+    margin-right: 0;
+    margin-left: 15px;
+    left: 100%;
+
+    &:before {
+      left: auto;
+      right: 100%;
+      border-left: 0;
+      border-right: 10px solid #fff;
+    }
+  }
+}
+
+.tooltip_row {
+
+  td {
+    padding-bottom: 1px;
   }
 
-  .tooltip_val {
-    width: 25%;
-    color: #101010;
+  .legend_name {
+    font-size: 16px;
+
+    &:after {
+      left: -15px;
+    }
   }
 
-  .tooltip-title {
-    color: #101010;
-    margin-bottom: 10px;
+  &.disabled {
+    opacity: .5;
   }
+}
 
+.graph-tooltip-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.tooltip_name {
+  width: 75%;
+  padding-right: 5px;
+  padding-left: 10px;
+}
+
+.tooltip_val {
+  width: 25%;
+  color: #101010;
+}
+
+.tooltip-title {
+  color: #101010;
+  font-size: 16px;
+  font-weight: 800;
+  margin-bottom: 10px;
 }
 
 .graph-unit-info {
