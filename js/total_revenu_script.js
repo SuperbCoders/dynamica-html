@@ -88,7 +88,7 @@ $(function ($) {
             fit2Limits(datePckr, rangeEnd)
         ]).datepicker("update");
 
-    });
+    }).change();
 
 
 });
