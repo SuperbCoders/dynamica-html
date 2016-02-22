@@ -46,6 +46,9 @@ $(function ($) {
                 var dates = e.dates, curDate = moment(date),
                     rangeStart = moment(dates[0]), rangeEnd = moment(dates[1]);
 
+                if (dates.length == 1) {
+                    if (curDate.isSame(rangeStart, 'day')) return "start-range";
+                }
                 if (dates.length == 2) {
 
                     if (rangeStart.isAfter(rangeEnd, 'day')) {
@@ -71,6 +74,9 @@ $(function ($) {
         })
         .delegate('.bootstrap-select.filterSelect', 'click', function () {
             $(this).closest('.hover-select-box').addClass('opened');
+        })
+        .delegate('.filter-mod.hover-select-box .filterSelect.selectpicker', 'change', function () {
+            $(this).closest('.filter-holder').addClass('current').siblings().removeClass('current');
         });
 
     $('.graphFilterDate').on('change', function () {
@@ -554,8 +560,7 @@ function init_area_family_chart(el, data_files, data_colors) {
                 tool_table = $('<table class="graph-tooltip-table" />'),
                 x = d3.mouse(this)[0],
                 x0 = area_x.invert(x),
-                ind,
-                y0 = area_y.invert(d3.mouse(this)[1])
+                ind
 
             //d0 = data[i - 1],
             //d1 = data[i]

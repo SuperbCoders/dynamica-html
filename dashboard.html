@@ -28,7 +28,7 @@
           <div class="navbar-header">
             <button type="button" data-toggle="collapse" data-target=".bs-navbar-collapse" class="navbar-toggle collapsed"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
             <div class="navbar-project-switch"><a href="#" class="navbar-brand">Dynamica</a><span> of </span>
-              <div class="hover-select-box">
+              <div class="hover-select-box front-select-btn">
                 <select class="selectpicker">
                   <option value="Bling-Blings">Bling-Blings</option>
                   <option value="Apple Store">Apple Store</option>
@@ -71,12 +71,11 @@
             <div class="row">
               <div class="col-sm-12">
                 <ul class="dashboard-panel">
-                  <li><a href="#" class="dashboard-panel-link current">Overview</a></li>
-                  <li> 
+                  <li class="current"><a href="#" class="dashboard-panel-link">Overview</a></li>
+                  <li class="filter-holder">
                     <div class="hover-select-box filter-mod">
                       <select class="selectpicker filterSelect">
-                        <!--option(value=-1 data-hidden="true")-->
-                        <option value="Finance">Finance</option>
+                        <option value="-1" data-hidden="true"></option>
                         <option value="Gross Revenue">Gross Revenue</option>
                         <option value="Avg. order">Avg. order  </option>
                         <option value="Avg. revenue per customer">Avg. revenue per customer</option>
@@ -84,13 +83,12 @@
                         <option value="Avg. Customer Lifetime Value">Avg. Customer Lifetime Value</option>
                         <option value="Shipping cost as a percentage of total revenue">Shipping cost as a percentage of total revenue</option>
                       </select>
-                    </div>
+                    </div><a href="#" class="dashboard-panel-link">Finance</a>
                   </li>
-                  <li> 
+                  <li class="filter-holder">
                     <div class="hover-select-box filter-mod">
                       <select class="selectpicker filterSelect">
-                        <!--option(value=-1 data-hidden="true")-->
-                        <option value="Customers">Customers</option>
+                        <option value="-1" data-hidden="true"></option>
                         <option value="Gross Revenue">Gross Revenue</option>
                         <option value="Avg. order">Avg. order  </option>
                         <option value="Avg. revenue per customer">Avg. revenue per customer</option>
@@ -98,13 +96,12 @@
                         <option value="Avg. Customer Lifetime Value">Avg. Customer Lifetime Value</option>
                         <option value="Shipping cost as a percentage of total revenue">Shipping cost as a percentage of total revenue</option>
                       </select>
-                    </div>
+                    </div><a href="#" class="dashboard-panel-link">Customers</a>
                   </li>
-                  <li> 
+                  <li class="filter-holder">
                     <div class="hover-select-box filter-mod">
                       <select class="selectpicker filterSelect">
-                        <!--option(value=-1 data-hidden="true")-->
-                        <option value="Products">Products</option>
+                        <option value="-1" data-hidden="true"></option>
                         <option value="Gross Revenue">Gross Revenue</option>
                         <option value="Avg. order">Avg. order  </option>
                         <option value="Avg. revenue per customer">Avg. revenue per customer</option>
@@ -112,7 +109,7 @@
                         <option value="Avg. Customer Lifetime Value">Avg. Customer Lifetime Value</option>
                         <option value="Shipping cost as a percentage of total revenue">Shipping cost as a percentage of total revenue</option>
                       </select>
-                    </div>
+                    </div><a href="#" class="dashboard-panel-link">Products</a>
                   </li>
                 </ul>
               </div>
