@@ -1,6 +1,11 @@
-var resizeHndl;
+var resizeHndl, scrollBottomFixed, scrollParent, wnd, doc;
 
 $(function ($) {
+
+    wnd = $(window);
+    doc = $(document);
+    scrollParent = $('.scrollParent');
+    scrollBottomFixed = $('.scrollBottomFixed');
 
     $('.datePicker').each(function () {
         var datePckr = $(this);
@@ -328,7 +333,7 @@ function init_line_area3_chart(el) {
         .attr("y2", function (d) {
             return y(d.close);
         });
-    
+
     svg.selectAll("dot")
         .data(data)
         .enter().append("circle")
@@ -357,7 +362,7 @@ function init_line_area3_chart(el) {
             $('.' + firedEl.attr('data-line')).hide();
 
         });
-    
+
 }
 
 $(window).resize(function () {
@@ -371,5 +376,19 @@ $(window).resize(function () {
 }).load(function () {
 
     init_charts();
+
+}).scroll(function () {
+    
+    if (scrollParent.offset().top - doc.scrollTop() + scrollBottomFixed.height() + scrollBottomFixed.css('marginTop').replace('px', '') * 1 <= wnd.height()) {
+        scrollBottomFixed.addClass('table-footer-fixed').removeClass('table-footer-bottom');
+    }
+
+    if (scrollParent.offset().top - doc.scrollTop() > wnd.height() - scrollBottomFixed.height() * 2) {
+        scrollBottomFixed.removeClass('table-footer-fixed').removeClass('table-footer-bottom');
+    }
+
+    if (doc.scrollTop() + wnd.height() - scrollBottomFixed.height() >= scrollParent.offset().top + scrollParent.height()) {
+        scrollBottomFixed.removeClass('table-footer-fixed').addClass('table-footer-bottom');
+    }
 
 });

@@ -118,20 +118,20 @@ html(lang='ru')
                 .graph-block.areaChartTotal_1.d3graph.hide_y_axis.hide_x_axis
 
             .graph-unit-info
-              .graph-unit-info-table
+              .graph-unit-info-table.scrollParent
                 .table-header
                   .table-cell.col_1 Date
                   .table-cell.col_2 Orders
                   .table-cell.col_3 Product sold
-                  .table-cell.col_4 Day Revenue
-                +loop_while(7)
+                  .table-cell.col_4 Day Revenue 
+                .table-footer.scrollBottomFixed
+                  .table-cell.col_1 Total
+                  .table-cell.col_2 448
+                  .table-cell.col_3 31
+                  .table-cell.col_4 5,876$
+                +loop_while(9)
                   .table-row
                     .table-cell.col_1 21 feb, 2016
                     .table-cell.col_2 3
                     .table-cell.col_3 9
                     .table-cell.col_4 130$
-                .table-footer
-                  .table-cell.col_1 Total
-                  .table-cell.col_2 448
-                  .table-cell.col_3 31
-                  .table-cell.col_4 5,876$
