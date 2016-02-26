@@ -1,4 +1,4 @@
-var resizeHndl;
+var resizeHndl, calendarNeedRefresh = false;
 
 $(function ($) {
 
@@ -46,9 +46,14 @@ $(function ($) {
                 var dates = e.dates, curDate = moment(date),
                     rangeStart = moment(dates[0]), rangeEnd = moment(dates[1]);
 
+                if (rangeStart.isAfter(rangeEnd)) {
+                    calendarNeedRefresh = true;
+                }
+                
                 if (dates.length == 1) {
                     if (curDate.isSame(rangeStart, 'day')) return "start-range";
                 }
+                
                 if (dates.length == 2) {
 
                     if (rangeStart.isAfter(rangeEnd, 'day')) {
@@ -61,7 +66,10 @@ $(function ($) {
                 }
             }
         }).on('show', function (e) {
-
+            if (calendarNeedRefresh) {
+                $(this).datepicker("setDates", [e.dates[1], e.dates[0]]).datepicker("update");
+                calendarNeedRefresh = false;
+            }
         }).on('changeDate', function (e, w) {
 
 

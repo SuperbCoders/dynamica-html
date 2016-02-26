@@ -1,4 +1,4 @@
-var resizeHndl, scrollBottomFixed, scrollParent, wnd, doc;
+var resizeHndl, scrollBottomFixed, scrollParent, wnd, doc, calendarNeedRefresh = false;
 
 $(function ($) {
 
@@ -25,6 +25,14 @@ $(function ($) {
                 var dates = e.dates, curDate = moment(date),
                     rangeStart = moment(dates[0]), rangeEnd = moment(dates[1]);
 
+                if (rangeStart.isAfter(rangeEnd)) {
+                    calendarNeedRefresh = true;
+                }
+
+                if (dates.length == 1) {
+                    if (curDate.isSame(rangeStart, 'day')) return "start-range";
+                }
+
                 if (dates.length == 2) {
 
                     if (rangeStart.isAfter(rangeEnd, 'day')) {
@@ -36,8 +44,11 @@ $(function ($) {
                     if (curDate.isBetween(rangeStart, rangeEnd)) return "in-range";
                 }
             }
-        }).on('show', function (e) {
-
+        }).on('show', function (e) {            
+            if (calendarNeedRefresh) {
+                $(this).datepicker("setDates", [e.dates[1], e.dates[0]]).datepicker("update");
+                calendarNeedRefresh = false;
+            }
         }).on('changeDate', function (e, w) {
 
 
@@ -60,7 +71,7 @@ $(function ($) {
             sortBtn = firedEl.closest('.sortBlock').find('.sortBtn');
 
         if (sortBtn.hasClass('sorting')) return;
-        
+
         if ($(e.target).hasClass('sortBtn')) {
             $(e.target).toggleClass('sort_desc');
         } else {

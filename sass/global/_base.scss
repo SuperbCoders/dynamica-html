@@ -6,6 +6,13 @@ html {
 	overflow-y: scroll;
 }
 
+.fa::before,
+a {
+	-webkit-transition: color .3s, background-color .3s;
+	-ms-transition: color .3s, background-color .3s;
+	transition: color .3s, background-color .3s;
+}
+
 .page {
 	min-width: 320px;
 	min-height: 100%;
