@@ -50,7 +50,36 @@ $(function ($) {
         })
         .delegate('.bootstrap-select.filterSelect', 'click', function () {
             $(this).closest('.hover-select-box').addClass('opened');
+        })
+        .delegate('.filter-mod.hover-select-box .filterSelect.selectpicker', 'change', function () {
+            $(this).closest('.filter-holder').addClass('current').siblings().removeClass('current');
         });
+
+    $('.sortHeader').on('click', function (e) {
+        var firedEl = $(this),
+            sortBtn = firedEl.closest('.sortBlock').find('.sortBtn');
+
+        if (sortBtn.hasClass('sorting')) return;
+        
+        if ($(e.target).hasClass('sortBtn')) {
+            $(e.target).toggleClass('sort_desc');
+        } else {
+
+            if (firedEl.find('.sortBtn').length) {
+                firedEl.find('.sortBtn').toggleClass('sort_desc');
+                return false;
+
+            } else {
+                sortBtn.one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend', function () {
+                    firedEl.find('.sortCatcher').append($(this).removeClass('sorting').attr('style', ''));
+                });
+
+                sortBtn.addClass('sorting').css('left', firedEl.find('.sortCatcher').offset().left - sortBtn.offset().left + sortBtn.css('marginLeft').replace('px', '') * 1);
+            }
+        }
+
+    });
+
 
     $('.graphFilterDate').on('change', function () {
         var firedEl = $(this),
@@ -92,6 +121,16 @@ $(function ($) {
 
 
 });
+
+function animEndFunc(catcher) {
+    console.log(catcher.find('.sortCatcher'));
+    catcher.append($(this).removeClass('sorting').attr('style', ''));
+}
+
+function PrefixedEvent(element, type, callback) {
+
+
+}
 
 function fit2Limits(pckr, date, max) {
     var start = moment(pckr.datepicker('getStartDate')),
@@ -378,7 +417,7 @@ $(window).resize(function () {
     init_charts();
 
 }).scroll(function () {
-    
+
     if (scrollParent.offset().top - doc.scrollTop() + scrollBottomFixed.height() + scrollBottomFixed.css('marginTop').replace('px', '') * 1 <= wnd.height()) {
         scrollBottomFixed.addClass('table-footer-fixed').removeClass('table-footer-bottom');
     }

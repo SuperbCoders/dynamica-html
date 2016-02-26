@@ -77,7 +77,18 @@ $(function ($) {
         })
         .delegate('.filter-mod.hover-select-box .filterSelect.selectpicker', 'change', function () {
             $(this).closest('.filter-holder').addClass('current').siblings().removeClass('current');
+        })
+        .delegate('.hoverCatcher', 'mouseenter', function () {
+            var firedEl = $($(this).attr('data-area'));
+
+            firedEl.css('opacity', 1).siblings('.area').css('opacity', .15);
+        })
+        .delegate('.hoverCatcher', 'mouseleave', function () {
+            var firedEl = $($(this).attr('data-area'));
+
+            firedEl.css('opacity', .5).siblings('.area').css('opacity', .5);
         });
+    
 
     $('.graphFilterDate').on('change', function () {
         var firedEl = $(this),
@@ -137,7 +148,7 @@ function init_charts() {
     var big_chart = [
         {
             "name": "Revenue",
-            "color": "#86f3b7",
+            "color": "#6AFFCB", // green
             "value": "35,489$",
             "diff": "+8%",
             "data": [
@@ -153,7 +164,7 @@ function init_charts() {
         },
         {
             "name": "Orders",
-            "color": "#4C89FF",
+            "color": "#FF1FA7", // violet
             "value": "490",
             "diff": "-9%",
             "data": [
@@ -169,7 +180,7 @@ function init_charts() {
         },
         {
             "name": "Products sell",
-            "color": "#FF8E64",
+            "color": "#FF7045",  // orange
             "value": "9,483",
             "diff": "-9%",
             "data": [
@@ -185,7 +196,7 @@ function init_charts() {
         },
         {
             "name": "Unic users",
-            "color": "#6CDFFF",
+            "color": "#3BD7FF", // light blue
             "value": "109,330",
             "diff": "-1%",
             "data": [
@@ -201,7 +212,7 @@ function init_charts() {
         },
         {
             "name": "Customers",
-            "color": "#FFE164",
+            "color": "#FFD865", // yellow
             "value": "477",
             "diff": "+2",
             "data": [
@@ -517,7 +528,7 @@ function init_area_family_chart(el, data_files, data_colors) {
 
     var tooltip = $('<table class="graph-tooltip-table" />');
 
-    var margin = {top: 20, right: 0, bottom: 0, left: 0},
+    var margin = {top: 0, right: 0, bottom: 0, left: 0},
         width = el.width() - margin.left - margin.right,
         height = el.height() - margin.top - margin.bottom;
 
@@ -592,7 +603,7 @@ function init_area_family_chart(el, data_files, data_colors) {
             }
 
             tooltip_content.empty()
-                .append($('<div class="tooltip-title" />').text(moment(x0).format('D MMMM YYYY')))
+                .append($('<div class="tooltip-title" />').text(moment(x0).format('dddd, D MMMM YYYY')))
                 .append(tool_table);
 
             tooltip
@@ -662,13 +673,22 @@ function init_area_family_chart(el, data_files, data_colors) {
 
                 return color;
             })
-            .style("opacity", .6)
+            .style("opacity", .5)
             .on('mouseenter', function () {
-                var firedEl = $(this);
 
-                return false;
             });
+    }
 
+    for (var i = 0; i < data_files.length; i++) {
+
+        svg.append("rect")
+            .attr("class", 'graph-hover-catcher hoverCatcher')
+            .attr("data-area", '#family_area_' + i)
+            .attr("x", 0)
+            .style("opacity", 0)
+            .attr("y", i * (100 / data_files.length) + '%')
+            .attr("width", '100%')
+            .attr("height", (100 / data_files.length) + '%');
     }
 
 }

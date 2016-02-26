@@ -29,3 +29,43 @@ mixin loop_while(counter)
     while i < counter
         -i++;
         block
+
+mixin dashboard_panel()
+    ul.dashboard-panel
+        li.current: a.dashboard-panel-link(href='#') Overview
+        li.filter-holder
+            .hover-select-box.filter-mod
+                select.selectpicker.filterSelect
+                    option(value=-1 data-hidden="true")
+                    option(value='Gross Revenue') Gross Revenue
+                    option(value='Avg. order') Avg. order  
+                    option(value='Avg. revenue per customer') Avg. revenue per customer
+                    option(value='Sales per visitor') Sales per visitor 
+                    option(value='Avg. Customer Lifetime Value') Avg. Customer Lifetime Value
+                    option(value='Shipping cost as a percentage of total revenue') Shipping cost as a percentage of total revenue
+            a.dashboard-panel-link(href='#') Finance
+
+        li.filter-holder
+            .hover-select-box.filter-mod
+                select.selectpicker.filterSelect
+                    option(value=-1 data-hidden="true")
+                    option(value='Gross Revenue') Gross Revenue
+                    option(value='Avg. order') Avg. order  
+                    option(value='Avg. revenue per customer') Avg. revenue per customer
+                    option(value='Sales per visitor') Sales per visitor 
+                    option(value='Avg. Customer Lifetime Value') Avg. Customer Lifetime Value
+                    option(value='Shipping cost as a percentage of total revenue') Shipping cost as a percentage of total revenue
+            a.dashboard-panel-link(href='#') Customers
+
+        li.filter-holder
+            .hover-select-box.filter-mod
+                select.selectpicker.filterSelect
+                    option(value=-1 data-hidden="true")
+                    option(value='Gross Revenue') Gross Revenue
+                    option(value='Avg. order') Avg. order  
+                    option(value='Avg. revenue per customer') Avg. revenue per customer
+                    option(value='Sales per visitor') Sales per visitor 
+                    option(value='Avg. Customer Lifetime Value') Avg. Customer Lifetime Value
+                    option(value='Shipping cost as a percentage of total revenue') Shipping cost as a percentage of total revenue
+            a.dashboard-panel-link(href='#') Products
+            

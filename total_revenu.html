@@ -66,12 +66,11 @@
             <div class="row">
               <div class="col-sm-12">
                 <ul class="dashboard-panel">
-                  <li><a href="#" class="dashboard-panel-link current">Overview</a></li>
-                  <li> 
+                  <li class="current"><a href="#" class="dashboard-panel-link">Overview</a></li>
+                  <li class="filter-holder">
                     <div class="hover-select-box filter-mod">
                       <select class="selectpicker filterSelect">
-                        <!--option(value=-1 data-hidden="true")-->
-                        <option value="Finance">Finance</option>
+                        <option value="-1" data-hidden="true"></option>
                         <option value="Gross Revenue">Gross Revenue</option>
                         <option value="Avg. order">Avg. order  </option>
                         <option value="Avg. revenue per customer">Avg. revenue per customer</option>
@@ -79,13 +78,12 @@
                         <option value="Avg. Customer Lifetime Value">Avg. Customer Lifetime Value</option>
                         <option value="Shipping cost as a percentage of total revenue">Shipping cost as a percentage of total revenue</option>
                       </select>
-                    </div>
+                    </div><a href="#" class="dashboard-panel-link">Finance</a>
                   </li>
-                  <li> 
+                  <li class="filter-holder">
                     <div class="hover-select-box filter-mod">
                       <select class="selectpicker filterSelect">
-                        <!--option(value=-1 data-hidden="true")-->
-                        <option value="Customers">Customers</option>
+                        <option value="-1" data-hidden="true"></option>
                         <option value="Gross Revenue">Gross Revenue</option>
                         <option value="Avg. order">Avg. order  </option>
                         <option value="Avg. revenue per customer">Avg. revenue per customer</option>
@@ -93,13 +91,12 @@
                         <option value="Avg. Customer Lifetime Value">Avg. Customer Lifetime Value</option>
                         <option value="Shipping cost as a percentage of total revenue">Shipping cost as a percentage of total revenue</option>
                       </select>
-                    </div>
+                    </div><a href="#" class="dashboard-panel-link">Customers</a>
                   </li>
-                  <li> 
+                  <li class="filter-holder">
                     <div class="hover-select-box filter-mod">
                       <select class="selectpicker filterSelect">
-                        <!--option(value=-1 data-hidden="true")-->
-                        <option value="Products">Products</option>
+                        <option value="-1" data-hidden="true"></option>
                         <option value="Gross Revenue">Gross Revenue</option>
                         <option value="Avg. order">Avg. order  </option>
                         <option value="Avg. revenue per customer">Avg. revenue per customer</option>
@@ -107,7 +104,7 @@
                         <option value="Avg. Customer Lifetime Value">Avg. Customer Lifetime Value</option>
                         <option value="Shipping cost as a percentage of total revenue">Shipping cost as a percentage of total revenue</option>
                       </select>
-                    </div>
+                    </div><a href="#" class="dashboard-panel-link">Products</a>
                   </li>
                 </ul>
               </div>
@@ -135,79 +132,81 @@
                 </div>
               </div>
             </div>
-            <div class="graph-unit">
-              <div class="graph-value"><span class="val">42,489$</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
-              <div class="graph-unit-large-v2">
-                <div class="graph-block areaChartTotal_1 d3graph hide_y_axis hide_x_axis"></div>
+            <div class="graph-unit-holder">
+              <div class="graph-unit">
+                <div class="graph-value"><span class="val">42,489$</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
+                <div class="graph-unit-large-v2">
+                  <div class="graph-block areaChartTotal_1 d3graph hide_y_axis hide_x_axis"></div>
+                </div>
               </div>
-            </div>
-            <div class="graph-unit-info">
-              <div class="graph-unit-info-table scrollParent">
-                <div class="table-header">
-                  <div class="table-cell col_1">Date</div>
-                  <div class="table-cell col_2">Orders</div>
-                  <div class="table-cell col_3">Product sold</div>
-                  <div class="table-cell col_4">Day Revenue </div>
-                </div>
-                <div class="table-footer scrollBottomFixed">
-                  <div class="table-cell col_1">Total</div>
-                  <div class="table-cell col_2">448</div>
-                  <div class="table-cell col_3">31</div>
-                  <div class="table-cell col_4">5,876$</div>
-                </div>
-                <div class="table-row">
-                  <div class="table-cell col_1">21 feb, 2016</div>
-                  <div class="table-cell col_2">3</div>
-                  <div class="table-cell col_3">9</div>
-                  <div class="table-cell col_4">130$</div>
-                </div>
-                <div class="table-row">
-                  <div class="table-cell col_1">21 feb, 2016</div>
-                  <div class="table-cell col_2">3</div>
-                  <div class="table-cell col_3">9</div>
-                  <div class="table-cell col_4">130$</div>
-                </div>
-                <div class="table-row">
-                  <div class="table-cell col_1">21 feb, 2016</div>
-                  <div class="table-cell col_2">3</div>
-                  <div class="table-cell col_3">9</div>
-                  <div class="table-cell col_4">130$</div>
-                </div>
-                <div class="table-row">
-                  <div class="table-cell col_1">21 feb, 2016</div>
-                  <div class="table-cell col_2">3</div>
-                  <div class="table-cell col_3">9</div>
-                  <div class="table-cell col_4">130$</div>
-                </div>
-                <div class="table-row">
-                  <div class="table-cell col_1">21 feb, 2016</div>
-                  <div class="table-cell col_2">3</div>
-                  <div class="table-cell col_3">9</div>
-                  <div class="table-cell col_4">130$</div>
-                </div>
-                <div class="table-row">
-                  <div class="table-cell col_1">21 feb, 2016</div>
-                  <div class="table-cell col_2">3</div>
-                  <div class="table-cell col_3">9</div>
-                  <div class="table-cell col_4">130$</div>
-                </div>
-                <div class="table-row">
-                  <div class="table-cell col_1">21 feb, 2016</div>
-                  <div class="table-cell col_2">3</div>
-                  <div class="table-cell col_3">9</div>
-                  <div class="table-cell col_4">130$</div>
-                </div>
-                <div class="table-row">
-                  <div class="table-cell col_1">21 feb, 2016</div>
-                  <div class="table-cell col_2">3</div>
-                  <div class="table-cell col_3">9</div>
-                  <div class="table-cell col_4">130$</div>
-                </div>
-                <div class="table-row">
-                  <div class="table-cell col_1">21 feb, 2016</div>
-                  <div class="table-cell col_2">3</div>
-                  <div class="table-cell col_3">9</div>
-                  <div class="table-cell col_4">130$</div>
+              <div class="graph-unit-info">
+                <div class="graph-unit-info-table scrollParent">
+                  <div class="table-header sortBlock">
+                    <div class="table-cell col_1 sortHeader"><span>Date</span><span class="sort_catcher sortCatcher"><span class="sort_btn sortBtn"></span></span></div>
+                    <div class="table-cell col_2 sortHeader"><span>Orders</span><span class="sort_catcher sortCatcher"></span></div>
+                    <div class="table-cell col_3 sortHeader"><span>Product sold</span><span class="sort_catcher sortCatcher"></span></div>
+                    <div class="table-cell col_4 sortHeader"><span class="sort_catcher sortCatcher invertCatcher"></span><span>Day Revenue</span></div>
+                  </div>
+                  <div class="table-footer scrollBottomFixed">
+                    <div class="table-cell col_1">Total</div>
+                    <div class="table-cell col_2">448</div>
+                    <div class="table-cell col_3">31</div>
+                    <div class="table-cell col_4">5,876$</div>
+                  </div>
+                  <div class="table-row">
+                    <div class="table-cell col_1">21 feb, 2016</div>
+                    <div class="table-cell col_2">3</div>
+                    <div class="table-cell col_3">9</div>
+                    <div class="table-cell col_4">130$</div>
+                  </div>
+                  <div class="table-row">
+                    <div class="table-cell col_1">21 feb, 2016</div>
+                    <div class="table-cell col_2">3</div>
+                    <div class="table-cell col_3">9</div>
+                    <div class="table-cell col_4">130$</div>
+                  </div>
+                  <div class="table-row">
+                    <div class="table-cell col_1">21 feb, 2016</div>
+                    <div class="table-cell col_2">3</div>
+                    <div class="table-cell col_3">9</div>
+                    <div class="table-cell col_4">130$</div>
+                  </div>
+                  <div class="table-row">
+                    <div class="table-cell col_1">21 feb, 2016</div>
+                    <div class="table-cell col_2">3</div>
+                    <div class="table-cell col_3">9</div>
+                    <div class="table-cell col_4">130$</div>
+                  </div>
+                  <div class="table-row">
+                    <div class="table-cell col_1">21 feb, 2016</div>
+                    <div class="table-cell col_2">3</div>
+                    <div class="table-cell col_3">9</div>
+                    <div class="table-cell col_4">130$</div>
+                  </div>
+                  <div class="table-row">
+                    <div class="table-cell col_1">21 feb, 2016</div>
+                    <div class="table-cell col_2">3</div>
+                    <div class="table-cell col_3">9</div>
+                    <div class="table-cell col_4">130$</div>
+                  </div>
+                  <div class="table-row">
+                    <div class="table-cell col_1">21 feb, 2016</div>
+                    <div class="table-cell col_2">3</div>
+                    <div class="table-cell col_3">9</div>
+                    <div class="table-cell col_4">130$</div>
+                  </div>
+                  <div class="table-row">
+                    <div class="table-cell col_1">21 feb, 2016</div>
+                    <div class="table-cell col_2">3</div>
+                    <div class="table-cell col_3">9</div>
+                    <div class="table-cell col_4">130$</div>
+                  </div>
+                  <div class="table-row">
+                    <div class="table-cell col_1">21 feb, 2016</div>
+                    <div class="table-cell col_2">3</div>
+                    <div class="table-cell col_3">9</div>
+                    <div class="table-cell col_4">130$</div>
+                  </div>
                 </div>
               </div>
             </div>

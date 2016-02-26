@@ -54,44 +54,7 @@ html(lang='ru')
           section.dashboard.projects-dashboard
             .row
               .col-sm-12
-                ul.dashboard-panel
-                  li: a.dashboard-panel-link.current(href='#') Overview
-                  li 
-                    .hover-select-box.filter-mod
-                      select.selectpicker.filterSelect
-                        //option(value=-1 data-hidden="true")
-                        option(value='Finance') Finance
-                        option(value='Gross Revenue') Gross Revenue
-                        option(value='Avg. order') Avg. order  
-                        option(value='Avg. revenue per customer') Avg. revenue per customer
-                        option(value='Sales per visitor') Sales per visitor 
-                        option(value='Avg. Customer Lifetime Value') Avg. Customer Lifetime Value
-                        option(value='Shipping cost as a percentage of total revenue') Shipping cost as a percentage of total revenue
-                      
-                  li 
-                    .hover-select-box.filter-mod
-                      select.selectpicker.filterSelect
-                        //option(value=-1 data-hidden="true")
-                        option(value='Customers') Customers
-                        option(value='Gross Revenue') Gross Revenue
-                        option(value='Avg. order') Avg. order  
-                        option(value='Avg. revenue per customer') Avg. revenue per customer
-                        option(value='Sales per visitor') Sales per visitor 
-                        option(value='Avg. Customer Lifetime Value') Avg. Customer Lifetime Value
-                        option(value='Shipping cost as a percentage of total revenue') Shipping cost as a percentage of total revenue
-                      
-                  li 
-                    .hover-select-box.filter-mod
-                      select.selectpicker.filterSelect
-                        //option(value=-1 data-hidden="true")
-                        option(value='Products') Products
-                        option(value='Gross Revenue') Gross Revenue
-                        option(value='Avg. order') Avg. order  
-                        option(value='Avg. revenue per customer') Avg. revenue per customer
-                        option(value='Sales per visitor') Sales per visitor 
-                        option(value='Avg. Customer Lifetime Value') Avg. Customer Lifetime Value
-                        option(value='Shipping cost as a percentage of total revenue') Shipping cost as a percentage of total revenue
-                      
+                +dashboard_panel()
                       
             .row.dashboard-title-row
               .col-sm-6: h2 Monthly Total Revenue
@@ -110,28 +73,38 @@ html(lang='ru')
                       option(value=4) Last year 
                       option(value=5) All time 
                  
-            .graph-unit
-              .graph-value
-                span.val 42,489$
-                sup.graph-dynamica.dynamica_up +8%
-              .graph-unit-large-v2
-                .graph-block.areaChartTotal_1.d3graph.hide_y_axis.hide_x_axis
-
-            .graph-unit-info
-              .graph-unit-info-table.scrollParent
-                .table-header
-                  .table-cell.col_1 Date
-                  .table-cell.col_2 Orders
-                  .table-cell.col_3 Product sold
-                  .table-cell.col_4 Day Revenue 
-                .table-footer.scrollBottomFixed
-                  .table-cell.col_1 Total
-                  .table-cell.col_2 448
-                  .table-cell.col_3 31
-                  .table-cell.col_4 5,876$
-                +loop_while(9)
-                  .table-row
-                    .table-cell.col_1 21 feb, 2016
-                    .table-cell.col_2 3
-                    .table-cell.col_3 9
-                    .table-cell.col_4 130$
+            .graph-unit-holder
+              .graph-unit
+                .graph-value
+                  span.val 42,489$
+                  sup.graph-dynamica.dynamica_up +8%
+                .graph-unit-large-v2
+                  .graph-block.areaChartTotal_1.d3graph.hide_y_axis.hide_x_axis
+  
+              .graph-unit-info
+                .graph-unit-info-table.scrollParent
+                  .table-header.sortBlock
+                    .table-cell.col_1.sortHeader
+                      span Date
+                      span.sort_catcher.sortCatcher
+                        span.sort_btn.sortBtn
+                    .table-cell.col_2.sortHeader
+                      span Orders
+                      span.sort_catcher.sortCatcher
+                    .table-cell.col_3.sortHeader
+                      span Product sold
+                      span.sort_catcher.sortCatcher
+                    .table-cell.col_4.sortHeader
+                      span.sort_catcher.sortCatcher.invertCatcher
+                      span Day Revenue
+                  .table-footer.scrollBottomFixed
+                    .table-cell.col_1 Total
+                    .table-cell.col_2 448
+                    .table-cell.col_3 31
+                    .table-cell.col_4 5,876$
+                  +loop_while(9)
+                    .table-row
+                      .table-cell.col_1 21 feb, 2016
+                      .table-cell.col_2 3
+                      .table-cell.col_3 9
+                      .table-cell.col_4 130$
