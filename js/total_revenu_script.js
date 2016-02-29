@@ -1,4 +1,4 @@
-var resizeHndl, scrollBottomFixed, scrollParent, wnd, doc, calendarNeedRefresh = false;
+var resizeHndl, scrollBottomFixed, scrollParent, wnd, doc, calendarNeedRefresh = false, prevTracingDot;
 
 $(function ($) {
 
@@ -44,7 +44,7 @@ $(function ($) {
                     if (curDate.isBetween(rangeStart, rangeEnd)) return "in-range";
                 }
             }
-        }).on('show', function (e) {            
+        }).on('show', function (e) {
             if (calendarNeedRefresh) {
                 $(this).datepicker("setDates", [e.dates[1], e.dates[0]]).datepicker("update");
                 calendarNeedRefresh = false;
@@ -165,11 +165,23 @@ function init_charts() {
 
 function init_line_area3_chart(el) {
 
-    el.empty();
+    el.find('svg').remove();
 
     var data = [
+        {"date": "19-Apr-12", "close": 4236},
+        {"date": "18-Apr-12", "close": 3221},
+        {"date": "17-Apr-12", "close": 2221},
+        {"date": "16-Apr-12", "close": 2313},
+        {"date": "15-Apr-12", "close": 1313},
+        {"date": "14-Apr-12", "close": 3264},
+        {"date": "13-Apr-12", "close": 2229},
+        {"date": "12-Apr-12", "close": 3818},
+        {"date": "11-Apr-12", "close": 2229},
+        {"date": "10-Apr-12", "close": 3818},
         {"date": "9-Apr-12", "close": 4236},
+        {"date": "8-Apr-12", "close": 1236},
         {"date": "7-Apr-12", "close": 2221},
+        {"date": "6-Apr-12", "close": 3313},
         {"date": "5-Apr-12", "close": 1313},
         {"date": "4-Apr-12", "close": 3264},
         {"date": "3-Apr-12", "close": 2229},
@@ -192,7 +204,14 @@ function init_line_area3_chart(el) {
         width = el.width() - margin.left - margin.right,
         height = el.height() - margin.top - margin.bottom;
 
-    var parseDate = d3.time.format("%d-%b-%y").parse;
+    var tooltip = $('#tooltip'),
+        tooltip_content = $('#tooltip_content');
+
+    var bisectDate = d3.bisector(function (d) {
+            //console.log(d);
+            return d.date;
+        }).left,
+        parseDate = d3.time.format("%d-%b-%y").parse;
 
     var commasFormatter = d3.format(",.0f");
 
@@ -356,63 +375,139 @@ function init_line_area3_chart(el) {
         .attr("d", area)
         .style("fill", 'url(#area_gradient_1)');
 
-
     // Add the scatterplot
 
-
-    svg.selectAll("dot")
-        .data(data)
-        .enter().append("line")
-        .attr("class", function (d, i) {
-            var cls = '';
-
-            if (i == 0 || (i == data.length - 1)) cls = ' hidden';
-
-            return 'line_for_dot_' + i + cls;
-        })
+    svg.append("line")
+        .attr("id", 'line_for_dot')
+        .attr("class", 'line_for_dot')
         .style("stroke", "#D0E3EE")
         .style("stroke-width", "2")
-        .style("display", 'none')
-        .attr("x1", function (d) {
-            return x(d.date);
-        })
-        .attr("x2", function (d) {
-            return x(d.date);
-        })
+        .attr("x1", 0)
+        .attr("x2", 0)
         .attr("y1", height)
-        .attr("y2", function (d) {
-            return y(d.close);
-        });
+        .attr("y2", 0);
+
+    var line_for_dot = d3.select('#line_for_dot');
 
     svg.selectAll("dot")
         .data(data)
         .enter().append("circle")
-        .attr("r", 5.5)
-        .attr("data-line", function (d, i) {
-            return 'line_for_dot_' + i;
+        .attr("r", 0)
+        .attr("data-y-value", function (d, i) {
+            return y(d.close);
         })
         .attr('class', function (d, i) {
-            var cls = '';
-
-            if (i == 0 || (i == data.length - 1)) cls = 'hidden';
-
-            return 'mark_v2 vis_on_hover ' + cls;
+            return 'mark_v3 ';
+            //return 'mark_v3 ' + (i == 0 || (i == data.length - 1) ? ' hidden' : '');
+        })
+        .attr('id', function (d, i) {
+            return 'dot_' + i;
         })
         .attr("cx", function (d) {
             return x(d.date);
         })
         .attr("cy", function (d) {
             return y(d.close);
-        }).on('mouseenter', function () {
-            var firedEl = $(this);
-            $('.' + firedEl.addClass('vis').attr('data-line')).show();
-
-        }).on('mouseleave', function () {
-            var firedEl = $(this);
-            $('.' + firedEl.attr('data-line')).hide();
-
         });
 
+    svg.append("circle")
+        .attr("r", 7)
+        .attr('id', 'big_dot')
+        .attr('class', 'big_dot mark_v2')
+        .attr("cx", 0)
+        .attr("cy", 0);
+
+    var tracing_anim_duration = 150, distance = x(data[0].date) - x(data[1].date), big_dot = d3.select('#big_dot');
+
+    for (var i = 0; i < data.length; i++) {
+
+        svg.append("rect")
+            .attr("class", 'graph-tracing-catcher tracingCatcher')
+            .attr("data-dot", '#dot_' + (data.length - i - 1))
+            .style("opacity", 0)
+            .attr("x", function () {
+                return width - x(data[i].date);
+            })
+            .attr("y", 0)
+            .attr("width", width)
+            .attr("height", height)
+            .style("transform", 'translate(' + (distance / -2) + 'px)')
+            .on("mouseenter", function (e) {
+                var $this = $(this),
+                    dot_id = d3.select(this).attr('data-dot'),
+                    cur_id = dot_id.replace(/\D/g, '') * 1,
+                    cur_dot = $('#dot_' + (cur_id)),
+                    x0 = area_x.invert(cur_dot.attr('cx')),
+                    y0 = area_y.invert(cur_dot.attr('cy')).toFixed(0);
+
+                if (prevTracingDot != void 0) {
+                    big_dot
+                        .transition()
+                        .duration(tracing_anim_duration)
+                        .attr("cx", $this.attr('x'))
+                        .attr("cy", cur_dot.attr('data-y-value'));
+
+                    line_for_dot
+                        .transition()
+                        .duration(tracing_anim_duration)
+                        .attr("x1", $this.attr('x'))
+                        .attr("x2", $this.attr('x'))
+                        .attr("y2", cur_dot.attr('data-y-value'));
+
+                    tooltip_content.empty()
+                        .css('top', (cur_dot.attr('data-y-value') * 1 + margin.top - 15) + "px")
+                        .append($('<div class="tooltip-title" />').text(moment(x0).format('dddd, D MMMM YYYY')))
+                        .append($('<div class="tooltip-value" />').text(commasFormatter(y0) + "$"));
+
+                    tooltip
+                        .css("left", ($this.attr('x') * 1 + margin.left) + "px");
+
+                    splashTracing(cur_id, (cur_id > prevTracingDot ? 'left' : 'right'));
+                }
+
+            })
+            .on("mouseleave", function (e) {
+                var dot_id = d3.select(this).attr('data-dot');
+
+                prevTracingDot = dot_id.replace(/\D/g, '') * 1;
+
+            });
+    }
+}
+
+function splashTracing(id, direction) {
+
+    var new_r = 5;
+
+    //console.log(id, direction);
+
+    if (direction == 'right') {
+
+        setTimeout(function () {
+            var obj = $('#dot_' + (id + 1));
+            //console.log('in', obj);
+            obj.attr('r', new_r);
+        }, 50 * 1);
+
+        setTimeout(function () {
+            var obj = $('#dot_' + (id * 1 + 1));
+            //console.log('out', obj);
+            obj.attr('r', 0);
+        }, 300 + (50 * 1));
+
+    } else if (direction == 'left') {
+        setTimeout(function () {
+            var obj = $('#dot_' + (id - 1));
+            //console.log('in', obj);
+            obj.attr('r', new_r);
+        }, 50 * 1);
+
+        setTimeout(function () {
+            var obj = $('#dot_' + (id * 1 - 1));
+            //console.log('out', obj);
+            obj.attr('r', 0);
+        }, 300 + (50 * 1));
+    }
 }
 
 $(window).resize(function () {

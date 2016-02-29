@@ -1,4 +1,4 @@
-var resizeHndl, calendarNeedRefresh = false;
+var resizeHndl, calendarNeedRefresh = false, activeFamilyGraph = 0;
 
 $(function ($) {
 
@@ -49,11 +49,11 @@ $(function ($) {
                 if (rangeStart.isAfter(rangeEnd)) {
                     calendarNeedRefresh = true;
                 }
-                
+
                 if (dates.length == 1) {
                     if (curDate.isSame(rangeStart, 'day')) return "start-range";
                 }
-                
+
                 if (dates.length == 2) {
 
                     if (rangeStart.isAfter(rangeEnd, 'day')) {
@@ -89,6 +89,8 @@ $(function ($) {
         .delegate('.hoverCatcher', 'mouseenter', function () {
             var firedEl = $($(this).attr('data-area'));
 
+            activeFamilyGraph = $(this).attr('data-area').replace(/\D/g, '') * 1;
+
             firedEl.css('opacity', 1).siblings('.area').css('opacity', .15);
         })
         .delegate('.hoverCatcher', 'mouseleave', function () {
@@ -96,7 +98,7 @@ $(function ($) {
 
             firedEl.css('opacity', .5).siblings('.area').css('opacity', .5);
         });
-    
+
 
     $('.graphFilterDate').on('change', function () {
         var firedEl = $(this),
@@ -536,7 +538,7 @@ function init_area_family_chart(el, data_files, data_colors) {
 
     var tooltip = $('<table class="graph-tooltip-table" />');
 
-    var margin = {top: 0, right: 0, bottom: 0, left: 0},
+    var margin = {top: 80, right: 0, bottom: 30, left: 0},
         width = el.width() - margin.left - margin.right,
         height = el.height() - margin.top - margin.bottom;
 
@@ -563,6 +565,12 @@ function init_area_family_chart(el, data_files, data_colors) {
             return area_y(d.close);
         });
 
+    var xAxis = d3.svg.axis()
+        .scale(area_x)
+        .ticks(dates.length - 1)
+        .tickFormat(d3.time.format("%b %d"))
+        .orient("bottom");
+
     //var xScale = d3.scale.ordinal()
     //    .domain(d3.range(dataset.length))
     //    .rangeRoundBands([0, w], 0.05);
@@ -576,17 +584,12 @@ function init_area_family_chart(el, data_files, data_colors) {
             //console.log(d3.mouse(this));
             var tooltip = d3.select("#tooltip"),
                 tooltip_content = $("#tooltip_content"),
+                tooltip_dot = $("#tooltip_dot"),
                 tool_table = $('<table class="graph-tooltip-table" />'),
-                x = d3.mouse(this)[0],
+                distance = area_x(data_files[activeFamilyGraph].data[0].date) - area_x(data_files[activeFamilyGraph].data[1].date) || 0,
+                x = d3.mouse(this)[0] + distance / 2,
                 x0 = area_x.invert(x),
-                ind
-
-            //d0 = data[i - 1],
-            //d1 = data[i]
-            //d = x0 - d0.date > d1.date - x0 ? d1 : d0
-                ;
-            //focus.attr("transform", "translate(" + x(d.date) + "," + y(d.close) + ")");
-            //focus.select("text").text(d.close);
+                ind;
 
             for (var k = 0; k < dates.length; k++) {
                 var obj1 = dates[k];
@@ -600,7 +603,7 @@ function init_area_family_chart(el, data_files, data_colors) {
             for (var j = 0; j < data_files.length; j++) {
                 var color = data_files[j].color, data = data_files[j].data;
 
-                var i = bisectDate(data, x0, 1);
+                //var i = bisectDate(data, x0, 1);
 
                 var tooltip_item = $('<tr class="tooltip_row" />').attr('data-graph', 'family_area_' + j)
                     .addClass($('.graph-unit-legend .legend_item[data-graph=#family_area_' + j + ']').hasClass('disabled') ? 'disabled' : '')
@@ -615,12 +618,20 @@ function init_area_family_chart(el, data_files, data_colors) {
                 .append(tool_table);
 
             tooltip
-                //.classed("hidden", false)
                 .classed('flipped_left', x < tooltip_content.outerWidth() + 25)
-                .style("left", x + "px");
+                .style("left", area_x(data_files[activeFamilyGraph].data[ind].date) + "px");
+            
+            tooltip_dot.css('top', margin.top + area_y(data_files[activeFamilyGraph].data[ind].close) - 11);
 
         }
     );
+
+    svg.append("g")
+        .attr("class", "x axis family_x_axis")
+        .style("font-size", '14px')
+        .style("fill", '#fff')
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);
 
     for (var i = 0; i < data_files.length; i++) {
         var data = data_files[i].data;
@@ -692,8 +703,9 @@ function init_area_family_chart(el, data_files, data_colors) {
         svg.append("rect")
             .attr("class", 'graph-hover-catcher hoverCatcher')
             .attr("data-area", '#family_area_' + i)
-            .attr("x", 0)
             .style("opacity", 0)
+            .attr("transform", "translate(0,-" + margin.top + ")")
+            .attr("x", 0)
             .attr("y", i * (100 / data_files.length) + '%')
             .attr("width", '100%')
             .attr("height", (100 / data_files.length) + '%');

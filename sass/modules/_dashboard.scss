@@ -364,7 +364,7 @@
   padding: 20px;
   margin-bottom: 29px;
   background: #fff;
-  overflow: hidden;
+  //overflow: hidden;
   box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
 
   .graph-unit-hover & {
@@ -510,10 +510,6 @@
   //height: 200px;
 }
 
-.graph-hover-catcher {
-  height: 20%;
-}
-
 .legend_v1 {
   position: absolute;
   bottom: 10px;
@@ -556,6 +552,12 @@
 
     .dropdown-menu {
       right: 0;
+
+      .selected {
+        a {
+          cursor: default;
+        }
+      }
     }
   }
 
@@ -583,7 +585,7 @@
     .filter-option {
       display: none !important;
     }
-    
+
     &:hover {
       .caret {
         color: #333;
@@ -629,7 +631,7 @@
         -ms-transition: color .3s, background-color .3s;
         transition: color .3s, background-color .3s;
       }
-      
+
       .in-range:not(.disabled) {
         color: #ff6140;
       }
@@ -710,6 +712,13 @@
 }
 
 .d3graph {
+
+  .family_x_axis .tick {
+    &:last-of-type,
+    &:first-of-type {
+      display: none;
+    }
+  }
 
   .gray_grid .tick {
     stroke: #e5e5e5;
@@ -794,30 +803,90 @@
     fill: #fff;
     stroke: #3e6cfe;
     stroke-width: 2;
-
-    &.vis_on_hover {
-      opacity: 0;
-
-      &:hover {
-        opacity: 1;
-      }
-    }
+    opacity: 0;
+    -webkit-transition: r .3s, opacity .3s;
+    -ms-transition: r .3s, opacity .3s;
+    transition: r .3s, opacity .3s;
   }
 
+  svg:hover .mark_v2 {
+    opacity: 1;
+  }
+
+  .mark_v3 {
+    position: relative;
+    z-index: 1;
+    fill: #3e6cfe;
+    -webkit-transition: r .4s;
+    -ms-transition: r .4s;
+    transition: r .4s;
+  }
 }
 
 .graph-tooltip-holder {
   position: absolute;
   z-index: 2;
-  top: -82px;
+  top: 0;
   bottom: 0;
-  width: 4px;
-  background: rgba(0, 0, 0, .21);
-  display: none;
+  width: 1px;
+  background: #fff;
+  opacity: 0;
   pointer-events: none;
+  -webkit-transition: left .3s, opacity .3s;
+  -ms-transition: left .3s, opacity .3s;
+  transition: left .3s, opacity .3s;
 
+  &.transp-mod {
+    background-color: transparent;
+
+  }
+
+  //.d3graph:hover + &,
   .d3graph:hover & {
-    display: block;
+    opacity: 1;
+  }
+}
+
+.graph-tooltip-top {
+  z-index: 3;
+  background: #fff;
+  border-radius: 10px;
+  padding: 15px 20px 20px;
+  color: #101010;
+  font-size: 15px;
+  line-height: 19px;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, .21);
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  text-align: center;
+  -webkit-transform: translate(-50%, -100%);
+  -ms-transform: translate(-50%, -100%);
+  transform: translate(-50%, -100%);
+}
+
+.tooltip-dot {
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  border-radius: 100%;
+  left: 50%;
+  margin-left: -6px;
+  background: #fff;
+  -webkit-transition: top .3s;
+  -ms-transition: top .3s;
+  transition: top .3s;
+}
+
+.line_for_dot {
+  opacity: 0;
+  -webkit-transition: opacity .3s;
+  -ms-transition: opacity .3s;
+  transition: opacity .3s;
+
+  svg:hover & {
+    opacity: 1;
   }
 }
 
