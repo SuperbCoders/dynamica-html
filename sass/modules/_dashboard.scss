@@ -864,6 +864,9 @@
   -webkit-transform: translate(-50%, -100%);
   -ms-transform: translate(-50%, -100%);
   transform: translate(-50%, -100%);
+  -webkit-transition: top .3s;
+  -ms-transition: top .3s;
+  transition: top .3s;
 }
 
 .tooltip-dot {
