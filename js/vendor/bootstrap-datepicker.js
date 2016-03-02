@@ -546,6 +546,10 @@
             return $.map(this.dates, this._utc_to_local);
         },
 
+        widget: function () {
+            return this.picker;
+        },
+
         getUTCDates: function () {
             return $.map(this.dates, function (d) {
                 return new Date(d);

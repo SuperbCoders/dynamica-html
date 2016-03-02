@@ -66,10 +66,30 @@ $(function ($) {
                 }
             }
         }).on('show', function (e) {
+            var calendar = $(this).datepicker("widget");
+
             if (calendarNeedRefresh) {
                 $(this).datepicker("setDates", [e.dates[1], e.dates[0]]).datepicker("update");
                 calendarNeedRefresh = false;
             }
+            
+            if (calendar.find('.btn').length) return;
+
+            var buttonPane = $('<span class="calendar-control-holder" />');
+
+            setTimeout(function () {
+                var btn = $('<a class="apply-calendar-btn_ btn btn-block btn-danger" >Показать</a>');
+
+                btn.off("click").on("click", function () {
+                    console.log('upd');
+                    return false;
+                });
+
+                buttonPane.appendTo(calendar);
+                btn.appendTo(buttonPane);
+
+            }, 1);
+
         }).on('changeDate', function (e, w) {
 
 
@@ -563,7 +583,8 @@ function init_area_family_chart(el, data_files, data_colors) {
         .y0(height)
         .y1(function (d) {
             return area_y(d.close);
-        });
+        })
+        .interpolate("monotone");
 
     var xAxis = d3.svg.axis()
         .scale(area_x)
@@ -620,7 +641,7 @@ function init_area_family_chart(el, data_files, data_colors) {
             tooltip
                 .classed('flipped_left', x < tooltip_content.outerWidth() + 25)
                 .style("left", area_x(data_files[activeFamilyGraph].data[ind].date) + "px");
-            
+
             tooltip_dot.css('top', margin.top + area_y(data_files[activeFamilyGraph].data[ind].close) - 11);
 
         }

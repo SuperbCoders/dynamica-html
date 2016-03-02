@@ -45,10 +45,29 @@ $(function ($) {
                 }
             }
         }).on('show', function (e) {
+            var calendar = $(this).datepicker("widget");
+
             if (calendarNeedRefresh) {
                 $(this).datepicker("setDates", [e.dates[1], e.dates[0]]).datepicker("update");
                 calendarNeedRefresh = false;
             }
+            
+            if (calendar.find('.btn').length) return;
+
+            var buttonPane = $('<span class="calendar-control-holder" />');
+
+            setTimeout(function () {
+                var btn = $('<a class="apply-calendar-btn_ btn btn-block btn-danger" >Показать</a>');
+
+                btn.off("click").on("click", function () {
+                    console.log('upd');
+                    return false;
+                });
+
+                buttonPane.appendTo(calendar);
+                btn.appendTo(buttonPane);
+
+            }, 1);
         }).on('changeDate', function (e, w) {
 
 
@@ -255,7 +274,8 @@ function init_line_area3_chart(el) {
         //.interpolate("cardinal")
         .y1(function (d) {
             return area_y(d.close);
-        });
+        })
+        .interpolate("monotone");
 
     var valueline = d3.svg.line()
         .x(function (d) {
@@ -263,8 +283,8 @@ function init_line_area3_chart(el) {
         })
         .y(function (d) {
             return y(d.close);
-        });
-    //.interpolate("cardinal");
+        })
+        .interpolate("monotone");
 
     var xAxis = d3.svg.axis()
         .scale(x)
