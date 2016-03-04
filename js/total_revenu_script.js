@@ -1,4 +1,4 @@
-var resizeHndl, scrollBottomFixed, scrollParent, wnd, doc, calendarNeedRefresh = false, prevTracingDot;
+var resizeHndl, scrollBottomFixed, scrollParent, wnd, doc, prevTracingDot;
 
 $(function ($) {
 
@@ -27,7 +27,7 @@ $(function ($) {
                     rangeStart = moment(dates[0]), rangeEnd = moment(dates[1]);
 
                 if (rangeStart.isAfter(rangeEnd)) {
-                    calendarNeedReverese = true;
+                    dPickerElement.datepicker("setDates", [e.dates[1], e.dates[0]]).datepicker("update");
                 }
 
                 if (dates.length == 1) {
@@ -51,11 +51,6 @@ $(function ($) {
             }
         }).on('show', function (e) {
             var calendar = $(this).datepicker("widget");
-
-            if (calendarNeedRefresh) {
-                $(this).datepicker("setDates", [e.dates[1], e.dates[0]]).datepicker("update");
-                calendarNeedRefresh = false;
-            }
             
             if (calendar.find('.btn').length) return;
 

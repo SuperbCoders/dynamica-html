@@ -1,4 +1,4 @@
-var resizeHndl, calendarNeedReverese = false, activeFamilyGraph = 0;
+var resizeHndl, activeFamilyGraph = 0;
 
 $(function ($) {
 
@@ -48,7 +48,7 @@ $(function ($) {
                     rangeStart = moment(dates[0]), rangeEnd = moment(dates[1]);
 
                 if (rangeStart.isAfter(rangeEnd)) {
-                    calendarNeedReverese = true;
+                    dPickerElement.datepicker("setDates", [dates[1], dates[0]]).datepicker("update");
                 }
 
                 if (dates.length == 1) {
@@ -72,11 +72,6 @@ $(function ($) {
             }
         }).on('show', function (e) {
             var calendar = $(this).datepicker("widget"), dates = e.dates;
-
-            if (calendarNeedReverese) {
-                $(this).datepicker("setDates", [dates[1], dates[0]]).datepicker("update");
-                calendarNeedReverese = false;
-            }
 
             if (calendar.find('.btn').length) return;
 
