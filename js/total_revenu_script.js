@@ -19,7 +19,6 @@ $(function ($) {
             orientation: "bottom left",
             format: 'M dd, yyyy',
             container: datePckr.parent(),
-            //multidateSeparator: ' — ',
             multidateSeparator: ' – ',
             beforeShowDay: function (date, e) {
                 var dataPicker = $(e.picker), dPickerElement = $(e.element),

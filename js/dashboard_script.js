@@ -2,32 +2,6 @@ var resizeHndl, activeFamilyGraph = 0;
 
 $(function ($) {
 
-    /*    selectReadyTicker = setInterval(function () {
-
-     var $selectpicker = $('.filterSelect');
-
-
-     $selectpicker.each(function (ind) {
-     var slct = $(this).data('selectpicker').$newElement;
-
-     if (slct != void 0) {
-     clearInterval(selectReadyTicker);
-
-     console.log($(this), slct);
-     }
-
-     //slct.on('hide.bs.dropdown', function (e) {
-     //    console.log('hide');
-     //});
-     //
-     //slct.on('hidden.bs.dropdown', function (e) {
-     //    console.log('hide');
-     //});
-     });
-
-     }, 500);*/
-    //
-
     $('.datePicker').each(function () {
         var datePckr = $(this);
 
@@ -40,7 +14,6 @@ $(function ($) {
             orientation: "bottom left",
             format: 'M dd, yyyy',
             container: datePckr.parent(),
-            //multidateSeparator: ' — ',
             multidateSeparator: ' – ',
             beforeShowDay: function (date, e) {
                 var dataPicker = $(e.picker), dPickerElement = $(e.element),
