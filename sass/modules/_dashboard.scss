@@ -1,7 +1,7 @@
 @import "select2";
 
 %clearfix {
-  &::after {
+  &:after {
     position: static;
     display: block;
     height: 0;
@@ -75,7 +75,7 @@
           display: block;
           color: #51545c !important;
 
-          &::before {
+          &:before {
             @extend .fa;
             @extend .fa-angle-down;
             @extend .hover-select-icon;
@@ -156,7 +156,7 @@
     .dropdown-menu {
       padding-top: 55px;
 
-      &::before {
+      &:before {
         content: '';
         position: absolute;
         top: 48px;
@@ -213,7 +213,7 @@
   .hover-select-box .dropdown-menu li.selected {
     position: relative;
 
-    a::before {
+    a:before {
       display: none;
     }
   }
@@ -292,7 +292,7 @@
       .dashboard-panel-link {
         position: relative;
 
-        &::before {
+        &:before {
           @extend .fa;
           @extend .fa-angle-down;
           @extend .hover-select-icon;
@@ -380,7 +380,7 @@
 
 .graph-u-link {
 
-  &::before {
+  &:before {
     content: '';
     position: absolute;
     top: 0;
@@ -530,7 +530,7 @@
       margin-bottom: 3px;
       font-size: 16px;
 
-      &::after {
+      &:after {
         position: relative;
         display: inline-block;
         vertical-align: middle;
@@ -547,10 +547,30 @@
 .datepicker-v1 {
   position: relative;
 
+  .datepicker table tr td span {
+    -webkit-transition: color .3s, background-color .3s;
+    -ms-transition: color .3s, background-color .3s;
+    transition: color .3s, background-color .3s;
+    
+    &:hover {
+      color: #2b2b2b;
+      background: #dff5ff;
+    }
+    
+    &.active {
+      background: #ff6140;
+
+      &:hover {
+        color: #2b2b2b;
+        background: #dff5ff;
+      }
+    }
+  }
+
   .calendar-control-holder {
     padding: 5px 19px 2px;
     display: block;
-    
+
     .btn {
       border-radius: 3px;
     }
@@ -637,8 +657,8 @@
     border: none;
     box-shadow: 0 6px 14px rgba(0, 0, 0, .28);
 
-    &::after,
-    &::before {
+    &:after,
+    &:before {
       display: none;
     }
 
@@ -711,7 +731,7 @@
   line-height: 1;
   position: relative;
 
-  &::after {
+  &:after {
     content: '\00B7';
     position: absolute;
     top: -1px;
@@ -935,7 +955,7 @@
 
   //opacity: 0;
 
-  &::before {
+  &:before {
     //content: '';
     //position: absolute;
     //top: 50%;
@@ -952,7 +972,7 @@
     margin-left: 15px;
     left: 100%;
 
-    &::before {
+    &:before {
       //left: auto;
       //right: 100%;
       //border-left: 0;
@@ -962,6 +982,10 @@
 }
 
 .tooltip_row {
+  opacity: .5;
+  -webkit-transition: opacity .3s;
+  -ms-transition: opacity .3s;
+  transition: opacity .3s;
 
   td {
     padding-bottom: 1px;
@@ -970,13 +994,17 @@
   .legend_name {
     font-size: 16px;
 
-    &::after {
+    &:after {
       left: -15px;
     }
   }
 
   &.disabled {
-    opacity: .5;
+    display: none;
+  }
+
+  &.active_row {
+    opacity: 1;
   }
 }
 
@@ -1210,8 +1238,8 @@
   -moz-backface-visibility: hidden;
   backface-visibility: hidden;
 
-  &::after,
-  &::before {
+  &:after,
+  &:before {
     content: '';
     position: absolute;
     bottom: 0;
@@ -1222,24 +1250,24 @@
     transition: height 0.3s;
   }
 
-  &::before {
+  &:before {
     left: 100%;
     margin-left: 3px;
     height: 6px;
   }
 
-  &::after {
+  &:after {
     right: 100%;
     margin-right: 3px;
     height: 10px;
   }
 
   &.sort_desc {
-    &::before {
+    &:before {
       height: 10px;
     }
 
-    &::after {
+    &:after {
       height: 6px;
     }
   }
@@ -1252,6 +1280,74 @@
     //animation-timing-function: ease-out;
     //animation-fill-mode: forwards;
     //animation-delay: 2s;
+  }
+}
+
+$blue: rgb(0, 155, 255);
+
+.page-overlay {
+  position: fixed;
+  z-index: 110;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  background-color: rgba(42, 39, 86, .86);
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity .3s;
+  -ms-transition: opacity .3s;
+  transition: opacity .3s;
+  visibility: hidden;
+
+  &.show_overlay {
+    pointer-events: all;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+.jawn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -5px 0 0 -5px;
+  background-color: #f8e71c;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+
+  &:after, &:before {
+    content: "";
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+  }
+
+  &:after {
+    left: -10px;
+    top: -5px;
+    background-color: #c7c2a6;
+    transform-origin: 15px 10px;
+    animation: axis 1s linear infinite;
+  }
+  &:before {
+    left: -25px;
+    top: -15px;
+    background-color: $blue;
+    transform-origin: 30px 20px;
+    animation: axis 2s linear infinite;
+  }
+}
+
+@keyframes axis {
+  0% {
+    transform: rotateZ(0deg) translate3d(0, 0, 0);
+  }
+  100% {
+    transform: rotateZ(360deg) translate3d(0, 0, 0);
   }
 }
 

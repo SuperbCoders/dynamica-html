@@ -11,7 +11,7 @@ $(function ($) {
         var datePckr = $(this);
 
         datePckr.datepicker({
-            multidate: 2,
+            multidate: 3,
             //clearBtn: true,
             toggleActive: true,
             startDate: '-477d',
@@ -22,11 +22,12 @@ $(function ($) {
             //multidateSeparator: ' — ',
             multidateSeparator: ' – ',
             beforeShowDay: function (date, e) {
-                var dates = e.dates, curDate = moment(date),
+                var dataPicker = $(e.picker), dPickerElement = $(e.element),
+                    dates = e.dates, curDate = moment(date),
                     rangeStart = moment(dates[0]), rangeEnd = moment(dates[1]);
 
                 if (rangeStart.isAfter(rangeEnd)) {
-                    calendarNeedRefresh = true;
+                    calendarNeedReverese = true;
                 }
 
                 if (dates.length == 1) {
@@ -42,6 +43,10 @@ $(function ($) {
                     if (curDate.isSame(rangeStart, 'day')) return "start-range";
                     if (curDate.isSame(rangeEnd, 'day')) return "end-range";
                     if (curDate.isBetween(rangeStart, rangeEnd)) return "in-range";
+                }
+
+                if (dates.length == 3) {
+                    dPickerElement.datepicker("setDates", [dates[2]]).datepicker("update");
                 }
             }
         }).on('show', function (e) {
@@ -60,7 +65,7 @@ $(function ($) {
                 var btn = $('<a class="apply-calendar-btn_ btn btn-block btn-danger" >Показать</a>');
 
                 btn.off("click").on("click", function () {
-                    console.log('upd');
+                    loadGraphData();
                     return false;
                 });
 
@@ -157,8 +162,14 @@ function animEndFunc(catcher) {
     catcher.append($(this).removeClass('sorting').attr('style', ''));
 }
 
-function PrefixedEvent(element, type, callback) {
+function loadGraphData() {
+    console.log('loadGraphData');
 
+    $('.pageOverlay').addClass('show_overlay');
+
+    setTimeout(function () {
+        $('.pageOverlay').removeClass('show_overlay');
+    }, 1500);
 
 }
 

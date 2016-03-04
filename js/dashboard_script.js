@@ -1,4 +1,4 @@
-var resizeHndl, calendarNeedRefresh = false, activeFamilyGraph = 0;
+var resizeHndl, calendarNeedReverese = false, activeFamilyGraph = 0;
 
 $(function ($) {
 
@@ -32,7 +32,7 @@ $(function ($) {
         var datePckr = $(this);
 
         datePckr.datepicker({
-            multidate: 2,
+            multidate: 3,
             //clearBtn: true,
             toggleActive: true,
             startDate: '-477d',
@@ -43,11 +43,12 @@ $(function ($) {
             //multidateSeparator: ' — ',
             multidateSeparator: ' – ',
             beforeShowDay: function (date, e) {
-                var dates = e.dates, curDate = moment(date),
+                var dataPicker = $(e.picker), dPickerElement = $(e.element),
+                    dates = e.dates, curDate = moment(date),
                     rangeStart = moment(dates[0]), rangeEnd = moment(dates[1]);
 
                 if (rangeStart.isAfter(rangeEnd)) {
-                    calendarNeedRefresh = true;
+                    calendarNeedReverese = true;
                 }
 
                 if (dates.length == 1) {
@@ -64,15 +65,19 @@ $(function ($) {
                     if (curDate.isSame(rangeEnd, 'day')) return "end-range";
                     if (curDate.isBetween(rangeStart, rangeEnd)) return "in-range";
                 }
+
+                if (dates.length == 3) {
+                    dPickerElement.datepicker("setDates", [dates[2]]).datepicker("update");
+                }
             }
         }).on('show', function (e) {
-            var calendar = $(this).datepicker("widget");
+            var calendar = $(this).datepicker("widget"), dates = e.dates;
 
-            if (calendarNeedRefresh) {
-                $(this).datepicker("setDates", [e.dates[1], e.dates[0]]).datepicker("update");
-                calendarNeedRefresh = false;
+            if (calendarNeedReverese) {
+                $(this).datepicker("setDates", [dates[1], dates[0]]).datepicker("update");
+                calendarNeedReverese = false;
             }
-            
+
             if (calendar.find('.btn').length) return;
 
             var buttonPane = $('<span class="calendar-control-holder" />');
@@ -81,7 +86,7 @@ $(function ($) {
                 var btn = $('<a class="apply-calendar-btn_ btn btn-block btn-danger" >Показать</a>');
 
                 btn.off("click").on("click", function () {
-                    console.log('upd');
+                    loadGraphData();
                     return false;
                 });
 
@@ -112,6 +117,7 @@ $(function ($) {
             activeFamilyGraph = $(this).attr('data-area').replace(/\D/g, '') * 1;
 
             firedEl.css('opacity', 1).siblings('.area').css('opacity', .15);
+
         })
         .delegate('.hoverCatcher', 'mouseleave', function () {
             var firedEl = $($(this).attr('data-area'));
@@ -160,6 +166,17 @@ $(function ($) {
 
 
 });
+
+function loadGraphData() {
+    console.log('loadGraphData');
+
+    $('.pageOverlay').addClass('show_overlay');
+
+    setTimeout(function () {
+        $('.pageOverlay').removeClass('show_overlay');
+    }, 1500);
+
+}
 
 function fit2Limits(pckr, date, max) {
     var start = moment(pckr.datepicker('getStartDate')),
@@ -627,6 +644,7 @@ function init_area_family_chart(el, data_files, data_colors) {
                 //var i = bisectDate(data, x0, 1);
 
                 var tooltip_item = $('<tr class="tooltip_row" />').attr('data-graph', 'family_area_' + j)
+                    .addClass(j == activeFamilyGraph ? 'active_row' : '')
                     .addClass($('.graph-unit-legend .legend_item[data-graph=#family_area_' + j + ']').hasClass('disabled') ? 'disabled' : '')
                     .append($('<td class="tooltip_name" />').append($('<div class="legend_name" />').css('color', color).append($('<span/>').text(data_files[j].name))))
                     .append($('<td class="tooltip_val" />').append($('<b class="" />').text(data_files[j].data[ind].close)));
