@@ -166,35 +166,80 @@ function init_charts() {
             "color": "#6AFFCB", // green
             "value": "35,489$",
             "diff": "+8%",
-            "data": [{"date": "20-Feb-16", "close": 0}, {"date": "21-Feb-16", "close": 6}, {"date": "22-Feb-16", "close": 0}]
+            "data": [
+                {"date": "9-Apr-12", "close": 180},
+                {"date": "8-Apr-12", "close": 260},
+                {"date": "7-Apr-12", "close": 218},
+                {"date": "6-Apr-12", "close": 308},
+                {"date": "5-Apr-12", "close": 400},
+                {"date": "4-Apr-12", "close": 220},
+                {"date": "3-Apr-12", "close": 329},
+                {"date": "2-Apr-12", "close": 150}
+            ]
         },
         {
             "name": "Orders",
             "color": "#FF1FA7", // violet
             "value": "490",
             "diff": "-9%",
-            "data": [{"date": "20-Feb-16", "close": 0}, {"date": "21-Feb-16", "close": 10}, {"date": "22-Feb-16", "close": 0}]
+            "data": [
+                {"date": "9-Apr-12", "close": 240},
+                {"date": "8-Apr-12", "close": 290},
+                {"date": "7-Apr-12", "close": 368},
+                {"date": "6-Apr-12", "close": 308},
+                {"date": "5-Apr-12", "close": 150},
+                {"date": "4-Apr-12", "close": 264},
+                {"date": "3-Apr-12", "close": 120},
+                {"date": "2-Apr-12", "close": 250}
+            ]
         },
         {
             "name": "Products sell",
             "color": "#FF7045",  // orange
             "value": "9,483",
             "diff": "-9%",
-            "data": [{"date": "20-Feb-16", "close": 0}, {"date": "21-Feb-16", "close": 53}, {"date": "22-Feb-16", "close": 0}]
+            "data": [
+                {"date": "9-Apr-12", "close": 340},
+                {"date": "8-Apr-12", "close": 290},
+                {"date": "7-Apr-12", "close": 368},
+                {"date": "6-Apr-12", "close": 208},
+                {"date": "5-Apr-12", "close": 313},
+                {"date": "4-Apr-12", "close": 264},
+                {"date": "3-Apr-12", "close": 129},
+                {"date": "2-Apr-12", "close": 218}
+            ]
         },
         {
             "name": "Unic users",
             "color": "#3BD7FF", // light blue
             "value": "109,330",
             "diff": "-1%",
-            "data": [{"date": "20-Feb-16", "close": 0}, {"date": "21-Feb-16", "close": 0}, {"date": "22-Feb-16", "close": 0}]
+            "data": [
+                {"date": "9-Apr-12", "close": 326},
+                {"date": "8-Apr-12", "close": 200},
+                {"date": "7-Apr-12", "close": 318},
+                {"date": "6-Apr-12", "close": 308},
+                {"date": "5-Apr-12", "close": 120},
+                {"date": "4-Apr-12", "close": 300},
+                {"date": "3-Apr-12", "close": 250},
+                {"date": "2-Apr-12", "close": 155}
+            ]
         },
         {
             "name": "Customers",
             "color": "#FFD865", // yellow
             "value": "477",
             "diff": "+2",
-            "data": [{"date": "20-Feb-16", "close": 0}, {"date": "21-Feb-16", "close": 2}, {"date": "22-Feb-16", "close": 0}]
+            "data": [
+                {"date": "9-Apr-12", "close": 126},
+                {"date": "8-Apr-12", "close": 300},
+                {"date": "7-Apr-12", "close": 218},
+                {"date": "6-Apr-12", "close": 108},
+                {"date": "5-Apr-12", "close": 213},
+                {"date": "4-Apr-12", "close": 364},
+                {"date": "3-Apr-12", "close": 129},
+                {"date": "2-Apr-12", "close": 418}
+            ]
         }
     ];
 
