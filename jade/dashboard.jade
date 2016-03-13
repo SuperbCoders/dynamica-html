@@ -106,7 +106,7 @@ html(lang='ru')
                 i.icon.fa.fa-angle-right
                 
             .graph-unit-holder.graph-unit-hover: .row
-              +loop_while(4)
+              +loop_while(3)
                 .col-lg-3.col-md-4.col-sm-6
                   .graph-unit
                     a.graph-u-link(href='total_revenu.html')
@@ -116,6 +116,17 @@ html(lang='ru')
                       sup.graph-dynamica.dynamica_up +8%
                     .graph-block
                        .graph_2.lineAreaChart_1.d3graph.hide_x_axis
+              .col-lg-3.col-md-4.col-sm-6
+                .graph-unit.disabled
+                  //a.graph-u-link(href='total_revenu.html')
+                  h5.graph-name Unique users
+                  .graph-value 
+                    span.val 
+                      | Google analytics is not available,  <br> 
+                      a.orange_link(href='#') set up
+                      |  it now
+                  .graph-block
+                     .graph_2.lineAreaChart_1.d3graph.hide_x_axis
 
             .dashboard-caption
                 h3.caption-text Customers overview
@@ -159,7 +170,7 @@ html(lang='ru')
                 i.icon.fa.fa-angle-right
                 
             .graph-unit-holder.graph-unit-hover: .row
-              +loop_while(4)
+              +loop_while(3)
                 .col-lg-3.col-md-4.col-sm-6
                   .graph-unit
                     a.graph-u-link(href='total_revenu.html')
@@ -169,6 +180,31 @@ html(lang='ru')
                       sup.graph-dynamica.dynamica_up +8%
                     .graph-block
                       .graph_2.lineAreaChart_1.d3graph.hide_x_axis
+                        
+              .col-lg-3.col-md-4.col-sm-6
+                .graph-unit
+                  h5.graph-name Best sellers
+                  table.best_sellers
+                    tr
+                      td.col_1: .seller_name BUNN BXB Velocity Brew 10-Cup Home...
+                      td.col_2 590
+                      td.col_3 
+                        .seller_val $73,490
+                    tr
+                      td.col_1: .seller_name Kitchen forks
+                      td.col_2 9,389
+                      td.col_3 
+                        .seller_val $43,490
+                    tr
+                      td.col_1: .seller_name BUNN BXB Velocity Brew 10-Cup Home...
+                      td.col_2 590
+                      td.col_3 
+                        .seller_val $73,490
+                    tr
+                      td.col_1: .seller_name Kitchen forks
+                      td.col_2 9,389
+                      td.col_3 
+                        .seller_val $43,490
 
       .page-footer
         .container-fluid.globalwidth

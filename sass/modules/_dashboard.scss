@@ -376,6 +376,38 @@
       box-shadow: 0 1px 4px rgba(0, 0, 0, .35);
     }
   }
+
+  &.disabled {
+
+    .graph-value {
+      position: relative;
+      z-index: 1;
+
+      .val {
+        line-height: 1.2;
+      }
+    }
+
+    .graph-block {
+      opacity: .2;
+    }
+  }
+}
+
+.orange_link {
+  color: #ff370d;
+}
+
+.dark_wrapper {
+  margin: -20px -20px 0;
+  padding: 20px;
+  background: #333648;
+
+  .graph-value {
+    .val {
+      color: #fff;
+    }
+  }
 }
 
 .graph-u-link {
@@ -515,6 +547,12 @@
   bottom: 10px;
   right: 20px;
   width: 70px;
+}
+
+.legend_holder {
+  background: #fff;
+  padding: 1px 20px;
+  margin: 0 -20px;
 }
 
 .graph-unit-legend {
@@ -724,6 +762,9 @@
   padding-left: 12px;
   margin-top: 32px;
 
+  .no_cursor & {
+    cursor: default;
+  }
 }
 
 .legend_name {
@@ -743,7 +784,13 @@
   span {
     color: #696969;
   }
+}
 
+.legend_name {
+  font-size: 16px;
+  line-height: 1;
+  position: relative;
+  color: #636363;
 }
 
 .legend_val {
@@ -1164,6 +1211,57 @@
   position: relative;
 }
 
+.best_sellers {
+  font-size: 14px;
+  line-height: 16px;
+  margin-top: 12px;
+
+  td {
+    padding: 10px 0 10px 8px;
+    border-top: 1px solid #ddd;
+    color: #2a2a2a;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+  }
+
+  tr:first-child {
+    td {
+      border-top: none;
+    }
+  }
+
+  .col_1 {
+    width: 54%;
+  }
+
+  .col_2 {
+    width: 20%;
+  }
+
+  .col_3 {
+    width: 26%;
+  }
+}
+
+.seller_name {
+  font-weight: 600;
+  max-height: 2.28em;
+  overflow: hidden;
+}
+
+.seller_val {
+  float: right;
+  height: 24px;
+  line-height: 24px;
+  border-radius: 4px;
+  padding: 0 5px;
+  color: #fff;
+  background-color: #5ec65d;
+}
+
 @-webkit-keyframes sorting_anim {
   0% {
     margin-top: 0;
@@ -1469,7 +1567,7 @@ $blue: rgb(0, 155, 255);
 
 .popup_controls {
   text-align: center;
-  
+
   .btn {
     border-radius: 10px;
     font-size: 16px;
@@ -1498,7 +1596,7 @@ $blue: rgb(0, 155, 255);
 .popup_content {
   padding: 30px 0 25px;
   text-align: center;
-  
+
   p {
     font-size: 20px;
   }

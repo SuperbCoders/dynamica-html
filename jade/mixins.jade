@@ -1,4 +1,4 @@
-mixin dev_head(page_title, dashboard, total_revenu)
+mixin dev_head(page_title, dashboard, total_revenu, inside_total_revenu)
     head
         meta(name='viewport', content='width=device-width, initial-scale=1')
         meta(charset='utf-8')
@@ -23,6 +23,8 @@ mixin dev_head(page_title, dashboard, total_revenu)
             script(type='text/javascript', src='js/dashboard_script.js')
         - if (total_revenu)
             script(type='text/javascript', src='js/total_revenu_script.js')
+        - if (inside_total_revenu)
+            script(type='text/javascript', src='js/inside_total_revenu_script.js')
             
 mixin loop_while(counter)
     -i=0;
@@ -33,7 +35,7 @@ mixin loop_while(counter)
 mixin page_overlay()
     .page-overlay.pageOverlay
         .jawn
-    .page-overlay.noServerPopup.show_overlay
+    .page-overlay.noServerPopup
         .popup_info.no_server_popup
             a.popup_close(href='#')
                 i.icon.fa.fa-times
