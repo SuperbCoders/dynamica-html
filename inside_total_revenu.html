@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title>Dynamica inside total revenu</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
+    <link rel="stylesheet" href="css/style.css"/> 
+    <!--[if lt IE 9]>
+          <script type="text/javascript" src="js/vendor/html5shiv.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/vendor/jquery.min.js"></script>
+    <script type="text/javascript" src="js/vendor/jquery.placeholder.min.js"></script>
+    <script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/vendor/d3.min.js"></script>
+    <script type="text/javascript" src="js/vendor/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="js/vendor/moment.min.js"></script>
+    <script type="text/javascript" src="js/vendor/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/inside_total_revenu_script.js"></script>
+  </head>
+  <body>
+    <div class="page dashboard_page">
+      <header class="page-header navbar navbar-default">
+        <div class="container-fluid globalwidth">
+          <div class="navbar-header">
+            <button type="button" data-toggle="collapse" data-target=".bs-navbar-collapse" class="navbar-toggle collapsed"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            <div class="navbar-project-switch"><a href="#" class="navbar-brand">Dynamica</a><span> of </span>
+              <div class="hover-select-box front-select-btn">
+                <select class="selectpicker">
+                  <option value="Bling-Blings">Bling-Blings</option>
+                  <option value="Apple Store">Apple Store</option>
+                  <option value="Helvetica">Helvetica</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <nav class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="projects.html">Projects</a></li>
+              <li><a href="#">Team </a></li>
+            </ul>
+            <ul class="nav navbar-right hidden-xs">
+              <li>
+                <div class="user dropdown">
+                  <div class="arrow"></div><a data-toggle="dropdown" href="#" class="user-toggle dropdown-toggle"><span class="user-pic"><img width="40" height="40" src="images/avatar1_40x40.jpg" alt="" class="img-circle"></span><span class="user-name">Yaroslav Samoilov<i class="icon fa fa-angle-down"></i></span></a>
+                  <div class="user-menu dropdown-menu right">
+                    <ul>
+                      <li><a href="billing.html">Billing</a></li>
+                      <li><a href="profile.html">Profile</a></li>
+                      <li><a href="#">Help</a></li>
+                      <li class="clear"><a href="#">Log out</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <section class="dashboard-body">
+        <div class="container-fluid globalwidth">
+          <section class="dashboard projects-dashboard">
+            <div class="row">
+              <div class="col-sm-12">
+                <ul class="dashboard-panel">
+                  <li class="current"><a href="#" class="dashboard-panel-link">Overview</a></li>
+                  <li class="filter-holder">
+                    <div class="hover-select-box filter-mod">
+                      <select class="selectpicker filterSelect">
+                        <option value="-1" data-hidden="true"></option>
+                        <option value="Gross Revenue">Gross Revenue</option>
+                        <option value="Avg. order">Avg. order  </option>
+                        <option value="Avg. revenue per customer">Avg. revenue per customer</option>
+                        <option value="Sales per visitor">Sales per visitor </option>
+                        <option value="Avg. Customer Lifetime Value">Avg. Customer Lifetime Value</option>
+                        <option value="Shipping cost as a percentage of total revenue">Shipping cost as a percentage of total revenue</option>
+                      </select>
+                    </div><a href="#" class="dashboard-panel-link">Finance</a>
+                  </li>
+                  <li class="filter-holder">
+                    <div class="hover-select-box filter-mod">
+                      <select class="selectpicker filterSelect">
+                        <option value="-1" data-hidden="true"></option>
+                        <option value="Gross Revenue">Gross Revenue</option>
+                        <option value="Avg. order">Avg. order  </option>
+                        <option value="Avg. revenue per customer">Avg. revenue per customer</option>
+                        <option value="Sales per visitor">Sales per visitor </option>
+                        <option value="Avg. Customer Lifetime Value">Avg. Customer Lifetime Value</option>
+                        <option value="Shipping cost as a percentage of total revenue">Shipping cost as a percentage of total revenue</option>
+                      </select>
+                    </div><a href="#" class="dashboard-panel-link">Customers</a>
+                  </li>
+                  <li class="filter-holder">
+                    <div class="hover-select-box filter-mod">
+                      <select class="selectpicker filterSelect">
+                        <option value="-1" data-hidden="true"></option>
+                        <option value="Gross Revenue">Gross Revenue</option>
+                        <option value="Avg. order">Avg. order  </option>
+                        <option value="Avg. revenue per customer">Avg. revenue per customer</option>
+                        <option value="Sales per visitor">Sales per visitor </option>
+                        <option value="Avg. Customer Lifetime Value">Avg. Customer Lifetime Value</option>
+                        <option value="Shipping cost as a percentage of total revenue">Shipping cost as a percentage of total revenue</option>
+                      </select>
+                    </div><a href="#" class="dashboard-panel-link">Products</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="row dashboard-title-row">
+              <div class="col-sm-6">
+                <h2>Monthly Total Revenue</h2>
+              </div>
+              <div class="col-sm-6">
+                <div class="pull-right datepicker-v1 datepickerComponent">
+                  <div class="pull-left datepicker-parent">
+                    <input type="text" class="form-control datePicker form-control-small">
+                  </div>
+                  <div class="pull-left">
+                    <select class="selectpicker graphFilterDate">
+                      <option value="-1" data-hidden="true"> </option>
+                      <option value="0" selected>Current month</option>
+                      <option value="1">Previous month </option>
+                      <option value="2">Last 3 month </option>
+                      <option value="3">Last 6 month </option>
+                      <option value="4">Last year </option>
+                      <option value="5">All time </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="graph-unit-holder">
+              <div class="graph-unit">
+                <div class="dark_wrapper">
+                  <div class="graph-value"><span class="val">42,489$</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
+                  <div class="graph-unit-large-v2">
+                    <div class="graph-block">
+                      <div class="areaChartTotal_1 hide_y_axis hide_x_axis d3graph graph_3">
+                        <div id="tooltip" class="graph-tooltip-holder transp-mod">
+                          <div id="tooltip_content" class="graph-tooltip-top"></div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <ul class="legend_v2 graph-unit-legend no_cursor">
+                  <li data-graph="#family_area_0" class="legend_item">
+                    <div class="legend_name_v2"><span>Current</span></div>
+                    <div class="legend_val"><span class="val">35,489$</span><sup class="graph-dynamica dynamica_up">+8%</sup></div>
+                  </li>
+                  <li data-graph="#family_area_1" class="legend_item">
+                    <div class="legend_name_v2"><span>Orders</span></div>
+                    <div class="legend_val"><span class="val">490</span><sup class="graph-dynamica dynamica_down">-9%</sup></div>
+                  </li>
+                  <li data-graph="#family_area_2" class="legend_item">
+                    <div class="legend_name_v2"><span>Products sell</span></div>
+                    <div class="legend_val"><span class="val">9,483</span><sup class="graph-dynamica dynamica_down">-9%</sup></div>
+                  </li>
+                  <li data-graph="#family_area_3" class="legend_item">
+                    <div class="legend_name_v2"><span>Unic users</span></div>
+                    <div class="legend_val"><span class="val">109,330</span><sup class="graph-dynamica dynamica_down">-1%</sup></div>
+                  </li>
+                  <li data-graph="#family_area_4" class="legend_item">
+                    <div class="legend_name_v2"><span>Customers</span></div>
+                    <div class="legend_val"><span class="val">477</span><sup class="graph-dynamica dynamica_up">+2</sup></div>
+                  </li>
+                </ul>
+              </div>
+              <div class="graph-unit-info">
+                <div class="graph-unit-info-table scrollParent">
+                  <div class="table-header sortBlock">
+                    <div class="table-cell col_1 sortHeader"><span>Date</span><span class="sort_catcher sortCatcher"><span class="sort_btn sortBtn"></span></span></div>
+                    <!--.table-cell.col_2.sortHeader
+                    span Orders
+                    span.sort_catcher.sortCatcher
+                    -->
+                    <!--.table-cell.col_3.sortHeader
+                    span Product sold
+                    span.sort_catcher.sortCatcher
+                    -->
+                    <div class="table-cell col_4 sortHeader"><span class="sort_catcher sortCatcher invertCatcher"></span><span>Day Revenue</span></div>
+                  </div>
+                  <div class="table-footer scrollBottomFixed">
+                    <div class="table-cell col_1">Total</div>
+                    <!--.table-cell.col_2 448-->
+                    <!--.table-cell.col_3 31-->
+                    <div class="table-cell col_4">5,876$</div>
+                  </div>
+                  <div class="table-content">
+                    <div class="table-row">
+                      <div class="table-cell col_1">21 feb, 2016</div>
+                      <!--.table-cell.col_2 3-->
+                      <!--.table-cell.col_3 9-->
+                      <div class="table-cell col_4">130$</div>
+                    </div>
+                    <div class="table-row">
+                      <div class="table-cell col_1">21 feb, 2016</div>
+                      <!--.table-cell.col_2 3-->
+                      <!--.table-cell.col_3 9-->
+                      <div class="table-cell col_4">130$</div>
+                    </div>
+                    <div class="table-row">
+                      <div class="table-cell col_1">21 feb, 2016</div>
+                      <!--.table-cell.col_2 3-->
+                      <!--.table-cell.col_3 9-->
+                      <div class="table-cell col_4">130$</div>
+                    </div>
+                    <div class="table-row">
+                      <div class="table-cell col_1">21 feb, 2016</div>
+                      <!--.table-cell.col_2 3-->
+                      <!--.table-cell.col_3 9-->
+                      <div class="table-cell col_4">130$</div>
+                    </div>
+                    <div class="table-row">
+                      <div class="table-cell col_1">21 feb, 2016</div>
+                      <!--.table-cell.col_2 3-->
+                      <!--.table-cell.col_3 9-->
+                      <div class="table-cell col_4">130$</div>
+                    </div>
+                    <div class="table-row">
+                      <div class="table-cell col_1">21 feb, 2016</div>
+                      <!--.table-cell.col_2 3-->
+                      <!--.table-cell.col_3 9-->
+                      <div class="table-cell col_4">130$</div>
+                    </div>
+                    <div class="table-row">
+                      <div class="table-cell col_1">21 feb, 2016</div>
+                      <!--.table-cell.col_2 3-->
+                      <!--.table-cell.col_3 9-->
+                      <div class="table-cell col_4">130$</div>
+                    </div>
+                    <div class="table-row">
+                      <div class="table-cell col_1">21 feb, 2016</div>
+                      <!--.table-cell.col_2 3-->
+                      <!--.table-cell.col_3 9-->
+                      <div class="table-cell col_4">130$</div>
+                    </div>
+                    <div class="table-row">
+                      <div class="table-cell col_1">21 feb, 2016</div>
+                      <!--.table-cell.col_2 3-->
+                      <!--.table-cell.col_3 9-->
+                      <div class="table-cell col_4">130$</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+      <div class="page-footer">
+        <div class="container-fluid globalwidth">
+          <ul class="footer-menu">
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Team</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Billing</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+          <div class="footer-copyright">All rights reserved © Osintsev. K.S. 2016</div>
+        </div>
+      </div>
+    </div>
+    <div class="page-overlay pageOverlay">
+      <div class="jawn"></div>
+    </div>
+  </body>
+</html>

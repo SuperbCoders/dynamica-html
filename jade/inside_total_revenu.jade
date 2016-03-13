@@ -1,0 +1,159 @@
+include mixins
+
+doctype html
+html(lang='ru')
+  +dev_head('Dynamica inside total revenu', false, false, true)
+  
+  body
+    .page.dashboard_page
+      header.page-header.navbar.navbar-default
+        .container-fluid.globalwidth
+          .navbar-header
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='.bs-navbar-collapse')
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            .navbar-project-switch
+              a.navbar-brand(href='#') Dynamica
+              span  of 
+              .hover-select-box.front-select-btn
+                select.selectpicker
+                  option(value='Bling-Blings') Bling-Blings
+                  option(value='Apple Store') Apple Store
+                  option(value='Helvetica') Helvetica
+                  
+          nav.collapse.navbar-collapse.bs-navbar-collapse
+            ul.nav.navbar-nav
+              li.active
+                a(href='projects.html') Projects
+              li
+                a(href='#') Team 
+            ul.nav.navbar-right.hidden-xs
+              li
+                .user.dropdown
+                  .arrow
+                  a.user-toggle.dropdown-toggle(data-toggle='dropdown', href='#')
+                    span.user-pic
+                      img.img-circle(width='40', height='40', src='images/avatar1_40x40.jpg', alt='')
+                    span.user-name
+                      | Yaroslav Samoilov
+                      i.icon.fa.fa-angle-down
+                  .user-menu.dropdown-menu.right
+                    ul
+                      li
+                        a(href='billing.html') Billing
+                      li
+                        a(href='profile.html') Profile
+                      li
+                        a(href='#') Help
+                      li.clear
+                        a(href='#') Log out
+                        
+      section.dashboard-body
+        .container-fluid.globalwidth
+          section.dashboard.projects-dashboard
+            .row
+              .col-sm-12
+                +dashboard_panel()
+                      
+            .row.dashboard-title-row
+              .col-sm-6: h2 Monthly Total Revenue
+              .col-sm-6
+                .pull-right.datepicker-v1.datepickerComponent
+                  .pull-left.datepicker-parent
+                    input.form-control.datePicker.form-control-small(type='text')
+                    
+                  .pull-left
+                    select.selectpicker.graphFilterDate
+                      option(value=-1 data-hidden="true") 
+                      option(value=0 selected) Current month
+                      option(value=1) Previous month 
+                      option(value=2) Last 3 month 
+                      option(value=3) Last 6 month 
+                      option(value=4) Last year 
+                      option(value=5) All time 
+                 
+            .graph-unit-holder
+              .graph-unit
+                .dark_wrapper
+                  .graph-value
+                    span.val 42,489$
+                    sup.graph-dynamica.dynamica_up +8%
+                  .graph-unit-large-v2
+                    .graph-block
+                      .areaChartTotal_1.hide_y_axis.hide_x_axis.d3graph.graph_3
+                        #tooltip.graph-tooltip-holder.transp-mod
+                          #tooltip_content.graph-tooltip-top
+                ul.legend_v2.graph-unit-legend.no_cursor
+                  li.legend_item(data-graph='#family_area_0')
+                    .legend_name_v2
+                      span Current
+                    .legend_val
+                      span.val 35,489$
+                      sup.graph-dynamica.dynamica_up +8%
+                  li.legend_item(data-graph='#family_area_1')
+                    .legend_name_v2
+                      span Orders
+                    .legend_val
+                      span.val 490
+                      sup.graph-dynamica.dynamica_down -9%
+                  li.legend_item(data-graph='#family_area_2')
+                    .legend_name_v2
+                      span Products sell
+                    .legend_val
+                      span.val 9,483
+                      sup.graph-dynamica.dynamica_down -9%
+                  li.legend_item(data-graph='#family_area_3')
+                    .legend_name_v2
+                      span Unic users
+                    .legend_val
+                      span.val 109,330
+                      sup.graph-dynamica.dynamica_down -1%
+                  li.legend_item(data-graph='#family_area_4')
+                    .legend_name_v2
+                      span Customers
+                    .legend_val
+                      span.val 477
+                      sup.graph-dynamica.dynamica_up +2
+  
+              .graph-unit-info
+                .graph-unit-info-table.scrollParent
+                  .table-header.sortBlock
+                    .table-cell.col_1.sortHeader
+                      span Date
+                      span.sort_catcher.sortCatcher
+                        span.sort_btn.sortBtn
+                    //.table-cell.col_2.sortHeader
+                      span Orders
+                      span.sort_catcher.sortCatcher
+                    //.table-cell.col_3.sortHeader
+                      span Product sold
+                      span.sort_catcher.sortCatcher
+                    .table-cell.col_4.sortHeader
+                      span.sort_catcher.sortCatcher.invertCatcher
+                      span Day Revenue
+                  .table-footer.scrollBottomFixed
+                    .table-cell.col_1 Total
+                    //.table-cell.col_2 448
+                    //.table-cell.col_3 31
+                    .table-cell.col_4 5,876$
+                  .table-content
+                    +loop_while(9)
+                      .table-row
+                        .table-cell.col_1 21 feb, 2016
+                        //.table-cell.col_2 3
+                        //.table-cell.col_3 9
+                        .table-cell.col_4 130$
+
+      .page-footer
+        .container-fluid.globalwidth
+          ul.footer-menu
+            li: a(href='#') Projects
+            li: a(href='#') Team
+            li: a(href='#') Profile
+            li: a(href='#') Billing
+            li: a(href='#') Support
+            
+          .footer-copyright All rights reserved © Osintsev. K.S. 2016
+    .page-overlay.pageOverlay
+      .jawn
