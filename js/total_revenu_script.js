@@ -237,7 +237,11 @@ function init_line_area3_chart(el) {
         }).left,
         parseDate = d3.time.format("%d-%b-%y").parse;
 
-    var commasFormatter = d3.format(",.0f");
+    //var currencyFormatter = d3.format(",.0f");
+    
+    var currencyFormatter = function (e) {
+       return e.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ');
+    };
 
     var x = d3.time.scale()
         .domain([moment.min(dates), moment.max(dates)])
@@ -301,7 +305,7 @@ function init_line_area3_chart(el) {
         .scale(y)
         .ticks(5)
         .tickFormat(function (d) {
-            return d == 0 ? "" : commasFormatter(d) + "$";
+            return d == 0 ? "" : currencyFormatter(d) + "$";
         })
         .orient("left");
 
@@ -482,7 +486,7 @@ function init_line_area3_chart(el) {
                     tooltip_content.empty()
                         .css('top', (cur_dot.attr('data-y-value') * 1 + margin.top - 15) + "px")
                         .append($('<div class="tooltip-title" />').text(moment(x0).format('dddd, D MMMM YYYY')))
-                        .append($('<div class="tooltip-value" />').text(commasFormatter(y0) + "$"));
+                        .append($('<div class="tooltip-value" />').text(currencyFormatter(y0) + "$"));
 
                     tooltip
                         .css("left", ($this.attr('x') * 1 + margin.left) + "px");
