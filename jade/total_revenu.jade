@@ -91,10 +91,10 @@ html(lang='ru')
                       span Date
                       span.sort_catcher.sortCatcher
                         span.sort_btn.sortBtn
-                    .table-cell.col_2.sortHeader
+                    //.table-cell.col_2.sortHeader
                       span Orders
                       span.sort_catcher.sortCatcher
-                    .table-cell.col_3.sortHeader
+                    //.table-cell.col_3.sortHeader
                       span Product sold
                       span.sort_catcher.sortCatcher
                     .table-cell.col_4.sortHeader
@@ -102,15 +102,16 @@ html(lang='ru')
                       span Day Revenue
                   .table-footer.scrollBottomFixed
                     .table-cell.col_1 Total
-                    .table-cell.col_2 448
-                    .table-cell.col_3 31
+                    //.table-cell.col_2 448
+                    //.table-cell.col_3 31
                     .table-cell.col_4 5,876$
-                  +loop_while(9)
-                    .table-row
-                      .table-cell.col_1 21 feb, 2016
-                      .table-cell.col_2 3
-                      .table-cell.col_3 9
-                      .table-cell.col_4 130$
+                  .table-content
+                    +loop_while(9)
+                      .table-row
+                        .table-cell.col_1 21 feb, 2016
+                        //.table-cell.col_2 3
+                        //.table-cell.col_3 9
+                        .table-cell.col_4 130$
 
       .page-footer
         .container-fluid.globalwidth
