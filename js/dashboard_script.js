@@ -144,28 +144,28 @@ $(function ($) {
 });
 
 function avgBuilder(arr, step) {
-    var ret = [], part = (1 * (arr.length / step).toFixed(0)) - 1;
+    var ret = [], part = (1 * (arr.length / step).toFixed(0));
 
     if (part < 2) return arr;
 
     for (var i = 0; i < arr.length; i += part) {
 
-        var obj = arr.slice(i, i + (arr.length - part * 2 > i ? part : arr.length)), val = 0;
+        var obj = arr.slice(i, i + (arr.length - part * 2 >= i ? part : arr.length)), val = 0;
 
         for (var j = 0; j < obj.length; j++) {
             val += 1 * obj[j].close;
         }
-
+        
         ret.push({"close": 1 * (val / obj.length).toFixed(0), "date": arr[i].date});
 
         val = 0;
 
-        if (!(arr.length - part * 2 > i)) {
-            //console.log('break', i, obj.length);
+        if (!(arr.length - part * 2 >= i)) {
+            //console.log('break', arr.length, i, part, obj.length);
             break;
         }
     }
-
+    
     return ret;
 }
 
@@ -293,7 +293,7 @@ function init_charts() {
 
     $('.lineAreaChart_1').each(function (ind) {
         init_line_area_chart($(this), function (el) {
-            el.parent().addClass('animated tada');
+            el.parent().addClass('animated fadeInUp');
         });
     });
 
