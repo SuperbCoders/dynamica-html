@@ -192,24 +192,24 @@ function init_line_area3_chart(el) {
     el.find('svg').remove();
 
     var data = [
-        {"date": "19-Apr-12", "close": 4236},
-        {"date": "18-Apr-12", "close": 3221},
-        {"date": "17-Apr-12", "close": 2221},
-        {"date": "16-Apr-12", "close": 2313},
-        {"date": "15-Apr-12", "close": 1313},
-        {"date": "14-Apr-12", "close": 3264},
-        {"date": "13-Apr-12", "close": 2229},
-        {"date": "12-Apr-12", "close": 3818},
-        {"date": "11-Apr-12", "close": 2229},
-        {"date": "10-Apr-12", "close": 3818},
-        {"date": "9-Apr-12", "close": 4236},
-        {"date": "8-Apr-12", "close": 1236},
-        {"date": "7-Apr-12", "close": 2221},
-        {"date": "6-Apr-12", "close": 3313},
-        {"date": "5-Apr-12", "close": 1313},
-        {"date": "4-Apr-12", "close": 3264},
-        {"date": "3-Apr-12", "close": 2229},
-        {"date": "2-Apr-12", "close": 3818}
+        {"date": "19-Apr-12", "close": 423600},
+        {"date": "18-Apr-12", "close": 322100},
+        {"date": "17-Apr-12", "close": 222100},
+        {"date": "16-Apr-12", "close": 231300},
+        {"date": "15-Apr-12", "close": 131300},
+        {"date": "14-Apr-12", "close": 326400},
+        {"date": "13-Apr-12", "close": 222900},
+        {"date": "12-Apr-12", "close": 381800},
+        {"date": "11-Apr-12", "close": 222900},
+        {"date": "10-Apr-12", "close": 381800},
+        {"date": "9-Apr-12", "close": 423600},
+        {"date": "8-Apr-12", "close": 123600},
+        {"date": "7-Apr-12", "close": 222100},
+        {"date": "6-Apr-12", "close": 331300},
+        {"date": "5-Apr-12", "close": 131300},
+        {"date": "4-Apr-12", "close": 326400},
+        {"date": "3-Apr-12", "close": 222900},
+        {"date": "2-Apr-12", "close": 381800}
     ];
 
     var dates = [], values = [];
