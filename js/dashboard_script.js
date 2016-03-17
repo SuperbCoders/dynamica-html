@@ -1,6 +1,15 @@
-var resizeHndl, activeFamilyGraph = 0;
+var resizeHndl, activeFamilyGraph = 0, dataFixture = [];
 
 $(function ($) {
+
+    for (var i = 0; i < 95; i++) {
+        var date = moment().subtract(i, 'd');
+
+        dataFixture.push({
+            "date": date.format('D') + '-' + date.format('MMM') + '-' + date.format('YY'),
+            "close": (Math.random() * 1000).toFixed(0)
+        });
+    }
 
     $('.datePicker').each(function () {
         var datePckr = $(this);
@@ -132,8 +141,33 @@ $(function ($) {
 
     }).change();
 
-
 });
+
+function avgBuilder(arr, step) {
+    var ret = [], part = (1 * (arr.length / step).toFixed(0)) - 1;
+
+    if (part < 2) return arr;
+
+    for (var i = 0; i < arr.length; i += part) {
+
+        var obj = arr.slice(i, i + (arr.length - part * 2 > i ? part : arr.length)), val = 0;
+
+        for (var j = 0; j < obj.length; j++) {
+            val += 1 * obj[j].close;
+        }
+
+        ret.push({"close": 1 * (val / obj.length).toFixed(0), "date": arr[i].date});
+
+        val = 0;
+
+        if (!(arr.length - part * 2 > i)) {
+            //console.log('break', i, obj.length);
+            break;
+        }
+    }
+
+    return ret;
+}
 
 function loadGraphData() {
     console.log('loadGraphData');
@@ -258,7 +292,9 @@ function init_charts() {
     });
 
     $('.lineAreaChart_1').each(function (ind) {
-        init_line_area_chart($(this));
+        init_line_area_chart($(this), function (el) {
+            el.parent().addClass('animated tada');
+        });
     });
 
     $('.areaChart_3').each(function (ind) {
@@ -332,7 +368,7 @@ function init_line_area2_chart(el) {
 
 }
 
-function init_line_area_chart(el) {
+function init_line_area_chart(el, callback) {
 
     el.empty();
 
@@ -383,12 +419,15 @@ function init_line_area_chart(el) {
         {"date": "5-Apr-12", "close": 313},
         {"date": "4-Apr-12", "close": 264},
         {"date": "3-Apr-12", "close": 229},
-        {"date": "2-Apr-12", "close": 218}
+        {"date": "2-Apr-12", "close": 218},
+        {"date": "1-Apr-12", "close": 436}
     ];
+
+    data = avgBuilder(dataFixture, 10);
 
 // Get the data
     data.forEach(function (d) {
-        d.date = parseDate(d.date);
+        d.date = parseDate(moment(d.date).format('D-MMM-YY'));
         d.close = +d.close;
     });
 
@@ -457,6 +496,8 @@ function init_line_area_chart(el) {
         .attr("cy", function (d) {
             return y(d.close);
         });
+
+    if (typeof callback == 'function') callback(el);
 
 }
 
