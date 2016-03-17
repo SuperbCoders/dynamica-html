@@ -1486,6 +1486,11 @@
   padding: 0 5px;
   color: #fff;
   background-color: #5ec65d;
+  
+  &.val_gray {
+    background-color: #909090;
+  }
+  
 }
 
 @-webkit-keyframes sorting_anim {
