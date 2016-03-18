@@ -429,7 +429,7 @@ svg:not(:root) {
       }
     }
 
-    .graph-block {
+    .graph-block div {
       opacity: .2;
     }
   }
@@ -996,7 +996,7 @@ svg:not(:root) {
   z-index: 3;
   background: #fff;
   border-radius: 10px;
-  padding: 15px 20px 20px;
+  padding: 20px;
   color: #101010;
   font-size: 15px;
   line-height: 19px;
@@ -1012,6 +1012,18 @@ svg:not(:root) {
   -webkit-transition: top .3s;
   -ms-transition: top .3s;
   transition: top .3s;
+  
+  .tooltip-title {
+    font-weight: 400;
+    font-size: 12px;
+    color: #6a6a6a;
+  }
+  
+  .tooltip-value {
+    font-size: 20px;
+    color: #668aff;
+  }
+  
 }
 
 .tooltip-dot {
@@ -1491,12 +1503,21 @@ svg:not(:root) {
 
   }
 
-  tr:first-child {
-    td {
-      border-top: none;
+  tr {
+
+    &:first-child {
+      td {
+        border-top: none;
+      }
+    }
+
+    &:hover {
+      td {
+        background: #fafafa;
+      }
     }
   }
-
+  
   .col_1 {
     width: 54%;
   }
@@ -1600,8 +1621,8 @@ svg:not(:root) {
 @-webkit-keyframes fadeInUp {
   from {
     opacity: 0;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
+    -webkit-transform: translate3d(0, 40px, 0);
+    transform: translate3d(0, 40px, 0);
   }
 
   to {
@@ -1614,8 +1635,8 @@ svg:not(:root) {
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    -webkit-transform: translate3d(0, 100%, 0);
-    transform: translate3d(0, 100%, 0);
+    -webkit-transform: translate3d(0, 40px, 0);
+    transform: translate3d(0, 40px, 0);
   }
 
   to {
