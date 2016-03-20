@@ -1,9 +1,9 @@
 <?xml version="1.0" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd" >
-<svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1">
 <metadata>
-Created by FontForge 20090914 at Tue Feb 16 09:04:43 2016
- By www-data
+Created by FontForge 20141024 at Sun Mar 20 08:10:31 2016
+ By Jimmy Warting
 Font data copyright Google 2014
 </metadata>
 <defs>
@@ -21,7 +21,7 @@ Font data copyright Google 2014
     bbox="-1394.99 -554.995 2352 2163"
     underline-thickness="100"
     underline-position="-100"
-    unicode-range="U+0002-U+FFFD"
+    unicode-range="U+0002-FFFD"
   />
 <missing-glyph horiz-adv-x="507" 
  />
