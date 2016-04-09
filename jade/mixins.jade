@@ -33,6 +33,127 @@ mixin loop_while(counter)
     while i < counter
         -i++;
         block
+mixin popup_controls()
+    .dev_popup_controls
+        .dev_control
+            button.btn.btn-info(type='button', data-toggle='modal', data-target='#auth_popup') auth_popup
+        .dev_control
+            button.btn.btn-info(type='button', data-toggle='modal', data-target='#restore_pass_popup') restore_pass_popup
+        .dev_control
+            button.btn.btn-info(type='button', data-toggle='modal', data-target='#no_access_popup') no_access_popup
+        .dev_control
+            button.btn.btn-info(type='button', data-toggle='modal', data-target='#not_ready_popup') not_ready_popup
+        .dev_control
+            button.btn.btn-info(type='button', data-toggle='modal', data-target='#confirm_address_popup') confirm_address_popup
+        
+
+mixin popups()
+    #auth_popup.modal.fade(role='dialog')
+        .modal-dialog.modal_v1
+            // Modal content
+            .modal-content
+                .modal-header
+                    //-button.close(type='button', data-dismiss='modal') ×
+                    .modal-title
+                        span.dynamica_loading
+                        span Dynamica importing data from your Shopify
+                .modal-body
+                    h3 To see 
+                        span.fw_700 Bling-Blings 
+                        | analytics you need sign up
+                    
+                .modal-soc_auth
+                    .control-box
+                        a.btn-social-auth.btn-facebook(href='#')
+                            i.icon.fa.fa-facebook
+                            | Facebook
+                    .control-box
+                        a.btn-social-auth.btn-google(href='#')
+                            i.icon.fa.fa-google-plus
+                            | Google plus
+
+                .form_holder: form(action='#')
+                    .alternal_auth OR ENTER EMAIL MANUALY
+
+                    .control-box
+                        input.form-control(type='text', placeholder='Email')
+                        
+                    .control-box
+                        input.form-control(type='password', placeholder='Password')
+                        
+                    .control-box.text-center.btn_holder
+                        button.btn.btn-lg.btn-danger(type='submit') Go
+                        
+                    .control-box.text-center.btn_holder
+                        a.btn-link.forgot_pass_link(href='#') I forgot password
+                        
+    #restore_pass_popup.modal.fade(role='dialog')
+        .modal-dialog.modal_v1
+            // Modal content
+            .modal-content
+                .modal-header
+                    //-button.close(type='button', data-dismiss='modal') ×
+                .modal-body
+                    h3 Password recovery
+                    
+                    p.text-center Enter your email and we send  <br> password to you
+ 
+                .form_holder: form(action='#')
+                    .control-box
+                        input.form-control(type='text', placeholder='Email')
+
+                    .control-box.text-center.btn_holder
+                        button.btn.btn-lg.btn-danger(type='submit') Restore
+                        
+                    .control-box.text-center.btn_holder
+                        a.btn-link.forgot_pass_link(href='#') Back
+                                                
+    #no_access_popup.modal.fade(role='dialog')
+        .modal-dialog.modal_v1
+            // Modal content
+            .modal-content
+                .modal-header
+                    .modal-title &nbsp;
+                .modal-body
+                    h3 We didn’t get  <br> access to your Shopify  <br>  store, want to try again?
+                     
+                .form_holder
+                    .control-box.text-center.btn_holder
+                        a.btn.btn-lg.btn-danger(href='#') Yes, please
+                        
+                    .control-box.text-center.btn_holder
+                        a.btn-link.forgot_pass_link(href='#') No
+                                                
+    #confirm_address_popup.modal.fade(role='dialog')
+        .modal-dialog.modal_v1
+            // Modal content
+            .modal-content
+                .modal-header
+                    .modal-title &nbsp;
+                .modal-body.text-center
+                    p Confirm your email address   <br> 
+                        span.address yaosamo@gmail.com
+                     
+                .form_holder
+                    .control-box.text-center.btn_holder
+                        a.btn-link(href='#') Ok, thanks!
+                        
+                                                                        
+    #not_ready_popup.modal.fade(role='dialog')
+        .modal-dialog.modal_v1(style='width: 728px;')
+            // Modal content
+            .modal-content
+                .modal-header
+                .modal-body
+                    .modal_dynamica_logo.text-center
+                        img(src='images/dynamica.svg')
+                    
+                    h3 Graphics are not ready yet,  <br> we can remind you
+                     
+                .form_holder
+                    .control-box.text-center.btn_holder
+                        a.btn.btn-lg.btn-danger(href='#') Remind me, on email
+                        
 
 mixin page_overlay()
     .page-overlay.pageOverlay
