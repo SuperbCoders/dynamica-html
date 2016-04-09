@@ -1,0 +1,89 @@
+include mixins
+
+doctype html
+html(lang='ru')
+  +dev_head('Dynamica text page', false, false, false, true)
+  
+  body
+    .page.dashboard_page.article_page
+      header.page-header.navbar.navbar-default
+        .container-fluid.globalwidth
+          .navbar-header
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='.bs-navbar-collapse')
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            .navbar-project-switch
+              a.navbar-brand(href='#') Dynamica
+              span  of 
+              .hover-select-box.front-select-btn
+                select.selectpicker
+                  option(value='Bling-Blings') Bling-Blings
+                  option(value='Apple Store') Apple Store
+                  option(value='Helvetica') Helvetica
+                  
+          nav.collapse.navbar-collapse.bs-navbar-collapse
+            ul.nav.navbar-nav
+              li.active
+                a(href='projects.html') Projects
+              li
+                a(href='#') Team
+            ul.nav.navbar-right.hidden-xs
+              li
+                .user.dropdown
+                  .arrow
+                  a.user-toggle.dropdown-toggle(data-toggle='dropdown', href='#')
+                    span.user-pic
+                      img.img-circle(width='40', height='40', src='images/avatar1_40x40.jpg', alt='')
+                    span.user-name
+                      | Yaroslav Samoilov
+                      i.icon.fa.fa-angle-down
+                  .user-menu.dropdown-menu.right
+                    ul
+                      li
+                        a(href='billing.html') Billing
+                      li
+                        a(href='profile.html') Profile
+                      li
+                        a(href='#') Help
+                      li.clear
+                        a(href='#') Log out
+                        
+      section.dashboard-body
+        .container-fluid.globalwidth
+          section
+            .row
+              .col-sm-12
+                +dashboard_panel()
+                      
+            .article_holder: .row.dashboard-title-row.article_v1
+              .col-sm-12
+                h2 Respect the YouTube community
+                h4 We're not asking for the kind of respect reserved for nuns, the elderly, and brain surgeons.  <br>  Just don't abuse the site. Every cool, new community feature on YouTube involves a certain  <br>  level of trust. We trust you to be responsible, and millions of users respect that trust. Please  <br>  be one of them.
+                
+                .article_block
+                  h3 Don't cross the line
+                
+                  .article_col_3
+                    p YouTube is not for pornography or sexually explicit content. If this describes your video, even if it's a video of yourself, don't post it on YouTube. Also, be advised that we work closely with law enforcement and we report child exploitation. Don't post videos that encourage others to do things that might cause them to get badly hurt, especially kids. Videos showing such harmful or dangerous acts may get age-restricted or removed depending on their severity.  YouTube is not for pornography or sexually explicit content. If this describes your video, even if it's a video of yourself, don't post it on YouTube. Also, be advised that we work closely with law enforcement and we report child exploitation. 
+
+                  .article_img: img(src='images/article_1.jpg')
+
+                .row: .col-sm-8
+                  h3 We review your reports carefully
+                  
+                  p You might not like everything you see on YouTube. Some of the content might offend you. If you think it's inappropriate, locate the flagging feature on the video and submit it for review by our YouTube staff. Learn more
+                  p Our staff reviews flagged videos 24 hours a day, 7 days a week to determine whether they violate our Community Guidelines. When they do, we remove them. Sometimes a video doesn't violate our guidelines, but might not be appropriate for everyone. These videos may get age-restricted. Accounts are penalized for Community Guidelines violations, and serious or repeated violations can lead to account termination. If an account is terminated, that person won't be allowed to create any new accounts.
+                    
+      .page-footer
+        .container-fluid.globalwidth
+          ul.footer-menu
+            li: a(href='#') Projects
+            li: a(href='#') Team
+            li: a(href='#') Profile
+            li: a(href='#') Billing
+            li: a(href='#') Support
+            
+          .footer-copyright All rights reserved © Osintsev. K.S. 2016
+            
+    +page_overlay()
