@@ -225,7 +225,6 @@ svg:not(:root) {
   .selectpicker.btn {
     opacity: 0;
   }
-
 }
 
 .hover-select-item {
@@ -379,16 +378,31 @@ svg:not(:root) {
     color: #9ca1af;
   }
 
-  .graph-unit-legend .legend_item {
-    border-color: #4f576c;
+  .legend_val {
+    color: #1a1a1a;
   }
 
-  .legend_val {
-    color: #fff;
+  .legend_name_v2 {
+    color: #9ca1af;
+  }
+
+  .graph-unit-legend {
+
+    .legend_item {
+      border-color: #d2d2d2;
+    }
   }
 
   &.dark_mod {
     background: #333648;
+
+    .graph-unit-legend .legend_item {
+      border-color: #4f576c;
+    }
+
+    .legend_val {
+      color: #fff;
+    }
 
     .graph-value {
       .val {
@@ -1504,6 +1518,7 @@ svg:not(:root) {
   }
 
   tr {
+    cursor: pointer;
 
     &:first-child {
       td {
