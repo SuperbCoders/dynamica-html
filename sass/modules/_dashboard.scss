@@ -488,7 +488,6 @@ svg:not(:root) {
     right: 0;
     z-index: 1;
   }
-
 }
 
 .graph-unit-large {
@@ -499,6 +498,8 @@ svg:not(:root) {
   position: relative;
   background: #323847;
   line-height: 34px;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
 
   .graph-name {
     float: left;

@@ -1,4 +1,4 @@
-mixin dev_head(page_title, dashboard, total_revenu, inside_total_revenu, text_page)
+mixin dev_head(page_title, dashboard, total_revenu, inside_total_revenu, text_page, land)
     head
         meta(name='viewport', content='width=device-width, initial-scale=1')
         meta(charset='utf-8')
@@ -7,6 +7,8 @@ mixin dev_head(page_title, dashboard, total_revenu, inside_total_revenu, text_pa
         title=page_title 
         link(rel='shortcut icon', type='image/x-icon', href='img/favicon.ico')
         link(rel='stylesheet', href='css/style.css')
+        - if (land)
+            link(href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css')
         | 
         | <!--[if lt IE 9]>
         |       <script type="text/javascript" src="js/vendor/html5shiv.js"></script>
@@ -27,12 +29,25 @@ mixin dev_head(page_title, dashboard, total_revenu, inside_total_revenu, text_pa
             script(type='text/javascript', src='js/inside_total_revenu_script.js')
         - if (text_page)
             script(type='text/javascript', src='js/text_page.js')
+        - if (land)
+            script(type='text/javascript', src='js/vendor/skrollr.js')
+            script(type='text/javascript', src='js/swiper_ie9.js')
+            script(type='text/javascript', src='js/land.js')
             
 mixin loop_while(counter)
     -i=0;
     while i < counter
         -i++;
         block
+        
+mixin testimon_slide()
+    .testimonial_block
+        .testimonial_text
+            p Dynamica gives us incredible insights into our monthly numbers and growth, and provides us with invaluable information that allows us to improve our business in ways that weren't possible for us before.
+        .testimonial_author
+            img(src='img/testemonial_author.png')
+        .testimonial_author_name Daniel Shultz  <br> Owner of Black Dark Shop
+
 mixin popup_controls()
     .dev_popup_controls
         .dev_control
