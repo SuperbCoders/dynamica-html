@@ -1382,6 +1382,10 @@ svg:not(:root) {
       font-size: 16px;
       border: none;
       cursor: pointer;
+
+      a {
+        color: inherit;
+      }
     }
 
     &.no_pointer {
@@ -1890,6 +1894,7 @@ $blue: rgb(0, 155, 255);
     .table-cell {
       display: table-cell;
       float: none;
+      line-height: normal;
     }
 
     .table-footer,
