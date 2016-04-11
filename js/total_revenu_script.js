@@ -50,7 +50,7 @@ $(function ($) {
             }
         }).on('show', function (e) {
             var calendar = $(this).datepicker("widget");
-            
+
             if (calendar.find('.btn').length) return;
 
             var buttonPane = $('<span class="calendar-control-holder" />');
@@ -238,9 +238,9 @@ function init_line_area3_chart(el) {
         parseDate = d3.time.format("%d-%b-%y").parse;
 
     //var currencyFormatter = d3.format(",.0f");
-    
+
     var currencyFormatter = function (e) {
-       return e.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ');
+        return e.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1 ');
     };
 
     var x = d3.time.scale()
@@ -315,7 +315,7 @@ function init_line_area3_chart(el) {
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform",
-        "translate(" + margin.left + "," + margin.top + ")");
+            "translate(" + margin.left + "," + margin.top + ")");
 
     svg.append("g")
         .attr("class", "x axis")
@@ -345,7 +345,7 @@ function init_line_area3_chart(el) {
         .call(make_y_axis()
             .tickSize(-width, 0, 0)
             .tickFormat("")
-    );
+        );
 
     /*    svg.append("path")
      .data(data)
@@ -395,15 +395,15 @@ function init_line_area3_chart(el) {
         .attr("stop-opacity", 0);
 
     svg.append("path")
-        .attr("class", "line")
-        .attr("d", valueline(data));
-
-    svg.append("path")
         .datum(data)
         .attr("class", "area area_v1")
         .attr("d", area)
         .style("fill", 'url(#area_gradient_1)');
 
+    svg.append("path")
+        .attr("class", "line")
+        .attr("d", valueline(data));
+    
     // Add the scatterplot
 
     svg.append("line")
@@ -440,7 +440,7 @@ function init_line_area3_chart(el) {
         });
 
     svg.append("circle")
-        .attr("r", 7)
+        .attr("r", 10)
         .attr('id', 'big_dot')
         .attr('class', 'big_dot mark_v2')
         .attr("cx", 0)

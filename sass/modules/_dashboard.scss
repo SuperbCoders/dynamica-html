@@ -932,7 +932,7 @@ svg:not(:root) {
   .line {
     fill: none;
     stroke: #3e6cfe;
-    stroke-width: 1.5px;
+    stroke-width: 4px;
   }
 
   .area {
@@ -963,9 +963,9 @@ svg:not(:root) {
   .mark_v2 {
     position: relative;
     z-index: 1;
-    fill: #fff;
-    stroke: #3e6cfe;
-    stroke-width: 2;
+    fill: #3e6cfe;
+    stroke: #fff;
+    stroke-width: 4;
     opacity: 0;
     -webkit-transition: r .3s, opacity .3s;
     -ms-transition: r .3s, opacity .3s;

@@ -415,7 +415,7 @@ function init_line_area3_chart(el) {
         });
 
     svg.append("circle")
-        .attr("r", 7)
+        .attr("r", 10)
         .attr('id', 'big_dot')
         .attr('class', 'big_dot mark_v2')
         .attr("cx", 0)
