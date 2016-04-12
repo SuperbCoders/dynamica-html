@@ -391,7 +391,7 @@ function init_line_area3_chart(el) {
 
     gradient.append("svg:stop")
         .attr("offset", "100%")
-        .attr("stop-color", "#f6f6f6")
+        .attr("stop-color", "#E0E8FF")
         .attr("stop-opacity", 0);
 
     svg.append("path")
