@@ -374,9 +374,34 @@ function init_line_area3_chart(el) {
     area_y.domain([0, d3.max(data, function (d) {
         return d.close;
     })]);
+
+    var gradient = svg.append("svg:defs")
+        .append("svg:linearGradient")
+        .attr("id", "area_gradient_1")
+        .attr("x1", "0%")
+        .attr("y1", "0%")
+        .attr("x2", "0%")
+        .attr("y2", "100%")
+        .attr("spreadMethod", "pad");
+
+    gradient.append("svg:stop")
+        .attr("offset", "0%")
+        .attr("stop-color", "#E0E8FF")
+        .attr("stop-opacity", .8);
+
+    gradient.append("svg:stop")
+        .attr("offset", "100%")
+        .attr("stop-color", "#f6f6f6")
+        .attr("stop-opacity", 0);
+
+    svg.append("path")
+        .datum(data)
+        .attr("class", "area area_v1")
+        .attr("d", area)
+        .style("fill", 'url(#area_gradient_1)');
     
     svg.append("path")
-        .attr("class", "line")
+        .attr("class", "line line_v2")
         .attr("d", valueline(data));
 
     // Add the scatterplot
