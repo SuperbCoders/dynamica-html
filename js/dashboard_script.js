@@ -85,6 +85,12 @@ $(function ($) {
         .delegate('.bootstrap-select.filterSelect', 'click', function () {
             $(this).closest('.hover-select-box').addClass('opened');
         })
+        .delegate('.dropdown.filterSelect', 'hide.bs.dropdown', function () {
+            $(this).closest('.hover-select-box').removeClass('opened');
+        })
+        .delegate('.dropdown.filterSelect', 'click', function () {
+            $(this).closest('.hover-select-box').addClass('opened');
+        })
         .delegate('.filter-mod.hover-select-box .filterSelect.selectpicker', 'change', function () {
             $(this).closest('.filter-holder').addClass('current').siblings().removeClass('current');
         })

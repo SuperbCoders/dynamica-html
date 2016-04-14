@@ -16,17 +16,31 @@ html(lang='ru')
             .navbar-project-switch
               a.navbar-brand(href='#') Dynamica
               span  of 
-              .hover-select-box.front-select-btn
+              .hover-select-box
+                .dropdown
+                  button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                    | Bling-Blings
+                    span.caret
+                    
+                  ul.dropdown-menu.dropdown_item_wide
+                    li
+                      a(href='#') Bling-Blings
+                    li
+                      a(href='#') Apple Store
+                    li
+                      a(href='#') Helvetica
+                    
+              //-.hover-select-box.front-select-btn
                 select.selectpicker
                   option(value='Bling-Blings') Bling-Blings
                   option(value='Apple Store') Apple Store
                   option(value='Helvetica') Helvetica
                   
-                //ul.hover-select-list
-                //  li.hover-select-item.active: a.projectBtn(href='#') Bling-Blings
-                //  li.hover-select-item: a.projectBtn(href='#') Apple Store
-                //  li.hover-select-item: a.projectBtn(href='#') Helvetica
-                //i.icon.fa.fa-angle-down.hover-select-icon
+                //-ul.hover-select-list
+                //-  li.hover-select-item.active: a.projectBtn(href='#') Bling-Blings
+                //-  li.hover-select-item: a.projectBtn(href='#') Apple Store
+                //-  li.hover-select-item: a.projectBtn(href='#') Helvetica
+                //-i.icon.fa.fa-angle-down.hover-select-icon
 
           nav.collapse.navbar-collapse.bs-navbar-collapse
             ul.nav.navbar-nav
