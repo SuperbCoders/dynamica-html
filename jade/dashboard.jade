@@ -88,7 +88,20 @@ html(lang='ru')
                       input.form-control(type='text', name='end' value='2012-04-19')
 
                   .pull-left
-                    select.selectpicker.graphFilterDate
+                    .dropdown.filterSelect
+                      button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                        | 
+                        span.caret
+
+                      ul.dropdown-menu.dropdown-menu_bordered.dropdown-menu-right.graphFilterDropDown
+                        li: a(href='#' data-value='0') Current month
+                        li: a(href='#' data-value='1') Previous month 
+                        li: a(href='#' data-value='2') Last 3 month 
+                        li: a(href='#' data-value='3') Last 6 month 
+                        li: a(href='#' data-value='4') Last year 
+                        li: a(href='#' data-value='5') All time 
+                        
+                    //-select.selectpicker.graphFilterDate
                       option(value=-1 data-hidden="true") 
                       option(value=0 selected) Current month
                       option(value=1) Previous month 

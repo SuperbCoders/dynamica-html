@@ -147,6 +147,45 @@ $(function ($) {
 
     }).change();
 
+    $('.graphFilterDropDown a').on('click', function (e,r) {
+         
+        var firedEl = $(this),
+            datePckr = firedEl.closest('.datepickerComponent').find('.datePicker'),
+            rangeStart, rangeEnd,
+            newRange = parseInt(firedEl.attr('data-value')), today = moment();
+
+        if (newRange == 0) {         //  Current month       
+            rangeStart = moment(today).startOf('month');
+            rangeEnd = moment(today).endOf('month');
+
+        } else if (newRange == 1) {  //  Previous month 
+            rangeStart = moment(today).subtract(1, 'month').startOf('month');
+            rangeEnd = moment(today).subtract(1, 'month').endOf('month');
+
+        } else if (newRange == 2) {  //  Last 3 month 
+            rangeStart = moment(today).subtract(3, 'month');
+            rangeEnd = moment(today);
+
+        } else if (newRange == 3) {  //  Last 6 month 
+            rangeStart = moment(today).subtract(6, 'month');
+            rangeEnd = moment(today);
+
+        } else if (newRange == 4) {  //  Last year 
+            rangeStart = moment(today).subtract(12, 'month');
+            rangeEnd = moment(today);
+
+        } else if (newRange == 5) {  //  All time 
+            rangeStart = moment(datePckr.datepicker('getStartDate'));
+            rangeEnd = moment(datePckr.datepicker('getEndDate'));
+        }
+
+        datePckr.datepicker("setDates", [
+            fit2Limits(datePckr, rangeStart, true),
+            fit2Limits(datePckr, rangeEnd)
+        ]).datepicker("update");
+
+    }).first().click();
+
 });
 
 function avgBuilder(arr, step) {
@@ -161,7 +200,7 @@ function avgBuilder(arr, step) {
         for (var j = 0; j < obj.length; j++) {
             val += 1 * obj[j].close;
         }
-        
+
         ret.push({"close": 1 * (val / obj.length).toFixed(0), "date": arr[i].date});
 
         val = 0;
@@ -171,7 +210,7 @@ function avgBuilder(arr, step) {
             break;
         }
     }
-    
+
     return ret;
 }
 
@@ -331,8 +370,8 @@ function init_line_area2_chart(el) {
         .append('svg:g');
 
     var line = d3.svg.area().x(function (d, i) {
-        return scale.x(i);
-    })
+            return scale.x(i);
+        })
         .y(function (d) {
             return scale.y(d);
         }).y0(height).interpolate("cardinal");
@@ -417,7 +456,7 @@ function init_line_area_chart(el, callback) {
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform",
-        "translate(" + margin.left + "," + margin.top + ")");
+            "translate(" + margin.left + "," + margin.top + ")");
 
     var data = [
         {"date": "9-Apr-12", "close": 436},
@@ -534,7 +573,7 @@ function init_line_chart(el) {
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
         .attr("transform",
-        "translate(" + margin.left + "," + margin.top + ")");
+            "translate(" + margin.left + "," + margin.top + ")");
 
     var data = [
         {"date": "9-Apr-12", "close": 436},
@@ -634,51 +673,51 @@ function init_area_family_chart(el, data_files, data_colors) {
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
         .on('mousemove', function (d) {
-            //console.log(d3.mouse(this));
-            var tooltip = d3.select("#tooltip"),
-                tooltip_content = $("#tooltip_content"),
-                tooltip_dot = $("#tooltip_dot"),
-                tool_table = $('<table class="graph-tooltip-table" />'),
-                distance = area_x(data_files[activeFamilyGraph].data[0].date) - area_x(data_files[activeFamilyGraph].data[1].date) || 0,
-                x = d3.mouse(this)[0] + distance / 2,
-                x0 = area_x.invert(x),
-                ind;
+                //console.log(d3.mouse(this));
+                var tooltip = d3.select("#tooltip"),
+                    tooltip_content = $("#tooltip_content"),
+                    tooltip_dot = $("#tooltip_dot"),
+                    tool_table = $('<table class="graph-tooltip-table" />'),
+                    distance = area_x(data_files[activeFamilyGraph].data[0].date) - area_x(data_files[activeFamilyGraph].data[1].date) || 0,
+                    x = d3.mouse(this)[0] + distance / 2,
+                    x0 = area_x.invert(x),
+                    ind;
 
-            for (var k = 0; k < dates.length; k++) {
-                var obj1 = dates[k];
+                for (var k = 0; k < dates.length; k++) {
+                    var obj1 = dates[k];
 
-                if (moment(x0).startOf('day').isSame(obj1, 'day')) {
-                    ind = k;
-                    break;
+                    if (moment(x0).startOf('day').isSame(obj1, 'day')) {
+                        ind = k;
+                        break;
+                    }
                 }
+
+                for (var j = 0; j < data_files.length; j++) {
+                    var color = data_files[j].color, data = data_files[j].data;
+
+                    //var i = bisectDate(data, x0, 1);
+
+                    var tooltip_item = $('<tr class="tooltip_row" />').attr('data-graph', 'family_area_' + j)
+                        .addClass(j == activeFamilyGraph ? 'active_row' : '')
+                        .addClass($('.graph-unit-legend .legend_item[data-graph=#family_area_' + j + ']').hasClass('disabled') ? 'disabled' : '')
+                        .append($('<td class="tooltip_name" />').append($('<div class="legend_name" />').css('color', color).append($('<span/>').text(data_files[j].name))))
+                        .append($('<td class="tooltip_val" />').append($('<b class="" />').text(data_files[j].data[ind].close)));
+
+                    tool_table.append(tooltip_item);
+                }
+
+                tooltip_content.empty()
+                    .append($('<div class="tooltip-title" />').text(moment(x0).format('dddd, D MMMM YYYY')))
+                    .append(tool_table);
+
+                tooltip
+                    .classed('flipped_left', x < tooltip_content.outerWidth() + 25)
+                    .style("left", area_x(data_files[activeFamilyGraph].data[ind].date) + "px");
+
+                tooltip_dot.css('top', margin.top + area_y(data_files[activeFamilyGraph].data[ind].close) - 11);
+
             }
-
-            for (var j = 0; j < data_files.length; j++) {
-                var color = data_files[j].color, data = data_files[j].data;
-
-                //var i = bisectDate(data, x0, 1);
-
-                var tooltip_item = $('<tr class="tooltip_row" />').attr('data-graph', 'family_area_' + j)
-                    .addClass(j == activeFamilyGraph ? 'active_row' : '')
-                    .addClass($('.graph-unit-legend .legend_item[data-graph=#family_area_' + j + ']').hasClass('disabled') ? 'disabled' : '')
-                    .append($('<td class="tooltip_name" />').append($('<div class="legend_name" />').css('color', color).append($('<span/>').text(data_files[j].name))))
-                    .append($('<td class="tooltip_val" />').append($('<b class="" />').text(data_files[j].data[ind].close)));
-
-                tool_table.append(tooltip_item);
-            }
-
-            tooltip_content.empty()
-                .append($('<div class="tooltip-title" />').text(moment(x0).format('dddd, D MMMM YYYY')))
-                .append(tool_table);
-
-            tooltip
-                .classed('flipped_left', x < tooltip_content.outerWidth() + 25)
-                .style("left", area_x(data_files[activeFamilyGraph].data[ind].date) + "px");
-
-            tooltip_dot.css('top', margin.top + area_y(data_files[activeFamilyGraph].data[ind].close) - 11);
-
-        }
-    );
+        );
 
     svg.append("g")
         .attr("class", "x axis family_x_axis")

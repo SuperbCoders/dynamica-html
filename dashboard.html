@@ -128,15 +128,17 @@
                     <input type="text" class="form-control datePicker form-control-small">
                   </div>
                   <div class="pull-left">
-                    <select class="selectpicker graphFilterDate">
-                      <option value="-1" data-hidden="true"> </option>
-                      <option value="0" selected>Current month</option>
-                      <option value="1">Previous month </option>
-                      <option value="2">Last 3 month </option>
-                      <option value="3">Last 6 month </option>
-                      <option value="4">Last year </option>
-                      <option value="5">All time </option>
-                    </select>
+                    <div class="dropdown filterSelect">
+                      <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle"> <span class="caret"></span></button>
+                      <ul class="dropdown-menu dropdown-menu_bordered dropdown-menu-right graphFilterDropDown">
+                        <li><a href="#" data-value="0">Current month</a></li>
+                        <li><a href="#" data-value="1">Previous month </a></li>
+                        <li><a href="#" data-value="2">Last 3 month </a></li>
+                        <li><a href="#" data-value="3">Last 6 month </a></li>
+                        <li><a href="#" data-value="4">Last year </a></li>
+                        <li><a href="#" data-value="5">All time </a></li>
+                      </ul>
+                    </div>
                   </div>
                 </div>
               </div>
