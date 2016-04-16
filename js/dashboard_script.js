@@ -470,13 +470,13 @@ function init_line_area_chart(el, callback) {
 
     data = avgBuilder(dataFixture, 10);
 
-// Get the data
+    // Get the data
     data.forEach(function (d) {
         d.date = parseDate(moment(d.date).format('D-MMM-YY'));
         d.close = +d.close;
     });
 
-// Scale the range of the data
+    // Scale the range of the data
     x.domain(d3.extent(data, function (d) {
         return d.date;
     }));
