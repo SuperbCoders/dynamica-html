@@ -324,97 +324,33 @@ function init_charts() {
 
     init_donut_chart($('.donutChart_1'));
 
+    // Главный график на дашборде
     $('.areaChartFamily_1').each(function (ind) {
-        init_area_family_chart($(this), big_chart);
+        draw_general_graph($(this), big_chart);
     });
 
     $('.areaChart_1').each(function (ind) {
         init_area_chart($(this));
     });
 
+    // Блочный график без точек
     $('.areaChart_2').each(function (ind) {
-        init_line_chart($(this));
+        draw_dotted_block_graps($(this));
     });
 
+    // Блочные графики с точками
     $('.lineAreaChart_1').each(function (ind) {
         init_line_area_chart($(this), function (el) {
             el.parent().addClass('animated fadeInUp');
         });
     });
 
-    $('.areaChart_3').each(function (ind) {
-        init_line_area2_chart($(this));
-    });
 }
 
-function init_line_area2_chart(el) {
-
-    el.empty();
-
-    var margin = {top: 0, right: 0, bottom: 0, left: 0},
-        width = el.width() - margin.left - margin.right,
-        height = el.height() - margin.top - margin.bottom;
-
-    var data = [436, 221, 313, 264, 229, 218];
-
-    var scale = {
-        x: d3.scale.linear().domain([0, data.length]).range([0, width]),
-        y: d3.scale.linear().domain([0, d3.max(data)]).range([height, 15])
-    };
-
-    var chart = d3.select(el[0])
-        .append('svg:svg')
-        .data([data])
-        .attr('width', width)
-        .attr('height', height)
-        .append('svg:g');
-
-    var line = d3.svg.area().x(function (d, i) {
-            return scale.x(i);
-        })
-        .y(function (d) {
-            return scale.y(d);
-        }).y0(height).interpolate("cardinal");
-
-    var gradient = chart.append("svg:defs")
-        .append("svg:linearGradient")
-        .attr("id", "area_gradient_1")
-        .attr("x1", "0%")
-        .attr("y1", "0%")
-        .attr("x2", "0%")
-        .attr("y2", "100%")
-        .attr("spreadMethod", "pad");
-
-    gradient.append("svg:stop")
-        .attr("offset", "0%")
-        .attr("stop-color", "#dfe7ff")
-        .attr("stop-opacity", 1);
-
-    gradient.append("svg:stop")
-        .attr("offset", "100%")
-        .attr("stop-color", "#f6f6f6")
-        .attr("stop-opacity", 0);
-
-    chart.append('svg:path')
-        .attr('d', function (d, i) {
-            return line(d, i);
-        }).style("fill", 'url(#area_gradient_1)');
-
-
-    chart.selectAll('circle.mark').data(data).enter().append('svg:circle')
-        .attr('class', 'mark')
-        .attr('cx', function (d, i) {
-            return scale.x(i);
-        })
-        .attr('cy', function (d) {
-            return scale.y(d);
-        })
-        .attr('r', 5.5)
-
-}
 
 function init_line_area_chart(el, callback) {
-
+    // графики с точками
+    // return false;
     el.empty();
 
     var margin = {top: 0, right: 0, bottom: 0, left: 0},
@@ -470,13 +406,13 @@ function init_line_area_chart(el, callback) {
 
     data = avgBuilder(dataFixture, 10);
 
-// Get the data
+    // Get the data
     data.forEach(function (d) {
         d.date = parseDate(moment(d.date).format('D-MMM-YY'));
         d.close = +d.close;
     });
 
-// Scale the range of the data
+    // Scale the range of the data
     x.domain(d3.extent(data, function (d) {
         return d.date;
     }));
@@ -543,11 +479,11 @@ function init_line_area_chart(el, callback) {
         });
 
     if (typeof callback == 'function') callback(el);
-
 }
 
-function init_line_chart(el) {
-
+function draw_dotted_block_graps(el) {
+    // линии без точек
+    // return false;
     el.empty();
 
     var margin = {top: 0, right: 0, bottom: 0, left: 0},
@@ -584,13 +520,13 @@ function init_line_chart(el) {
         {"date": "2-Apr-12", "close": 218}
     ];
 
-// Get the data
+    // Get the data
     data.forEach(function (d) {
         d.date = parseDate(d.date);
         d.close = +d.close;
     });
 
-// Scale the range of the data
+    // Scale the range of the data
     x.domain(d3.extent(data, function (d) {
         return d.date;
     }));
@@ -603,10 +539,9 @@ function init_line_chart(el) {
         .attr("class", "line")
         .attr("id", "blueLine")
         .attr("d", valueline(data));
-
 }
 
-function init_area_family_chart(el, data_files, data_colors) {
+function draw_general_graph(el, data_files, data_colors) {
 
     el.find('svg').remove();
 
@@ -803,11 +738,10 @@ function init_area_family_chart(el, data_files, data_colors) {
             .attr("width", '100%')
             .attr("height", (100 / data_files.length) + '%');
     }
-
 }
 
 function init_area_chart(el) {
-
+    // return false;
     el.empty();
 
     var margin = {top: 0, right: 0, bottom: 0, left: 0},
@@ -884,7 +818,7 @@ function init_area_chart(el) {
 }
 
 function init_donut_chart(el) {
-
+    return false;
     el.empty();
 
     var legendBlock = el.parent().find('.legend_v1');
