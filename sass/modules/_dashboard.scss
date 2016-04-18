@@ -137,7 +137,6 @@ svg:not(:root) {
       }
     }
   }
-
   .dropdown,
   .bootstrap-select {
     width: auto !important;
@@ -146,7 +145,7 @@ svg:not(:root) {
     > .btn {
       position: relative;
       border: none;
-      padding: 7px 15px 7px 5px;
+      padding: 6px 15px 5px 5px;
       font-size: 15px;
       color: #2f2f2f;
       background-color: transparent !important;
@@ -166,6 +165,31 @@ svg:not(:root) {
 
       > .btn {
         z-index: 1001;
+      }
+    }
+  }
+
+  .dropdown {
+
+    > .btn {
+
+      &:before {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        left: 5px;
+        right: 15px;
+        border-bottom: 2px solid transparent;
+        -webkit-transition: color .3s, border-color .3s;
+        -ms-transition: color .3s, border-color .3s;
+        transition: color .3s, border-color .3s;
+      }
+
+      .current > & {
+
+        &:before {
+          border-bottom-color: #000;
+        }
       }
     }
   }
@@ -192,7 +216,6 @@ svg:not(:root) {
         }
       }
     }
-
   }
 
   &.filter-mod {
@@ -777,7 +800,7 @@ svg:not(:root) {
       &:hover {
         border-color: #adadad;
         background-color: #e6e6e6;
-        
+
         .caret {
           color: #333;
         }
