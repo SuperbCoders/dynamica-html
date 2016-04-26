@@ -197,11 +197,11 @@ function init_line_area_chart(el, ind, callback) {
         .attr('class', function (d, i) {
             var cls = '';
 
-            if (ind == 0 && i == 3) {
+            if (ind == 0 && i == 2) {
                 heroGraph.find('.graph_tip_1').css({'left': area_x(d.date), 'top': 100 + area_y(d.close)});
             }
 
-            if (ind == 2 && i == 6) {
+            if (ind == 2 && i == 7) {
                 heroGraph.find('.graph_tip_2').css({'left': area_x(d.date), 'top': 100 + area_y(d.close)});
             }
 

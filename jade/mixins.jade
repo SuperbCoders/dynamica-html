@@ -1,4 +1,4 @@
-mixin dev_head(page_title, dashboard, total_revenu, inside_total_revenu, text_page, land)
+mixin dev_head(page_title, dashboard, total_revenu, inside_total_revenu, text_page, land, land2)
     head
         meta(name='viewport', content='width=device-width, initial-scale=1')
         meta(charset='utf-8')
@@ -7,7 +7,7 @@ mixin dev_head(page_title, dashboard, total_revenu, inside_total_revenu, text_pa
         title=page_title 
         link(rel='shortcut icon', type='image/x-icon', href='img/favicon.ico')
         link(rel='stylesheet', href='css/style.css')
-        - if (land)
+        - if (land || land2)
             link(href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css')
         | 
         | <!--[if lt IE 9]>
@@ -30,6 +30,10 @@ mixin dev_head(page_title, dashboard, total_revenu, inside_total_revenu, text_pa
         - if (text_page)
             script(type='text/javascript', src='js/text_page.js')
         - if (land)
+            script(type='text/javascript', src='js/vendor/skrollr.js')
+            script(type='text/javascript', src='js/swiper_ie9.js')
+            script(type='text/javascript', src='js/land.js')
+        - if (land2)
             script(type='text/javascript', src='js/vendor/skrollr.js')
             script(type='text/javascript', src='js/swiper_ie9.js')
             script(type='text/javascript', src='js/land.js')
