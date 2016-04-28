@@ -547,6 +547,28 @@ svg:not(:root) {
   }
 }
 
+.graph-new-link {
+  display: block;
+  width: 100px;
+  height: 100px;
+  border-radius: 10px;
+  border: solid 1px #ff4f35;
+  text-decoration: none;
+  color: #ff4f35;
+  font-size: 15px;
+  position: relative;
+
+  span {
+    white-space: nowrap;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+  }
+}
+
 .graph-unit-large {
   height: 340px;
   margin: -20px -20px 0;
@@ -609,6 +631,19 @@ svg:not(:root) {
   color: #636363;
   letter-spacing: -.25px;
   margin-bottom: 3px;
+}
+
+.graph-name_v2 {
+  font-size: 24px;
+  line-height: 30px;
+  max-height: 2.2em;
+  margin-bottom: 14px;
+  overflow: hidden;
+}
+
+.graph-settings {
+  font-size: 15px;
+  color: #2f2f2f;
 }
 
 .graph-value {
