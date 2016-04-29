@@ -642,8 +642,14 @@ svg:not(:root) {
 }
 
 .graph-settings {
+  position: relative;
+  z-index: 2;
   font-size: 15px;
   color: #2f2f2f;
+
+  &:hover {
+    color: #ff6140;
+  }
 }
 
 .graph-value {
