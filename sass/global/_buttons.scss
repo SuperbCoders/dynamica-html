@@ -27,6 +27,18 @@
   border-color: #ff370d;
 }
 
+.btn-danger-w {
+  color: #ff6949;
+  background-color: #fff;
+  border-color: #ff6949;
+
+  &:hover {
+    background-color: #ff6949;
+    color: #fff;
+  }
+
+}
+
 .btn-danger:hover,
 .btn-danger:focus,
 .btn-danger.focus,
@@ -88,12 +100,15 @@
   vertical-align: top;
   text-align: left;
   line-height: 20px;
-  
+
   .user-pic {
     position: absolute;
     top: 50%;
     left: 0;
+    border-radius: 100%;
+    overflow: hidden;
     margin-top: -20px;
+    background: #d8d8d8;
   }
 
   .soc-btn-connect {
@@ -101,6 +116,19 @@
     font-weight: 600;
     font-size: 16px;
   }
+
+  &.btn-connected-lg {
+    padding-left: 70px;
+    padding-top: 10px;
+
+    .user-pic {
+      width: 56px;
+      height: 56px;
+      margin-top: -28px;
+      border: 1px solid #9b9b9b;
+    }
+  }
+
 }
 
 .bootstrap-select {
@@ -128,4 +156,11 @@
       }
     }
   }
+}
+
+.data_update_btn {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-left: 20px;
+  border-radius: 22px;
 }
