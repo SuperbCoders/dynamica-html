@@ -220,10 +220,6 @@ function init_line_area3_chart(el) {
         values.push(obj.close);
     }
 
-    //console.log(Math.min.apply(null, values), Math.max.apply(null, values));
-
-    //console.log(moment.min(data));
-
     var margin = {top: 30, right: 35, bottom: 50, left: 80},
         width = el.width() - margin.left - margin.right,
         height = el.height() - margin.top - margin.bottom;

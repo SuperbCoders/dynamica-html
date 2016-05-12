@@ -458,7 +458,6 @@ function init_line_area3_chart(el) {
                 return width - x(data[i].date);
             })
             .attr("y", 0)
-            //.attr("width", width)
             .attr("width", function () {
                 return width/data.length;
             })

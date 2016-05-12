@@ -1931,5 +1931,4 @@
     $(function () {
         datepickerPlugin.call($('[data-provide="datepicker-inline"]'));
     });
-
 }));

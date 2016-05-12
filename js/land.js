@@ -425,7 +425,6 @@ function init_area_family_chart(el, data_files, data_colors) {
 
 function init_charts() {
 
-
     var big_chart = [
         {
             "name": "Revenue",

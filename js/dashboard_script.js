@@ -108,7 +108,6 @@ $(function ($) {
             firedEl.css('opacity', .5).siblings('.area').css('opacity', .5);
         });
 
-
     $('.graphFilterDate').on('change', function () {
         var firedEl = $(this),
             datePckr = firedEl.closest('.datepickerComponent').find('.datePicker'),
