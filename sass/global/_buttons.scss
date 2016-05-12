@@ -82,6 +82,27 @@
   }
 }
 
+.btn-connected {
+  position: relative;
+  padding: 5px 15px 5px 50px;
+  vertical-align: top;
+  text-align: left;
+  line-height: 20px;
+  
+  .user-pic {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    margin-top: -20px;
+  }
+
+  .soc-btn-connect {
+    color: #383838;
+    font-weight: 600;
+    font-size: 16px;
+  }
+}
+
 .bootstrap-select {
   .btn {
     padding: 13px 25px 13px 20px;

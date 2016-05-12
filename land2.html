@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="ru" class="land_v2">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta charset="utf-8"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <title>Dynamica land 2</title>
+    <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css"/> 
+    <!--[if lt IE 9]>
+          <script type="text/javascript" src="js/vendor/html5shiv.js"></script>
+    <![endif]-->
+    <script type="text/javascript" src="js/vendor/jquery.min.js"></script>
+    <script type="text/javascript" src="js/vendor/jquery.placeholder.min.js"></script>
+    <script type="text/javascript" src="js/vendor/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/vendor/d3.min.js"></script>
+    <script type="text/javascript" src="js/vendor/bootstrap-select.min.js"></script>
+    <script type="text/javascript" src="js/vendor/moment.min.js"></script>
+    <script type="text/javascript" src="js/vendor/bootstrap-datepicker.js"></script>
+    <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/vendor/skrollr.js"></script>
+    <script type="text/javascript" src="js/swiper_ie9.js"></script>
+    <script type="text/javascript" src="js/land.js"></script>
+  </head>
+  <body class="land_page">
+    <!-- page 1-->
+    <div class="page full_h_page">
+      <header data-0="padding: 50px 0 20px; background-color: rgba(255,255,255,1);" data-400="padding: 10px 0 10px; background-color: rgba(255,255,255,.6);" class="page-header navbar navbar-default">
+        <div class="container-fluid globalwidth">
+          <div class="navbar-header">
+            <button type="button" data-toggle="collapse" data-target=".bs-navbar-collapse" class="navbar-toggle collapsed"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button>
+            <div class="navbar-project-switch"><a href="#" class="navbar-brand">Dynamica</a></div>
+          </div>
+          <nav class="collapse navbar-collapse bs-navbar-collapse">
+            <ul class="nav navbar-right hidden-xs navbar-anon">
+              <li><a href="projects.html" class="menu_link">Live Demo</a></li>
+              <li><a href="#" class="menu_link">Pricing</a></li>
+              <li><a href="#" class="btn login_btn">Log in</a></li>
+            </ul>
+          </nav>
+        </div>
+      </header>
+      <div class="page_inner">
+        <div class="gl_table">
+          <div class="gl_table_cell">
+            <section class="land_hero">
+              <div class="container-fluid globalwidth">
+                <div class="row dashboard-title-row land_v1">
+                  <div class="col-sm-12">
+                    <h1 class="text-center">Carefully made analytics  <br> for your Shopify store</h1>
+                    <div class="text-center"><a href="#" class="btn btn-lg btn-danger start_trial_btn">Start your free 30 day trial</a></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <div class="hero_graph_block heroGraph">
+          <div style="opacity: .2;" class="graph_3 areaChart_2 d3graph hide_x_axis"></div>
+          <div style="opacity: .4;" class="graph_3 areaChart_2 d3graph hide_x_axis"></div>
+          <div class="graph_3 areaChart_2 d3graph hide_x_axis"></div>
+          <div data--1p-top="opacity: 1;" class="graph_tip g_tip_pink graph_tip_1">
+            <div class="g_tip_val">$389</div>
+            <div class="g_tip_date">Revenue today</div>
+          </div>
+          <div data--1p-top="opacity: 1;" class="graph_tip g_tip_orange graph_tip_2">
+            <div class="g_tip_val">43</div>
+            <div class="g_tip_date">Sales 23 February</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- page 2-->
+    <div class="page">
+      <div class="page_inner major_data_section">
+        <div class="gl_table">
+          <div class="gl_table_cell">
+            <section>
+              <div class="container-fluid globalwidth">
+                <div class="row dashboard-title-row land_v1">
+                  <div class="col-sm-12">
+                    <h2 data-100p-top="transform: translate(0%,200%); opacity: 0;" data-70p-top="transform: translate(0%,0%); opacity: 1;" data-10p-top="transform: translate(0%,0%); opacity: 1;" data-0-top="transform: translate(0%,-100%); opacity: 0;" class="text-center">All major data of your  <br>  store at single graph</h2>
+                    <div class="graph-unit-holder">
+                      <div class="graph-unit">
+                        <div class="graph-unit-large">
+                          <h5 class="graph-name">Current status of your primary data</h5>
+                          <div class="graph-filters graph-filter-v1">
+                            <div role="group" class="btn-group">
+                              <input id="graph_filter_1" type="radio" hidden name="graph_filter" checked>
+                              <label for="graph_filter_1" class="btn btn-default first">Day</label>
+                              <input id="graph_filter_2" type="radio" hidden name="graph_filter">
+                              <label for="graph_filter_2" class="btn btn-default">Week</label>
+                              <input id="graph_filter_3" type="radio" hidden name="graph_filter">
+                              <label for="graph_filter_3" class="btn btn-default last">Month</label>
+                            </div>
+                          </div>
+                          <div class="graph-block">
+                            <div class="graph_3 areaChartFamily_1 d3graph hide_x_axis">
+                              <div id="tooltip" class="graph-tooltip-holder hidden_">
+                                <div id="tooltip_dot" class="tooltip-dot"></div>
+                                <div id="tooltip_content" class="graph-tooltip"></div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="text-center"><a href="#" class="hover_on_link">HOVER ON</a></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- page 3-->
+    <div class="page">
+      <div class="page_inner major_data_section">
+        <div class="gl_table">
+          <div class="gl_table_cell">
+            <section>
+              <div class="container-fluid wide_block">
+                <div class="row overview_holder">
+                  <div class="overview_box dashboard-title-row land_v1">
+                    <h2 data-100p-top="transform: translate(0%,200%); opacity: 0;" data-70p-top="transform: translate(0%,0%); opacity: 1;" data-10p-top="transform: translate(0%,0%); opacity: 1;" data-0-top="transform: translate(0%,-100%); opacity: 0;" class="text-center">Store overview</h2>
+                    <div data-100p-top="transform: translate(0%,100%); opacity: 0;" data-60p-top="transform: translate(0%,0%); opacity: 1;" data-15p-top="transform: translate(0%,0%); opacity: 1;" data-0-top="transform: translate(0%,-100%); opacity: 0;" class="overview_tip_v2">
+                      <p>Your will know your customers and how often they making orders.</p>
+                      <p>Whether it’s new or returned users. Don’t forget to check out average sales.</p>
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="overview_block">
+                      <div class="overview_img"><img src="img/Ipad.png"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- page 4-->
+    <div class="page">
+      <div class="page_inner major_data_section">
+        <div class="gl_table">
+          <div class="gl_table_cell">
+            <section class="major_data_section">
+              <div style="position: relative; z-index: 10;" class="container-fluid narrow_block">
+                <div class="row dashboard-title-row land_v1">
+                  <div class="col-sm-12">
+                    <h2 data-100p-top="transform: translate(0%,200%); opacity: 0;" data-70p-top="transform: translate(0%,0%); opacity: 1;" data-10p-top="transform: translate(0%,0%); opacity: 1;" data-0-top="transform: translate(0%,-100%); opacity: 0;" class="text-center">Most relevant metrics</h2>
+                    <ul class="relevant_list">
+                      <li>
+                        <div class="relevant_block">
+                          <div class="relevant_caption">Finance</div>
+                          <ul class="relevant_metrics">
+                            <li>Monthly Recurring </li>
+                            <li>Net Revenue</li>
+                            <li>Average Revenue Per User</li>
+                            <li>Failed Charges</li>
+                            <li>Lifetime Value</li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="relevant_block">
+                          <div class="relevant_caption">Customers</div>
+                          <ul class="relevant_metrics">
+                            <li>Monthly Recurring </li>
+                            <li>Net Revenue</li>
+                            <li>Average Revenue Per User</li>
+                            <li>Failed Charges</li>
+                            <li>Lifetime Value</li>
+                          </ul>
+                        </div>
+                      </li>
+                      <li>
+                        <div class="relevant_block">
+                          <div class="relevant_caption">Products</div>
+                          <ul class="relevant_metrics">
+                            <li>Monthly Recurring </li>
+                            <li>Net Revenue</li>
+                            <li>Average Revenue Per User</li>
+                            <li>Failed Charges</li>
+                            <li>Lifetime Value</li>
+                          </ul>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="container-fluid">
+                <div class="relevant_img"><img src="img/relevant_metrics.png"></div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- page 5-->
+    <div class="page">
+      <div class="page_inner testimonials_section">
+        <div class="gl_table">
+          <div class="gl_table_cell">
+            <section>
+              <div class="container-fluid wide_block">
+                <div class="row dashboard-title-row land_v1">
+                  <div class="col-sm-12">
+                    <h2 class="text-center">Testimonials</h2>
+                    <div class="textimonials_slider_holder">
+                      <div class="swiper-container testimonialSlider">
+                        <div class="swiper-wrapper">
+                          <div class="swiper-slide">
+                            <div class="testimonial_block">
+                              <div class="testimonial_text">
+                                <p>Dynamica gives us incredible insights into our monthly numbers and growth, and provides us with invaluable information that allows us to improve our business in ways that weren't possible for us before.</p>
+                              </div>
+                              <div class="testimonial_author"><img src="img/testemonial_author.png"/></div>
+                              <div class="testimonial_author_name">Daniel Shultz  <br> Owner of Black Dark Shop</div>
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="testimonial_block">
+                              <div class="testimonial_text">
+                                <p>Dynamica gives us incredible insights into our monthly numbers and growth, and provides us with invaluable information that allows us to improve our business in ways that weren't possible for us before.</p>
+                              </div>
+                              <div class="testimonial_author"><img src="img/testemonial_author.png"/></div>
+                              <div class="testimonial_author_name">Daniel Shultz  <br> Owner of Black Dark Shop</div>
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="testimonial_block">
+                              <div class="testimonial_text">
+                                <p>Dynamica gives us incredible insights into our monthly numbers and growth, and provides us with invaluable information that allows us to improve our business in ways that weren't possible for us before.</p>
+                              </div>
+                              <div class="testimonial_author"><img src="img/testemonial_author.png"/></div>
+                              <div class="testimonial_author_name">Daniel Shultz  <br> Owner of Black Dark Shop</div>
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="testimonial_block">
+                              <div class="testimonial_text">
+                                <p>Dynamica gives us incredible insights into our monthly numbers and growth, and provides us with invaluable information that allows us to improve our business in ways that weren't possible for us before.</p>
+                              </div>
+                              <div class="testimonial_author"><img src="img/testemonial_author.png"/></div>
+                              <div class="testimonial_author_name">Daniel Shultz  <br> Owner of Black Dark Shop</div>
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="testimonial_block">
+                              <div class="testimonial_text">
+                                <p>Dynamica gives us incredible insights into our monthly numbers and growth, and provides us with invaluable information that allows us to improve our business in ways that weren't possible for us before.</p>
+                              </div>
+                              <div class="testimonial_author"><img src="img/testemonial_author.png"/></div>
+                              <div class="testimonial_author_name">Daniel Shultz  <br> Owner of Black Dark Shop</div>
+                            </div>
+                          </div>
+                          <div class="swiper-slide">
+                            <div class="testimonial_block">
+                              <div class="testimonial_text">
+                                <p>Dynamica gives us incredible insights into our monthly numbers and growth, and provides us with invaluable information that allows us to improve our business in ways that weren't possible for us before.</p>
+                              </div>
+                              <div class="testimonial_author"><img src="img/testemonial_author.png"/></div>
+                              <div class="testimonial_author_name">Daniel Shultz  <br> Owner of Black Dark Shop</div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="swiper-controls">
+                        <div class="swiper-button-next fa fa-long-arrow-left"></div>
+                        <div class="swiper-button-prev fa fa-long-arrow-right"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- page 6-->
+    <div class="page">
+      <div class="page_inner pricing_section">
+        <div class="gl_table">
+          <div class="gl_table_cell">
+            <section>
+              <div class="container-fluid wide_block">
+                <div class="row dashboard-title-row land_v1">
+                  <div class="col-sm-12">
+                    <h2 class="text-center">Pricing</h2>
+                    <div class="pricing_block">
+                      <div class="pricing_form">
+                        <div class="pricing_price">$5</div>
+                        <div class="pricing_period">month</div>
+                        <ul class="pricing_features">
+                          <li>Store metrics</li>
+                          <li>Unlimited stores</li>
+                          <li>Google analytics</li>
+                          <li>Detailed Metrics</li>
+                          <li>Support</li>
+                        </ul>
+                        <div class="pricing_controls"><a href="#" class="btn btn-lg btn-danger pricing_btn">Get started for free</a></div>
+                        <div class="pricing_share">For annual payment  <br> 48$ per year</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- page 7-->
+    <div class="page">
+      <div class="page_inner weekly_reporting_section">
+        <div class="gl_table">
+          <div class="gl_table_cell">
+            <section>
+              <div class="container-fluid wide_block">
+                <div class="row dashboard-title-row land_v1">
+                  <div class="col-sm-12">
+                    <h2 class="text-center">And also weekly  <br>  reporting </h2>
+                    <ul class="report_block">
+                      <li>
+                        <div class="report_img"><img src="img/report_1.png"></div>
+                      </li>
+                      <li>
+                        <div class="report_img"><img src="img/report_2.png"></div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- page 8-->
+    <div class="page">
+      <div class="page_inner demo_section">
+        <div class="gl_table">
+          <div class="gl_table_cell">
+            <section>
+              <div class="container-fluid wide_block">
+                <div class="row dashboard-title-row land_v1">
+                  <div class="col-sm-12">
+                    <h2 class="text-center">Look at demo at first</h2>
+                    <div class="demo_controls"><a href="#" class="btn btn-lg btn-danger pricing_btn">Live demo</a></div>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+        </div>
+        <div class="demo_block"><img src="img/Ipad.png"></div>
+        <div class="page-footer">
+          <div class="container-fluid wide_block">
+            <div class="footer_logo"><a href="#" class="navbar-brand">Dynamica</a></div>
+            <div class="land_footer-menu">
+              <ul>
+                <li><a href="#">Tour</a></li>
+                <li><a href="#">Demo</a></li>
+                <li><a href="#">Pricing</a></li>
+              </ul>
+              <ul>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Support</a></li>
+              </ul>
+              <ul>
+                <li><a href="#">What's New</a></li>
+                <li><a href="#">Terms</a></li>
+              </ul>
+            </div>
+            <ul class="footer_share">
+              <li><a href="#" class="f_sh_link"><i class="fa fa-facebook"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
