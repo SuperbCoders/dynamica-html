@@ -1,4 +1,4 @@
-mixin dev_head(page_title, dashboard, total_revenu, inside_total_revenu, text_page, land, land2)
+mixin dev_head(page_title, dashboard, total_revenu, inside_total_revenu, text_page, land, land2, race_total_revenu)
     head
         meta(name='viewport', content='width=device-width, initial-scale=1')
         meta(charset='utf-8')
@@ -27,6 +27,8 @@ mixin dev_head(page_title, dashboard, total_revenu, inside_total_revenu, text_pa
             script(type='text/javascript', src='js/total_revenu_script.js')
         - if (inside_total_revenu)
             script(type='text/javascript', src='js/inside_total_revenu_script.js')
+        - if (race_total_revenu)
+            script(type='text/javascript', src='js/race_total_revenu_script.js')
         - if (text_page)
             script(type='text/javascript', src='js/text_page.js')
         - if (land)
