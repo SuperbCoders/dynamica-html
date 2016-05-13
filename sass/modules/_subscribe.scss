@@ -49,6 +49,9 @@
 }
 
 .subscribe_link {
+  -webkit-transition: color .3s, border-color .3s;
+  -ms-transition: color .3s, border-color .3s;
+  transition: color .3s, border-color .3s;
   font-size: 14px;
   color: #7b7b7b;
 }
@@ -95,6 +98,9 @@
 }
 
 .project_rm_link {
+  -webkit-transition: color .3s, border-color .3s;
+  -ms-transition: color .3s, border-color .3s;
+  transition: color .3s, border-color .3s;
   font-weight: 600;
   color: #474747;
   font-size: 14px;
