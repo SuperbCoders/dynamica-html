@@ -646,6 +646,7 @@ function draw_general_graph(el, data_files, data_colors) {
 
                 tooltip
                     .classed('flipped_left', x < tooltip_content.outerWidth() + 25)
+                    .style("top", "50%")
                     .style("left", area_x(data_files[activeFamilyGraph].data[ind].date) + "px");
 
                 tooltip_dot.css('top', margin.top + area_y(data_files[activeFamilyGraph].data[ind].close) - 11);
@@ -817,7 +818,7 @@ function init_area_chart(el) {
 }
 
 function init_donut_chart(el) {
-    return false;
+    //return false;
     el.empty();
 
     var legendBlock = el.parent().find('.legend_v1');
