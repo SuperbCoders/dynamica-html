@@ -1646,6 +1646,10 @@ svg:not(:root) {
       border-top: 1px solid #ddd;
     }
 
+    &.cell_border_btm .table-cell {
+      border-bottom: 1px solid #ddd;
+    }
+
     &:not(.no_hover):hover {
       .table-cell {
         background: #fafafa;
