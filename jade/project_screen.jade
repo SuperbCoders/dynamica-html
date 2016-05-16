@@ -1,0 +1,202 @@
+include mixins
+
+doctype html
+html(lang='ru')
+  +dev_head('Dynamica project screen', true)
+  
+  body
+    .page.dashboard_page
+      header.page-header.navbar.navbar-default
+        .container-fluid.globalwidth
+          .navbar-header
+            button.navbar-toggle.collapsed(type='button', data-toggle='collapse', data-target='.bs-navbar-collapse')
+              span.icon-bar
+              span.icon-bar
+              span.icon-bar
+            .navbar-project-switch
+              a.navbar-brand(href='#') Dynamica
+              span  of 
+              .hover-select-box
+                .dropdown
+                  button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                    | Bling-Blings
+                    span.caret
+                    
+                  ul.dropdown-menu.dropdown_item_wide
+                    li
+                      a(href='#') Bling-Blings
+                    li
+                      a(href='#') Apple Store
+                    li
+                      a(href='#') Helvetica
+                    
+              //-.hover-select-box.front-select-btn
+                select.selectpicker
+                  option(value='Bling-Blings') Bling-Blings
+                  option(value='Apple Store') Apple Store
+                  option(value='Helvetica') Helvetica
+                  
+                //-ul.hover-select-list
+                //-  li.hover-select-item.active: a.projectBtn(href='#') Bling-Blings
+                //-  li.hover-select-item: a.projectBtn(href='#') Apple Store
+                //-  li.hover-select-item: a.projectBtn(href='#') Helvetica
+                //-i.icon.fa.fa-angle-down.hover-select-icon
+
+          nav.collapse.navbar-collapse.bs-navbar-collapse
+            ul.nav.navbar-nav
+              li.active
+                a(href='projects.html') Projects
+              li
+                a(href='#') Team
+            ul.nav.navbar-right.hidden-xs
+              li
+                .user.dropdown
+                  .arrow
+                  a.user-toggle.dropdown-toggle(data-toggle='dropdown', href='#')
+                    span.user-pic
+                      img.img-circle(width='40', height='40', src='images/avatar1_40x40.jpg', alt='')
+                    span.user-name
+                      | Yaroslav Samoilov
+                      i.icon.fa.fa-angle-down
+                  .user-menu.dropdown-menu
+                    ul
+                      li
+                        a(href='billing.html') Billing
+                      li
+                        a(href='profile.html') Profile
+                      li
+                        a(href='#') Help
+                      li.clear
+                        a(href='#') Log out
+                        
+      section.dashboard-body
+        .container-fluid.globalwidth
+          section.dashboard.projects-dashboard
+            .row
+              .col-sm-12
+                +dashboard_panel()
+
+            .row.dashboard-title-row
+              .col-sm-6: h2 Bling-Blings Dashboard
+              .col-sm-6
+                .pull-right.datepicker-v1.datepickerComponent
+                  .pull-left.datepicker-parent
+                    input.form-control.datePicker.form-control-small(type='text')
+                    //-.input-group.input-daterange.datePickerRange.input-daterange-v1
+                      input.form-control(type='text', name='start' value='2012-04-05')
+                      span.input-group-addon &#8212;
+                      input.form-control(type='text', name='end' value='2012-04-19')
+
+                  .pull-left
+                    .dropdown.filterSelect
+                      button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                        | 
+                        span.caret
+
+                      ul.dropdown-menu.dropdown-menu_bordered.dropdown-menu-right.graphFilterDropDown
+                        li: a(href='#' data-value='0') Current month
+                        li: a(href='#' data-value='1') Previous month 
+                        li: a(href='#' data-value='2') Last 3 month 
+                        li: a(href='#' data-value='3') Last 6 month 
+                        li: a(href='#' data-value='4') Last year 
+                        li: a(href='#' data-value='5') All time 
+                        
+                    //-select.selectpicker.graphFilterDate
+                      option(value=-1 data-hidden="true") 
+                      option(value=0 selected) Current month
+                      option(value=1) Previous month 
+                      option(value=2) Last 3 month 
+                      option(value=3) Last 6 month 
+                      option(value=4) Last year 
+                      option(value=5) All time 
+                 
+            .graph-unit-holder: .graph-unit
+              .graph-unit-large
+                h5.graph-name Current status of your primary data
+                .graph-filters.graph-filter-v1
+                  div(class="btn-group" role="group")
+                    input#graph_filter_1(type='radio' hidden name='graph_filter' checked)
+                    label(type="button" for='graph_filter_1' class="btn btn-default first") Day
+                    input#graph_filter_2(type='radio' hidden name='graph_filter')
+                    label(type="button" for='graph_filter_2' class="btn btn-default") Week
+                    input#graph_filter_3(type='radio' hidden name='graph_filter')
+                    label(type="button" for='graph_filter_3' class="btn btn-default last") Month
+                  
+                .graph-block
+                  .graph_3.areaChartFamily_1.d3graph.hide_x_axis
+                    #tooltip.graph-tooltip-holder.hidden_
+                      #tooltip_dot.tooltip-dot
+                      #tooltip_content.graph-tooltip
+                      
+            .dashboard-caption
+                h3.caption-text Finance overview
+                i.icon.fa.fa-angle-right
+                
+            .graph-unit-holder.graph-unit-hover: .row
+              +loop_while(2)
+                .col-lg-4.col-md-6.col-sm-6
+                  .graph-unit
+                    a.graph-u-link(href='total_revenu.html')
+                    h5.graph-name Gross Revenue
+                    .graph-value 
+                      span.val $4,490
+                      sup.graph-dynamica.dynamica_up +8%
+                    .graph-block
+                       .graph_2.lineAreaChart_1.d3graph.hide_x_axis
+              .col-lg-4.col-md-6.col-sm-6
+                .graph-unit.disabled
+                  //a.graph-u-link(href='total_revenu.html')
+                  h5.graph-name Unique users
+                  .graph-value 
+                    span.val 
+                      | Google analytics is not available,  <br> 
+                      a(href='#') set up
+                      |  it now
+                  .graph-block
+                     .graph_2.lineAreaChart_1.d3graph.hide_x_axis
+                       
+              .col-lg-4.col-md-4.col-sm-6
+                a.graph-new-link(href='total_revenu.html'): span Add new
+                
+            .dashboard-caption
+                h3.caption-text Finance overview
+                i.icon.fa.fa-angle-right
+                
+            .graph-unit-holder.graph-unit-hover: .row
+              +loop_while(1)
+                .col-lg-4.col-md-6.col-sm-6
+                  .graph-unit
+                    a.graph-u-link(href='total_revenu.html')
+                    h5.graph-name Gross Revenue
+                    .graph-value 
+                      span.val $4,490
+                      sup.graph-dynamica.dynamica_up +8%
+                    .graph-block
+                       .graph_2.lineAreaChart_1.d3graph.hide_x_axis
+              .col-lg-4.col-md-6.col-sm-6
+                .graph-unit.disabled
+                  //a.graph-u-link(href='total_revenu.html')
+                  h5.graph-name Unique users
+                  .graph-value 
+                    span.val 
+                      | Google analytics is not available,  <br> 
+                      a(href='#') set up
+                      |  it now
+                  .graph-block
+                     .graph_2.lineAreaChart_1.d3graph.hide_x_axis
+                       
+              .col-lg-4.col-md-4.col-sm-6
+                a.graph-new-link(href='total_revenu.html'): span Add new
+
+      .page-footer
+        .container-fluid.globalwidth
+          ul.footer-menu
+            li: a(href='#') Projects
+            li: a(href='#') Team
+            li: a(href='#') Profile
+            li: a(href='#') Billing
+            li: a(href='#') Support
+            
+          .footer-copyright All rights reserved © Osintsev. K.S. 2016
+            
+    +page_overlay()
