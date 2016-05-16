@@ -680,7 +680,7 @@ svg:not(:root) {
 .graph-dynamica {
   font-size: 14px;
   top: -1.15em;
-  padding-left: .5em;
+  //padding-left: .5em;
 
   &.dynamica_up {
     color: #1b9a3d;
@@ -1077,7 +1077,7 @@ svg:not(:root) {
 
 .legend_val {
   color: #1f1f1f;
-  font-size: 30px;
+  font-size: 28px;
   font-weight: 300;
   white-space: nowrap;
 }
@@ -1696,6 +1696,7 @@ svg:not(:root) {
     top: 0;
     right: 0;
     left: 0;
+    z-index: 2;
     margin-top: 50px;
     border-radius: 0 0 10px 10px;
     border-top: 1px solid #ddd;
