@@ -1765,10 +1765,22 @@ svg:not(:root) {
   }
 }
 
+.table-row.col_wide {
+  height: 75px;
+}
+
+.wide-cell-content {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  -ms-transform: translate(-50%, 0);
+  transform: translate(-50%, 0);
+}
+
 .table-section-title {
   color: #2a2a2a;
   text-align: center;
-  padding: 35px 0 15px;
+  padding: 20px 0 15px;
 }
 
 .graph-unit-info-table {
@@ -1782,6 +1794,7 @@ svg:not(:root) {
 
 .table-content {
   display: table-row-group;
+  position: relative;
 }
 
 .sort_catcher {
