@@ -1633,6 +1633,11 @@ svg:not(:root) {
     color: #1f1f1f;
     padding: 5px 20px;
     height: 50px;
+
+    &.table-cell-best {
+      font-weight: 600;
+      border-left: 2px solid #5ec65d;
+    }
   }
 
   .table-row {
