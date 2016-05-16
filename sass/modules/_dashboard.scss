@@ -1792,6 +1792,10 @@ svg:not(:root) {
   color: #2a2a2a;
   text-align: center;
   padding: 20px 0 15px;
+  text-transform: uppercase;
+  font-weight: 300;
+  font-size: 14px;
+  letter-spacing: 2px;
 }
 
 .graph-unit-info-table {
