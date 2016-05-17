@@ -432,6 +432,19 @@ svg:not(:root) {
 
 .graph-unit-holder {
   margin: 0 -20px;
+  
+  &.graph-unit-setting {
+    text-align: center;
+    
+    .row {
+      width: 100%;
+      text-align: left;
+      display: inline-block;
+      vertical-align: top;
+      max-width: 960px;
+    }
+  }
+  
 }
 
 .graph-unit-legend-holder {
@@ -532,6 +545,11 @@ svg:not(:root) {
       }
     }
   }
+  
+  .graph-unit-setting & {
+    min-height: 300px;
+  }
+  
 }
 
 .dark_wrapper {

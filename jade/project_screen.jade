@@ -127,63 +127,29 @@ html(lang='ru')
                     #tooltip.graph-tooltip-holder.hidden_
                       #tooltip_dot.tooltip-dot
                       #tooltip_content.graph-tooltip
-                      
-            .dashboard-caption
-                h3.caption-text Finance overview
-                i.icon.fa.fa-angle-right
                 
-            .graph-unit-holder.graph-unit-hover: .row
+            .graph-unit-holder.graph-unit-hover.graph-unit-setting: .row
               +loop_while(2)
                 .col-lg-4.col-md-6.col-sm-6
-                  .graph-unit
+                  .graph-unit.disabled
                     a.graph-u-link(href='total_revenu.html')
-                    h5.graph-name Gross Revenue
-                    .graph-value 
-                      span.val $4,490
-                      sup.graph-dynamica.dynamica_up +8%
+                    h5.graph-name_v2 Bling-Blings Dashboard Bling-Blings Dashboard Bling-Blings Dashboard
+                    a.graph-settings(href='#') Project settings
                     .graph-block
                        .graph_2.lineAreaChart_1.d3graph.hide_x_axis
-              .col-lg-4.col-md-6.col-sm-6
-                .graph-unit.disabled
-                  //a.graph-u-link(href='total_revenu.html')
-                  h5.graph-name Unique users
-                  .graph-value 
-                    span.val 
-                      | Google analytics is not available,  <br> 
-                      a(href='#') set up
-                      |  it now
-                  .graph-block
-                     .graph_2.lineAreaChart_1.d3graph.hide_x_axis
                        
               .col-lg-4.col-md-4.col-sm-6
                 a.graph-new-link(href='total_revenu.html'): span Add new
                 
-            .dashboard-caption
-                h3.caption-text Finance overview
-                i.icon.fa.fa-angle-right
-                
-            .graph-unit-holder.graph-unit-hover: .row
+            .graph-unit-holder.graph-unit-hover.graph-unit-setting: .row
               +loop_while(1)
                 .col-lg-4.col-md-6.col-sm-6
                   .graph-unit
                     a.graph-u-link(href='total_revenu.html')
-                    h5.graph-name Gross Revenue
-                    .graph-value 
-                      span.val $4,490
-                      sup.graph-dynamica.dynamica_up +8%
+                    h5.graph-name_v2 Bling-Blings Dashboard Bling-Blings Dashboard Bling-Blings Dashboard
+                    a.graph-settings(href='#') Project settings
                     .graph-block
                        .graph_2.lineAreaChart_1.d3graph.hide_x_axis
-              .col-lg-4.col-md-6.col-sm-6
-                .graph-unit.disabled
-                  //a.graph-u-link(href='total_revenu.html')
-                  h5.graph-name Unique users
-                  .graph-value 
-                    span.val 
-                      | Google analytics is not available,  <br> 
-                      a(href='#') set up
-                      |  it now
-                  .graph-block
-                     .graph_2.lineAreaChart_1.d3graph.hide_x_axis
                        
               .col-lg-4.col-md-4.col-sm-6
                 a.graph-new-link(href='total_revenu.html'): span Add new
