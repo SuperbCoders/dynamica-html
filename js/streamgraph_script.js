@@ -1510,7 +1510,7 @@ function draw_stream_graph(el, data_files, needMath) {
     var format = d3.time.format("%m/%d/%y");
 
 
-    var data = data_files;
+    var data = data_files.data;
 
     //var tooltip = d3.select("body")
     //    .append("div")
@@ -1578,6 +1578,8 @@ function draw_stream_graph(el, data_files, needMath) {
 
     // csv
 
+    console.log(data);
+    
     data.forEach(function (d) {
         d.date = format.parse(d.date);
         d.value = +d.value;
