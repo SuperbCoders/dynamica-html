@@ -356,8 +356,8 @@ function init_charts() {
                 //    "value": "0.1",
                 //    "date": "01/28/13"
                 //}, 
-                
-                
+
+
                 {"key": "CG", "value": "0.1", "date": "01/08/13"}, {
                     "key": "CG",
                     "value": "0.15",
@@ -1582,7 +1582,53 @@ function draw_stream_graph(el, data_files, needMath) {
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+        .on('mousemove', function (d) {
+                //console.log(d3.mouse(this));
+                var tooltip = d3.select("#tooltip"),
+                    tooltip_content = $("#tooltip_content"),
+                    tooltip_dot = $("#tooltip_dot"),
+                    tool_table = $('<table class="graph-tooltip-table" />'),
+                    distance = area_x(data_files[activeFamilyGraph].data[0].date) - area_x(data_files[activeFamilyGraph].data[1].date) || 0,
+                    x = d3.mouse(this)[0] + distance / 2,
+                    x0 = area_x.invert(x),
+                    ind;
+
+                for (var k = 0; k < dates.length; k++) {
+                    var obj1 = dates[k];
+
+                    if (moment(x0).startOf('day').isSame(obj1, 'day')) {
+                        ind = k;
+                        break;
+                    }
+                }
+
+                for (var j = 0; j < data_files.length; j++) {
+                    var color = data_files[j].color, data = data_files[j].data;
+
+                    //var i = bisectDate(data, x0, 1);
+
+                    var tooltip_item = $('<tr class="tooltip_row" />').attr('data-graph', 'family_area_' + j)
+                        .addClass(j == activeFamilyGraph ? 'active_row' : '')
+                        .addClass($('.graph-unit-legend .legend_item[data-graph=#family_area_' + j + ']').hasClass('disabled') ? 'disabled' : '')
+                        .append($('<td class="tooltip_name" />').append($('<div class="legend_name" />').css('color', color).append($('<span/>').text(data_files[j].name))))
+                        .append($('<td class="tooltip_val" />').append($('<b class="" />').text(data_files[j].data[ind].close)));
+
+                    tool_table.append(tooltip_item);
+                }
+
+                tooltip_content.empty()
+                    .append($('<div class="tooltip-title" />').text(moment(x0).format('dddd, D MMMM YYYY')))
+                    .append(tool_table);
+
+                tooltip
+                    .classed('flipped_left', x < tooltip_content.outerWidth() + 25)
+                    .style("left", area_x(data_files[activeFamilyGraph].data[ind].date) + "px");
+
+                tooltip_dot.css('top', margin.top + area_y(data_files[activeFamilyGraph].data[ind].close) - 11);
+
+            }
+        );
 
     // csv
 
@@ -1670,29 +1716,27 @@ function draw_stream_graph(el, data_files, needMath) {
             //tooltip.html("<p>" + d.key + "<br>" + pro + "</p>").style("visibility", "hidden");
         });
 
-    var vertical = d3.select(el[0])
-        .append("div")
-        .attr("class", "remove")
-        .style("position", "absolute")
-        .style("z-index", "19")
-        .style("width", "1px")
-        .style("height", "380px")
-        .style("top", "10px")
-        .style("bottom", "30px")
-        .style("left", "0px")
-        .style("background", "#fff");
-
-    d3.select(".chart")
-        .on("mousemove", function () {
-            mousex = d3.mouse(this);
-            mousex = mousex[0] + 5;
-            vertical.style("left", mousex + "px")
-        })
-        .on("mouseover", function () {
-            mousex = d3.mouse(this);
-            mousex = mousex[0] + 5;
-            vertical.style("left", mousex + "px")
-        });
+    //var vertical = d3.select(el[0])
+    //    .append("div")
+    //    .attr("class", "remove")
+    //    .style("position", "absolute")
+    //    .style("z-index", "19")
+    //    .style("width", "1px")
+    //    .style("height", "380px")
+    //    .style("top", "10px")
+    //    .style("bottom", "30px")
+    //    .style("left", "0px")
+    //    .style("background", "#fff");
+    //
+    //d3.select(".layer")
+    //    .on("mousemove", function () {
+    //        var mouse = d3.mouse(this), mousex = mouse[0] + 5;
+    //        tooltip.css("left", mousex + "px")
+    //    })
+    //    .on("mouseover", function () {
+    //        var mouse = d3.mouse(this), mousex = mouse[0] + 5;
+    //        tooltip.css("left", mousex + "px")
+    //    });
 
 }
 
