@@ -181,7 +181,850 @@ function fit2Limits(pckr, date, max) {
 
 function init_charts() {
 
-    var race_chart = {
+    var race_big = {
+        "items": {"delivered": "#975e16", "canceled": "#b92784", "transit": "#a0569a", "new": "#9043a9"},
+        "data": [{"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "29-May-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "25-May-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "21-May-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "26-May-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "31-May-15"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "22-May-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "18-May-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "19-May-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "01-Jun-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "04-Jun-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "23-May-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "20-May-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "24-May-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "17-May-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "30-May-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "06-Jun-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "28-May-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "27-May-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "02-Jun-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "05-Jun-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "07-Jun-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "03-Jun-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "08-Jun-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "09-Jun-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "10-Jun-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "11-Jun-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "12-Jun-15"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "13-Jun-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "08-Jul-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "21-Jun-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "06-Jul-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "09-Jul-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "14-Jun-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "22-Jun-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "15-Jun-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "02-Jul-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "03-Jul-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "16-Jun-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "23-Jun-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "17-Jun-15"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "28-Jun-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "18-Jun-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "07-Jul-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "24-Jun-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "13-Jul-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "29-Jun-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "25-Jun-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "04-Jul-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "19-Jun-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "17-Jul-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "20-Jun-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "26-Jun-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "30-Jun-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "01-Jul-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "21-Jul-15"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "10-Jul-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "27-Jun-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "05-Jul-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "20-Jul-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "11-Jul-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "15-Jul-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "12-Jul-15"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "19-Jul-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "16-Jul-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "14-Jul-15"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "18-Jul-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "22-Jul-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "23-Jul-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "24-Jul-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "25-Jul-15"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "26-Jul-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "27-Jul-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "28-Jul-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "29-Jul-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "19-Aug-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "04-Aug-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "11-Aug-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "20-Aug-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "05-Aug-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "16-Aug-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "30-Jul-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "12-Aug-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "06-Aug-15"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "13-Aug-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "30-Aug-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "07-Aug-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "29-Aug-15"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "31-Jul-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "01-Aug-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "02-Aug-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "26-Aug-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "23-Aug-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "08-Aug-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "17-Aug-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "03-Aug-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "09-Aug-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "24-Aug-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "14-Aug-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "10-Aug-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "15-Aug-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "18-Aug-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "21-Aug-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "22-Aug-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "31-Aug-15"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "27-Aug-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "28-Aug-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "25-Aug-15"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "01-Sep-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 100, "date": "06-Sep-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "02-Sep-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "03-Sep-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 100,
+            "date": "04-Sep-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "05-Sep-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "07-Sep-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "08-Sep-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "09-Sep-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "10-Sep-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "11-Sep-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "12-Sep-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "27-Sep-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "21-Sep-15"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "13-Sep-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "14-Sep-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "07-Oct-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "22-Sep-15"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "13-Oct-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "15-Sep-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "16-Sep-15"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "03-Oct-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "23-Sep-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "28-Sep-15"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "26-Oct-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "17-Sep-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "18-Sep-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "08-Oct-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "29-Sep-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "19-Sep-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "22-Oct-15"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "24-Sep-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "14-Oct-15"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "04-Oct-15"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "25-Sep-15"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "09-Oct-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "30-Sep-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "20-Sep-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "05-Oct-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "10-Oct-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "23-Oct-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "01-Oct-15"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "26-Sep-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "17-Oct-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "15-Oct-15"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "06-Oct-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "02-Oct-15"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "11-Oct-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "21-Oct-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "16-Oct-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "18-Oct-15"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "12-Oct-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "20-Oct-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "19-Oct-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "24-Oct-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "25-Oct-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "27-Oct-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "28-Oct-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "29-Oct-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "30-Oct-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "31-Oct-15"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "01-Nov-15"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "02-Nov-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "03-Nov-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "04-Nov-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "16-Nov-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "12-Dec-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "05-Nov-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "06-Nov-15"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "06-Dec-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "07-Nov-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "17-Nov-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "24-Nov-15"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "18-Nov-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "08-Nov-15"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "01-Dec-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "19-Nov-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "07-Dec-15"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "09-Nov-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "25-Nov-15"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "10-Nov-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "11-Nov-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "12-Nov-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "02-Dec-15"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "13-Nov-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "14-Nov-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "03-Dec-15"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "20-Nov-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "15-Nov-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "26-Nov-15"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "21-Nov-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "27-Nov-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "22-Nov-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "23-Nov-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "04-Dec-15"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "28-Nov-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 100,
+            "date": "08-Dec-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "09-Dec-15"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "29-Nov-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "05-Dec-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "30-Nov-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "14-Dec-15"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "10-Dec-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "11-Dec-15"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "13-Dec-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "16-Dec-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "15-Dec-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "17-Dec-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "18-Dec-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "19-Dec-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "20-Dec-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "21-Dec-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "22-Dec-15"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "23-Dec-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "08-Jan-16"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "16-Feb-16"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "24-Dec-15"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "09-Jan-16"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "11-Jan-16"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "22-Jan-16"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "25-Dec-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "12-Jan-16"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "26-Dec-15"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "13-Jan-16"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "23-Jan-16"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "10-Feb-16"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "24-Jan-16"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "14-Jan-16"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "27-Dec-15"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "15-Jan-16"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "25-Jan-16"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "02-Feb-16"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "16-Jan-16"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "28-Dec-15"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "29-Dec-15"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "17-Jan-16"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "30-Dec-15"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "31-Dec-15"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "03-Jan-16"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "18-Jan-16"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "04-Jan-16"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "05-Jan-16"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "19-Jan-16"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "06-Jan-16"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "07-Jan-16"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "03-Feb-16"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "20-Jan-16"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "26-Jan-16"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "21-Jan-16"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "27-Jan-16"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "29-Jan-16"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "30-Jan-16"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "11-Feb-16"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "04-Feb-16"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "31-Jan-16"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "01-Feb-16"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "05-Feb-16"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "12-Feb-16"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "06-Feb-16"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "17-Feb-16"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "07-Feb-16"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "13-Feb-16"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "09-Feb-16"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "20-Feb-16"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "18-Feb-16"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "14-Feb-16"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 0,
+            "transit": 0,
+            "date": "19-Feb-16"
+        }, {"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "21-Feb-16"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "25-Feb-16"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "22-Feb-16"}, {
+            "canceled": 0,
+            "delivered": 100,
+            "new": 0,
+            "transit": 0,
+            "date": "23-Feb-16"
+        }, {"canceled": 0, "delivered": 100, "new": 0, "transit": 0, "date": "24-Feb-16"}, {
+            "canceled": 0,
+            "delivered": 0,
+            "new": 100,
+            "transit": 0,
+            "date": "26-Feb-16"
+        }]
+    }, race_chart = {
         items: {
             "IE": "#ffd056",
             "Chrome": "#27c385",
@@ -326,12 +1169,24 @@ function init_charts() {
     };
 
     $('.areaChartTotal_1').each(function (ind) {
-        draw_general_graph_2($(this), race_chart);
+        draw_general_graph_2($(this), race_big, true);
     });
-
 }
 
-function draw_general_graph_2(el, data_files) {
+function getSum(arr) {
+    var ret = 0;
+
+    for (var k in arr) {
+        if (arr.hasOwnProperty(k) && k !== "date") {
+            console.log(k, arr[k]);
+            ret += arr[k] * 1;
+        }
+    }
+
+    return ret;
+}
+
+function draw_general_graph_2(el, data_files, needMath) {
 
     el.find('svg').remove();
 
@@ -342,10 +1197,38 @@ function draw_general_graph_2(el, data_files) {
         el.parents('.graph-unit').append(legendBlock);
     }
 
+    console.log();
+
+    var re = 0;
+
+    //for (var dt in data_files) {
+    //    if (data_files.hasOwnProperty(dt)) {
+    //        console.log(dt,data_files[dt]);
+    //        re++;
+    //        //colors.push(data_files[dt]);
+    //    }
+    //}
+
+    //return false;
+
     var dates = [], area_x,
         items = data_files.items,
         data = data_files.data,
         colors = [], names = [];
+
+    if (needMath) {
+
+
+        for (var i = 0; i < data.length; i++) {
+            var obj = data[i], sum;
+
+            sum = getSum(obj);
+
+            console.log(sum);
+
+        }
+
+    }
 
     for (var key in items) {
         if (items.hasOwnProperty(key)) {
@@ -354,11 +1237,6 @@ function draw_general_graph_2(el, data_files) {
         }
     }
 
-    for (var i = 0; i < colors.length; i++) {
-        var obj = doc[i];
-
-    }
-    
     var tooltip = $('<table class="graph-tooltip-table" />');
 
     var margin = {top: 30, right: 35, bottom: 30, left: 75},
@@ -446,7 +1324,7 @@ function draw_general_graph_2(el, data_files) {
                         }
                     }
                 }
-            
+
                 tooltip_content.empty()
                     .append($('<div class="tooltip-title" />').text(moment(x0).format('dddd, D MMMM YYYY')))
                     .append(tool_table);
@@ -519,7 +1397,7 @@ function draw_general_graph_2(el, data_files) {
     area_x = d3.time.scale()
         .domain([moment.min(dates), moment.max(dates)])
         .range([0, width]);
-    
+
 }
 
 $(window).resize(function () {
