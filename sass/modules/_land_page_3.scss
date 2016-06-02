@@ -116,15 +116,31 @@ $HelveticaNeue: 'HelveticaNeue', sans-serif;
       opacity: 1;
       letter-spacing: -.5px;
     }
+    
+    .menu_link {
+      @include transition_all(color .3s, background .3s);
+
+      &:hover {
+        color: #ff4f35;
+        text-decoration: none;
+      }
+    }
   }
   .gl_table_cell {
     height: 100vh;
   }
 
   .login_btn {
+    @include transition_all(color .3s, background .3s);
     background: none;
     border: 1px solid #2a2a2a;
     border-radius: 22px;
+    padding: 10px 25px;
+
+    &:hover {
+      background: #303030;
+      color: #fff;
+    }
   }
 
   .page-footer {
@@ -135,6 +151,16 @@ $HelveticaNeue: 'HelveticaNeue', sans-serif;
     max-width: 200px;
   }
 
+  .graph-unit-legend {
+    .legend_val {
+      font-family: $HelveticaNeueCyrThin;
+    }
+  }
+
+  .start_trial_btn,
+  .pricing_btn {
+    font-family: $HelveticaNeueCyrLight;
+  }
 }
 
 .land_v3 {
@@ -166,6 +192,7 @@ $HelveticaNeue: 'HelveticaNeue', sans-serif;
 
   h3 {
     font-size: 44px;
+    font-weight: 400;
     color: #0f0f0f;
   }
 }
@@ -202,7 +229,7 @@ $HelveticaNeue: 'HelveticaNeue', sans-serif;
       font-size: 13px;
       margin-bottom: 23px;
       color: #1c1c1c;
-      font-weight: bold;
+      font-family: $HelveticaNeueCyrBold;
       text-transform: uppercase;
       letter-spacing: 1.5px;
     }
@@ -385,11 +412,12 @@ $HelveticaNeue: 'HelveticaNeue', sans-serif;
   font: 100 14px/1.2 $HelveticaNeueCyrThin;
 
   a {
+    @include transition_all(color .3s);
     color: #fff;
     text-decoration: none;
 
     &:hover {
-      text-decoration: underline;
+      color: #ff4f35;
     }
   }
 }
@@ -414,7 +442,7 @@ $HelveticaNeue: 'HelveticaNeue', sans-serif;
 
   .metrics_map {
     background-image: url(../img/Cards@2x.png);
-    background-size: 100%;
+    background-size: 1661px;
   }
 }
 
@@ -431,7 +459,7 @@ $HelveticaNeue: 'HelveticaNeue', sans-serif;
 
   .metrics_map {
     background-image: url(../img/Cards@2x.png);
-    background-size: 100%;
+    background-size: 1661px;
   }
 }
 
@@ -448,7 +476,7 @@ $HelveticaNeue: 'HelveticaNeue', sans-serif;
 
   .metrics_map {
     background-image: url(../img/Cards@2x.png);
-    background-size: 100%;
+    background-size: 1661px;
   }
 }
 

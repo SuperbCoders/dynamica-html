@@ -178,7 +178,6 @@ function fit2Limits(pckr, date, max) {
     }
 }
 
-
 function init_charts() {
 
     var race = {
@@ -267,178 +266,87 @@ function init_charts() {
                 "key": "DJ",
                 "value": "0.42",
                 "date": "01/28/13"
-            },
-
-                //{"key": "MS", "value": "0.21", "date": "01/08/13"}, {
-                //    "key": "MS",
-                //    "value": "0.25",
-                //    "date": "01/09/13"
-                //}, {"key": "MS", "value": "0.27", "date": "01/10/13"}, {
-                //    "key": "MS",
-                //    "value": "0.23",
-                //    "date": "01/11/13"
-                //}, {"key": "MS", "value": "0.24", "date": "01/12/13"}, {
-                //    "key": "MS",
-                //    "value": "0.21",
-                //    "date": "01/13/13"
-                //}, {"key": "MS", "value": "0.35", "date": "01/14/13"}, {
-                //    "key": "MS",
-                //    "value": "0.39",
-                //    "date": "01/15/13"
-                //}, {"key": "MS", "value": "0.4", "date": "01/16/13"}, {
-                //    "key": "MS",
-                //    "value": "0.36",
-                //    "date": "01/17/13"
-                //}, {"key": "MS", "value": "0.33", "date": "01/18/13"}, {
-                //    "key": "MS",
-                //    "value": "0.43",
-                //    "date": "01/19/13"
-                //}, {"key": "MS", "value": "0.4", "date": "01/20/13"}, {
-                //    "key": "MS",
-                //    "value": "0.34",
-                //    "date": "01/21/13"
-                //}, {"key": "MS", "value": "0.28", "date": "01/22/13"}, {
-                //    "key": "MS",
-                //    "value": "0.26",
-                //    "date": "01/23/13"
-                //}, {"key": "MS", "value": "0.37", "date": "01/24/13"}, {
-                //    "key": "MS",
-                //    "value": "0.41",
-                //    "date": "01/25/13"
-                //}, {"key": "MS", "value": "0.46", "date": "01/26/13"}, {
-                //    "key": "MS",
-                //    "value": "0.47",
-                //    "date": "01/27/13"
-                //}, {"key": "MS", "value": "0.41", "date": "01/28/13"},
-
-                //{
-                //    "key": "RC",
-                //    "value": "0.1",
-                //    "date": "01/08/13"
-                //}, {"key": "RC", "value": "0.15", "date": "01/09/13"}, {
-                //    "key": "RC",
-                //    "value": "0.35",
-                //    "date": "01/10/13"
-                //}, {"key": "RC", "value": "0.38", "date": "01/11/13"}, {
-                //    "key": "RC",
-                //    "value": "0.22",
-                //    "date": "01/12/13"
-                //}, {"key": "RC", "value": "0.16", "date": "01/13/13"}, {
-                //    "key": "RC",
-                //    "value": "0.07",
-                //    "date": "01/14/13"
-                //}, {"key": "RC", "value": "0.02", "date": "01/15/13"}, {
-                //    "key": "RC",
-                //    "value": "0.17",
-                //    "date": "01/16/13"
-                //}, {"key": "RC", "value": "0.33", "date": "01/17/13"}, {
-                //    "key": "RC",
-                //    "value": "0.4",
-                //    "date": "01/18/13"
-                //}, {"key": "RC", "value": "0.32", "date": "01/19/13"}, {
-                //    "key": "RC",
-                //    "value": "0.26",
-                //    "date": "01/20/13"
-                //}, {"key": "RC", "value": "0.35", "date": "01/21/13"}, {
-                //    "key": "RC",
-                //    "value": "0.4",
-                //    "date": "01/22/13"
-                //}, {"key": "RC", "value": "0.32", "date": "01/23/13"}, {
-                //    "key": "RC",
-                //    "value": "0.26",
-                //    "date": "01/24/13"
-                //}, {"key": "RC", "value": "0.22", "date": "01/25/13"}, {
-                //    "key": "RC",
-                //    "value": "0.16",
-                //    "date": "01/26/13"
-                //}, {"key": "RC", "value": "0.22", "date": "01/27/13"}, {
-                //    "key": "RC",
-                //    "value": "0.1",
-                //    "date": "01/28/13"
-                //}, 
-
-
-                {"key": "CG", "value": "0.1", "date": "01/08/13"}, {
-                    "key": "CG",
-                    "value": "0.15",
-                    "date": "01/09/13"
-                }, {"key": "CG", "value": "0.35", "date": "01/10/13"}, {
-                    "key": "CG",
-                    "value": "0.38",
-                    "date": "01/11/13"
-                }, {"key": "CG", "value": "0.22", "date": "01/12/13"}, {
-                    "key": "CG",
-                    "value": "0.16",
-                    "date": "01/13/13"
-                }, {"key": "CG", "value": "0.07", "date": "01/14/13"}, {
-                    "key": "CG",
-                    "value": "0.02",
-                    "date": "01/15/13"
-                }, {"key": "CG", "value": "0.17", "date": "01/16/13"}, {
-                    "key": "CG",
-                    "value": "0.33",
-                    "date": "01/17/13"
-                }, {"key": "CG", "value": "0.4", "date": "01/18/13"}, {
-                    "key": "CG",
-                    "value": "0.32",
-                    "date": "01/19/13"
-                }, {"key": "CG", "value": "0.26", "date": "01/20/13"}, {
-                    "key": "CG",
-                    "value": "0.35",
-                    "date": "01/21/13"
-                }, {"key": "CG", "value": "0.4", "date": "01/22/13"}, {
-                    "key": "CG",
-                    "value": "0.32",
-                    "date": "01/23/13"
-                }, {"key": "CG", "value": "0.26", "date": "01/24/13"}, {
-                    "key": "CG",
-                    "value": "0.22",
-                    "date": "01/25/13"
-                }, {"key": "CG", "value": "0.16", "date": "01/26/13"}, {
-                    "key": "CG",
-                    "value": "0.22",
-                    "date": "01/27/13"
-                }, {"key": "CG", "value": "0.1", "date": "01/28/13"}, {
-                    "key": "RI",
-                    "value": "0.1",
-                    "date": "01/08/13"
-                }, {"key": "RI", "value": "0.15", "date": "01/09/13"}, {
-                    "key": "RI",
-                    "value": "0.35",
-                    "date": "01/10/13"
-                }, {"key": "RI", "value": "0.38", "date": "01/11/13"}, {
-                    "key": "RI",
-                    "value": "0.22",
-                    "date": "01/12/13"
-                }, {"key": "RI", "value": "0.16", "date": "01/13/13"}, {
-                    "key": "RI",
-                    "value": "0.07",
-                    "date": "01/14/13"
-                }, {"key": "RI", "value": "0.02", "date": "01/15/13"}, {
-                    "key": "RI",
-                    "value": "0.17",
-                    "date": "01/16/13"
-                }, {"key": "RI", "value": "0.33", "date": "01/17/13"}, {
-                    "key": "RI",
-                    "value": "0.4",
-                    "date": "01/18/13"
-                }, {"key": "RI", "value": "0.32", "date": "01/19/13"}, {
-                    "key": "RI",
-                    "value": "0.26",
-                    "date": "01/20/13"
-                }, {"key": "RI", "value": "0.35", "date": "01/21/13"}, {
-                    "key": "RI",
-                    "value": "0.4",
-                    "date": "01/22/13"
-                }, {"key": "RI", "value": "0.32", "date": "01/23/13"}, {
-                    "key": "RI",
-                    "value": "0.26",
-                    "date": "01/24/13"
-                }, {"key": "RI", "value": "0.22", "date": "01/25/13"}, {
-                    "key": "RI",
-                    "value": "0.16",
-                    "date": "01/26/13"
-                }, {"key": "RI", "value": "0.22", "date": "01/27/13"}, {"key": "RI", "value": "0.1", "date": "01/28/13"}]
+            }, {"key": "CG", "value": "0.1", "date": "01/08/13"}, {
+                "key": "CG",
+                "value": "0.15",
+                "date": "01/09/13"
+            }, {"key": "CG", "value": "0.35", "date": "01/10/13"}, {
+                "key": "CG",
+                "value": "0.38",
+                "date": "01/11/13"
+            }, {"key": "CG", "value": "0.22", "date": "01/12/13"}, {
+                "key": "CG",
+                "value": "0.16",
+                "date": "01/13/13"
+            }, {"key": "CG", "value": "0.07", "date": "01/14/13"}, {
+                "key": "CG",
+                "value": "0.02",
+                "date": "01/15/13"
+            }, {"key": "CG", "value": "0.17", "date": "01/16/13"}, {
+                "key": "CG",
+                "value": "0.33",
+                "date": "01/17/13"
+            }, {"key": "CG", "value": "0.4", "date": "01/18/13"}, {
+                "key": "CG",
+                "value": "0.32",
+                "date": "01/19/13"
+            }, {"key": "CG", "value": "0.26", "date": "01/20/13"}, {
+                "key": "CG",
+                "value": "0.35",
+                "date": "01/21/13"
+            }, {"key": "CG", "value": "0.4", "date": "01/22/13"}, {
+                "key": "CG",
+                "value": "0.32",
+                "date": "01/23/13"
+            }, {"key": "CG", "value": "0.26", "date": "01/24/13"}, {
+                "key": "CG",
+                "value": "0.22",
+                "date": "01/25/13"
+            }, {"key": "CG", "value": "0.16", "date": "01/26/13"}, {
+                "key": "CG",
+                "value": "0.22",
+                "date": "01/27/13"
+            }, {"key": "CG", "value": "0.1", "date": "01/28/13"}, {
+                "key": "RI",
+                "value": "0.1",
+                "date": "01/08/13"
+            }, {"key": "RI", "value": "0.15", "date": "01/09/13"}, {
+                "key": "RI",
+                "value": "0.35",
+                "date": "01/10/13"
+            }, {"key": "RI", "value": "0.38", "date": "01/11/13"}, {
+                "key": "RI",
+                "value": "0.22",
+                "date": "01/12/13"
+            }, {"key": "RI", "value": "0.16", "date": "01/13/13"}, {
+                "key": "RI",
+                "value": "0.07",
+                "date": "01/14/13"
+            }, {"key": "RI", "value": "0.02", "date": "01/15/13"}, {
+                "key": "RI",
+                "value": "0.17",
+                "date": "01/16/13"
+            }, {"key": "RI", "value": "0.33", "date": "01/17/13"}, {
+                "key": "RI",
+                "value": "0.4",
+                "date": "01/18/13"
+            }, {"key": "RI", "value": "0.32", "date": "01/19/13"}, {
+                "key": "RI",
+                "value": "0.26",
+                "date": "01/20/13"
+            }, {"key": "RI", "value": "0.35", "date": "01/21/13"}, {
+                "key": "RI",
+                "value": "0.4",
+                "date": "01/22/13"
+            }, {"key": "RI", "value": "0.32", "date": "01/23/13"}, {
+                "key": "RI",
+                "value": "0.26",
+                "date": "01/24/13"
+            }, {"key": "RI", "value": "0.22", "date": "01/25/13"}, {
+                "key": "RI",
+                "value": "0.16",
+                "date": "01/26/13"
+            }, {"key": "RI", "value": "0.22", "date": "01/27/13"}, {"key": "RI", "value": "0.1", "date": "01/28/13"}]
         },
         race_big = {
             "items": {"delivered": "#975e16", "canceled": "#b92784", "transit": "#a0569a", "new": "#9043a9"},
@@ -1589,9 +1497,9 @@ function draw_stream_graph(el, data_files, needMath) {
                     tooltip_content = $("#tooltip_content"),
                     tooltip_dot = $("#tooltip_dot"),
                     tool_table = $('<table class="graph-tooltip-table" />'),
-                    distance = area_x(data_files[activeFamilyGraph].data[0].date) - area_x(data_files[activeFamilyGraph].data[1].date) || 0,
-                    x = d3.mouse(this)[0] + distance / 2,
-                    x0 = area_x.invert(x),
+                    distance = x(data_files.data[0].date) - x(data_files.data[1].date) || 0,
+                    x_mouse = d3.mouse(this)[0] + distance / 2,
+                    x0 = x.invert(x_mouse),
                     ind;
 
                 for (var k = 0; k < dates.length; k++) {
@@ -1622,10 +1530,10 @@ function draw_stream_graph(el, data_files, needMath) {
                     .append(tool_table);
 
                 tooltip
-                    .classed('flipped_left', x < tooltip_content.outerWidth() + 25)
-                    .style("left", area_x(data_files[activeFamilyGraph].data[ind].date) + "px");
+                    .classed('flipped_left', x_mouse < tooltip_content.outerWidth() + 25)
+                    .style("left", x(data_files.data[ind].date) + "px");
 
-                tooltip_dot.css('top', margin.top + area_y(data_files[activeFamilyGraph].data[ind].close) - 11);
+                tooltip_dot.css('top', margin.top + y(data_files.data[ind].close) - 11);
 
             }
         );
