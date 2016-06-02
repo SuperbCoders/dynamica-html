@@ -183,255 +183,260 @@ function init_charts() {
 
     var race = {
             "items": {"delivered": "#975e16", "canceled": "#b92784", "transit": "#a0569a", "new": "#9043a9"},
-            "data":[{"key": "AR", "value": "0.1", "date": "01/08/13"}, {
-            "key": "AR",
-            "value": "0.15",
-            "date": "01/09/13"
-        }, {"key": "AR", "value": "0.35", "date": "01/10/13"}, {
-            "key": "AR",
-            "value": "0.38",
-            "date": "01/11/13"
-        }, {"key": "AR", "value": "0.22", "date": "01/12/13"}, {
-            "key": "AR",
-            "value": "0.16",
-            "date": "01/13/13"
-        }, {"key": "AR", "value": "0.07", "date": "01/14/13"}, {
-            "key": "AR",
-            "value": "0.02",
-            "date": "01/15/13"
-        }, {"key": "AR", "value": "0.17", "date": "01/16/13"}, {
-            "key": "AR",
-            "value": "0.33",
-            "date": "01/17/13"
-        }, {"key": "AR", "value": "0.4", "date": "01/18/13"}, {
-            "key": "AR",
-            "value": "0.32",
-            "date": "01/19/13"
-        }, {"key": "AR", "value": "0.26", "date": "01/20/13"}, {
-            "key": "AR",
-            "value": "0.35",
-            "date": "01/21/13"
-        }, {"key": "AR", "value": "0.4", "date": "01/22/13"}, {
-            "key": "AR",
-            "value": "0.32",
-            "date": "01/23/13"
-        }, {"key": "AR", "value": "0.26", "date": "01/24/13"}, {
-            "key": "AR",
-            "value": "0.22",
-            "date": "01/25/13"
-        }, {"key": "AR", "value": "0.16", "date": "01/26/13"}, {
-            "key": "AR",
-            "value": "0.22",
-            "date": "01/27/13"
-        }, {"key": "AR", "value": "0.1", "date": "01/28/13"}, {
-            "key": "DJ",
-            "value": "0.35",
-            "date": "01/08/13"
-        }, {"key": "DJ", "value": "0.36", "date": "01/09/13"}, {
-            "key": "DJ",
-            "value": "0.37",
-            "date": "01/10/13"
-        }, {"key": "DJ", "value": "0.22", "date": "01/11/13"}, {
-            "key": "DJ",
-            "value": "0.24",
-            "date": "01/12/13"
-        }, {"key": "DJ", "value": "0.26", "date": "01/13/13"}, {
-            "key": "DJ",
-            "value": "0.34",
-            "date": "01/14/13"
-        }, {"key": "DJ", "value": "0.21", "date": "01/15/13"}, {
-            "key": "DJ",
-            "value": "0.18",
-            "date": "01/16/13"
-        }, {"key": "DJ", "value": "0.45", "date": "01/17/13"}, {
-            "key": "DJ",
-            "value": "0.32",
-            "date": "01/18/13"
-        }, {"key": "DJ", "value": "0.35", "date": "01/19/13"}, {
-            "key": "DJ",
-            "value": "0.3",
-            "date": "01/20/13"
-        }, {"key": "DJ", "value": "0.28", "date": "01/21/13"}, {
-            "key": "DJ",
-            "value": "0.27",
-            "date": "01/22/13"
-        }, {"key": "DJ", "value": "0.26", "date": "01/23/13"}, {
-            "key": "DJ",
-            "value": "0.15",
-            "date": "01/24/13"
-        }, {"key": "DJ", "value": "0.3", "date": "01/25/13"}, {
-            "key": "DJ",
-            "value": "0.35",
-            "date": "01/26/13"
-        }, {"key": "DJ", "value": "0.42", "date": "01/27/13"}, {
-            "key": "DJ",
-            "value": "0.42",
-            "date": "01/28/13"
-        }, {"key": "MS", "value": "0.21", "date": "01/08/13"}, {
-            "key": "MS",
-            "value": "0.25",
-            "date": "01/09/13"
-        }, {"key": "MS", "value": "0.27", "date": "01/10/13"}, {
-            "key": "MS",
-            "value": "0.23",
-            "date": "01/11/13"
-        }, {"key": "MS", "value": "0.24", "date": "01/12/13"}, {
-            "key": "MS",
-            "value": "0.21",
-            "date": "01/13/13"
-        }, {"key": "MS", "value": "0.35", "date": "01/14/13"}, {
-            "key": "MS",
-            "value": "0.39",
-            "date": "01/15/13"
-        }, {"key": "MS", "value": "0.4", "date": "01/16/13"}, {
-            "key": "MS",
-            "value": "0.36",
-            "date": "01/17/13"
-        }, {"key": "MS", "value": "0.33", "date": "01/18/13"}, {
-            "key": "MS",
-            "value": "0.43",
-            "date": "01/19/13"
-        }, {"key": "MS", "value": "0.4", "date": "01/20/13"}, {
-            "key": "MS",
-            "value": "0.34",
-            "date": "01/21/13"
-        }, {"key": "MS", "value": "0.28", "date": "01/22/13"}, {
-            "key": "MS",
-            "value": "0.26",
-            "date": "01/23/13"
-        }, {"key": "MS", "value": "0.37", "date": "01/24/13"}, {
-            "key": "MS",
-            "value": "0.41",
-            "date": "01/25/13"
-        }, {"key": "MS", "value": "0.46", "date": "01/26/13"}, {
-            "key": "MS",
-            "value": "0.47",
-            "date": "01/27/13"
-        }, {"key": "MS", "value": "0.41", "date": "01/28/13"}, {
-            "key": "RC",
-            "value": "0.1",
-            "date": "01/08/13"
-        }, {"key": "RC", "value": "0.15", "date": "01/09/13"}, {
-            "key": "RC",
-            "value": "0.35",
-            "date": "01/10/13"
-        }, {"key": "RC", "value": "0.38", "date": "01/11/13"}, {
-            "key": "RC",
-            "value": "0.22",
-            "date": "01/12/13"
-        }, {"key": "RC", "value": "0.16", "date": "01/13/13"}, {
-            "key": "RC",
-            "value": "0.07",
-            "date": "01/14/13"
-        }, {"key": "RC", "value": "0.02", "date": "01/15/13"}, {
-            "key": "RC",
-            "value": "0.17",
-            "date": "01/16/13"
-        }, {"key": "RC", "value": "0.33", "date": "01/17/13"}, {
-            "key": "RC",
-            "value": "0.4",
-            "date": "01/18/13"
-        }, {"key": "RC", "value": "0.32", "date": "01/19/13"}, {
-            "key": "RC",
-            "value": "0.26",
-            "date": "01/20/13"
-        }, {"key": "RC", "value": "0.35", "date": "01/21/13"}, {
-            "key": "RC",
-            "value": "0.4",
-            "date": "01/22/13"
-        }, {"key": "RC", "value": "0.32", "date": "01/23/13"}, {
-            "key": "RC",
-            "value": "0.26",
-            "date": "01/24/13"
-        }, {"key": "RC", "value": "0.22", "date": "01/25/13"}, {
-            "key": "RC",
-            "value": "0.16",
-            "date": "01/26/13"
-        }, {"key": "RC", "value": "0.22", "date": "01/27/13"}, {
-            "key": "RC",
-            "value": "0.1",
-            "date": "01/28/13"
-        }, {"key": "CG", "value": "0.1", "date": "01/08/13"}, {
-            "key": "CG",
-            "value": "0.15",
-            "date": "01/09/13"
-        }, {"key": "CG", "value": "0.35", "date": "01/10/13"}, {
-            "key": "CG",
-            "value": "0.38",
-            "date": "01/11/13"
-        }, {"key": "CG", "value": "0.22", "date": "01/12/13"}, {
-            "key": "CG",
-            "value": "0.16",
-            "date": "01/13/13"
-        }, {"key": "CG", "value": "0.07", "date": "01/14/13"}, {
-            "key": "CG",
-            "value": "0.02",
-            "date": "01/15/13"
-        }, {"key": "CG", "value": "0.17", "date": "01/16/13"}, {
-            "key": "CG",
-            "value": "0.33",
-            "date": "01/17/13"
-        }, {"key": "CG", "value": "0.4", "date": "01/18/13"}, {
-            "key": "CG",
-            "value": "0.32",
-            "date": "01/19/13"
-        }, {"key": "CG", "value": "0.26", "date": "01/20/13"}, {
-            "key": "CG",
-            "value": "0.35",
-            "date": "01/21/13"
-        }, {"key": "CG", "value": "0.4", "date": "01/22/13"}, {
-            "key": "CG",
-            "value": "0.32",
-            "date": "01/23/13"
-        }, {"key": "CG", "value": "0.26", "date": "01/24/13"}, {
-            "key": "CG",
-            "value": "0.22",
-            "date": "01/25/13"
-        }, {"key": "CG", "value": "0.16", "date": "01/26/13"}, {
-            "key": "CG",
-            "value": "0.22",
-            "date": "01/27/13"
-        }, {"key": "CG", "value": "0.1", "date": "01/28/13"}, {
-            "key": "RI",
-            "value": "0.1",
-            "date": "01/08/13"
-        }, {"key": "RI", "value": "0.15", "date": "01/09/13"}, {
-            "key": "RI",
-            "value": "0.35",
-            "date": "01/10/13"
-        }, {"key": "RI", "value": "0.38", "date": "01/11/13"}, {
-            "key": "RI",
-            "value": "0.22",
-            "date": "01/12/13"
-        }, {"key": "RI", "value": "0.16", "date": "01/13/13"}, {
-            "key": "RI",
-            "value": "0.07",
-            "date": "01/14/13"
-        }, {"key": "RI", "value": "0.02", "date": "01/15/13"}, {
-            "key": "RI",
-            "value": "0.17",
-            "date": "01/16/13"
-        }, {"key": "RI", "value": "0.33", "date": "01/17/13"}, {
-            "key": "RI",
-            "value": "0.4",
-            "date": "01/18/13"
-        }, {"key": "RI", "value": "0.32", "date": "01/19/13"}, {
-            "key": "RI",
-            "value": "0.26",
-            "date": "01/20/13"
-        }, {"key": "RI", "value": "0.35", "date": "01/21/13"}, {
-            "key": "RI",
-            "value": "0.4",
-            "date": "01/22/13"
-        }, {"key": "RI", "value": "0.32", "date": "01/23/13"}, {
-            "key": "RI",
-            "value": "0.26",
-            "date": "01/24/13"
-        }, {"key": "RI", "value": "0.22", "date": "01/25/13"}, {
-            "key": "RI",
-            "value": "0.16",
-            "date": "01/26/13"
-        }, {"key": "RI", "value": "0.22", "date": "01/27/13"}, {"key": "RI", "value": "0.1", "date": "01/28/13"}]},
+            "data": [{"key": "AR", "value": "0.1", "date": "01/08/13"}, {
+                "key": "AR",
+                "value": "0.15",
+                "date": "01/09/13"
+            }, {"key": "AR", "value": "0.35", "date": "01/10/13"}, {
+                "key": "AR",
+                "value": "0.38",
+                "date": "01/11/13"
+            }, {"key": "AR", "value": "0.22", "date": "01/12/13"}, {
+                "key": "AR",
+                "value": "0.16",
+                "date": "01/13/13"
+            }, {"key": "AR", "value": "0.07", "date": "01/14/13"}, {
+                "key": "AR",
+                "value": "0.02",
+                "date": "01/15/13"
+            }, {"key": "AR", "value": "0.17", "date": "01/16/13"}, {
+                "key": "AR",
+                "value": "0.33",
+                "date": "01/17/13"
+            }, {"key": "AR", "value": "0.4", "date": "01/18/13"}, {
+                "key": "AR",
+                "value": "0.32",
+                "date": "01/19/13"
+            }, {"key": "AR", "value": "0.26", "date": "01/20/13"}, {
+                "key": "AR",
+                "value": "0.35",
+                "date": "01/21/13"
+            }, {"key": "AR", "value": "0.4", "date": "01/22/13"}, {
+                "key": "AR",
+                "value": "0.32",
+                "date": "01/23/13"
+            }, {"key": "AR", "value": "0.26", "date": "01/24/13"}, {
+                "key": "AR",
+                "value": "0.22",
+                "date": "01/25/13"
+            }, {"key": "AR", "value": "0.16", "date": "01/26/13"}, {
+                "key": "AR",
+                "value": "0.22",
+                "date": "01/27/13"
+            }, {"key": "AR", "value": "0.1", "date": "01/28/13"}, {
+                "key": "DJ",
+                "value": "0.35",
+                "date": "01/08/13"
+            }, {"key": "DJ", "value": "0.36", "date": "01/09/13"}, {
+                "key": "DJ",
+                "value": "0.37",
+                "date": "01/10/13"
+            }, {"key": "DJ", "value": "0.22", "date": "01/11/13"}, {
+                "key": "DJ",
+                "value": "0.24",
+                "date": "01/12/13"
+            }, {"key": "DJ", "value": "0.26", "date": "01/13/13"}, {
+                "key": "DJ",
+                "value": "0.34",
+                "date": "01/14/13"
+            }, {"key": "DJ", "value": "0.21", "date": "01/15/13"}, {
+                "key": "DJ",
+                "value": "0.18",
+                "date": "01/16/13"
+            }, {"key": "DJ", "value": "0.45", "date": "01/17/13"}, {
+                "key": "DJ",
+                "value": "0.32",
+                "date": "01/18/13"
+            }, {"key": "DJ", "value": "0.35", "date": "01/19/13"}, {
+                "key": "DJ",
+                "value": "0.3",
+                "date": "01/20/13"
+            }, {"key": "DJ", "value": "0.28", "date": "01/21/13"}, {
+                "key": "DJ",
+                "value": "0.27",
+                "date": "01/22/13"
+            }, {"key": "DJ", "value": "0.26", "date": "01/23/13"}, {
+                "key": "DJ",
+                "value": "0.15",
+                "date": "01/24/13"
+            }, {"key": "DJ", "value": "0.3", "date": "01/25/13"}, {
+                "key": "DJ",
+                "value": "0.35",
+                "date": "01/26/13"
+            }, {"key": "DJ", "value": "0.42", "date": "01/27/13"}, {
+                "key": "DJ",
+                "value": "0.42",
+                "date": "01/28/13"
+            },
+
+                //{"key": "MS", "value": "0.21", "date": "01/08/13"}, {
+                //    "key": "MS",
+                //    "value": "0.25",
+                //    "date": "01/09/13"
+                //}, {"key": "MS", "value": "0.27", "date": "01/10/13"}, {
+                //    "key": "MS",
+                //    "value": "0.23",
+                //    "date": "01/11/13"
+                //}, {"key": "MS", "value": "0.24", "date": "01/12/13"}, {
+                //    "key": "MS",
+                //    "value": "0.21",
+                //    "date": "01/13/13"
+                //}, {"key": "MS", "value": "0.35", "date": "01/14/13"}, {
+                //    "key": "MS",
+                //    "value": "0.39",
+                //    "date": "01/15/13"
+                //}, {"key": "MS", "value": "0.4", "date": "01/16/13"}, {
+                //    "key": "MS",
+                //    "value": "0.36",
+                //    "date": "01/17/13"
+                //}, {"key": "MS", "value": "0.33", "date": "01/18/13"}, {
+                //    "key": "MS",
+                //    "value": "0.43",
+                //    "date": "01/19/13"
+                //}, {"key": "MS", "value": "0.4", "date": "01/20/13"}, {
+                //    "key": "MS",
+                //    "value": "0.34",
+                //    "date": "01/21/13"
+                //}, {"key": "MS", "value": "0.28", "date": "01/22/13"}, {
+                //    "key": "MS",
+                //    "value": "0.26",
+                //    "date": "01/23/13"
+                //}, {"key": "MS", "value": "0.37", "date": "01/24/13"}, {
+                //    "key": "MS",
+                //    "value": "0.41",
+                //    "date": "01/25/13"
+                //}, {"key": "MS", "value": "0.46", "date": "01/26/13"}, {
+                //    "key": "MS",
+                //    "value": "0.47",
+                //    "date": "01/27/13"
+                //}, {"key": "MS", "value": "0.41", "date": "01/28/13"},
+
+                {
+                    "key": "RC",
+                    "value": "0.1",
+                    "date": "01/08/13"
+                }, {"key": "RC", "value": "0.15", "date": "01/09/13"}, {
+                    "key": "RC",
+                    "value": "0.35",
+                    "date": "01/10/13"
+                }, {"key": "RC", "value": "0.38", "date": "01/11/13"}, {
+                    "key": "RC",
+                    "value": "0.22",
+                    "date": "01/12/13"
+                }, {"key": "RC", "value": "0.16", "date": "01/13/13"}, {
+                    "key": "RC",
+                    "value": "0.07",
+                    "date": "01/14/13"
+                }, {"key": "RC", "value": "0.02", "date": "01/15/13"}, {
+                    "key": "RC",
+                    "value": "0.17",
+                    "date": "01/16/13"
+                }, {"key": "RC", "value": "0.33", "date": "01/17/13"}, {
+                    "key": "RC",
+                    "value": "0.4",
+                    "date": "01/18/13"
+                }, {"key": "RC", "value": "0.32", "date": "01/19/13"}, {
+                    "key": "RC",
+                    "value": "0.26",
+                    "date": "01/20/13"
+                }, {"key": "RC", "value": "0.35", "date": "01/21/13"}, {
+                    "key": "RC",
+                    "value": "0.4",
+                    "date": "01/22/13"
+                }, {"key": "RC", "value": "0.32", "date": "01/23/13"}, {
+                    "key": "RC",
+                    "value": "0.26",
+                    "date": "01/24/13"
+                }, {"key": "RC", "value": "0.22", "date": "01/25/13"}, {
+                    "key": "RC",
+                    "value": "0.16",
+                    "date": "01/26/13"
+                }, {"key": "RC", "value": "0.22", "date": "01/27/13"}, {
+                    "key": "RC",
+                    "value": "0.1",
+                    "date": "01/28/13"
+                }, {"key": "CG", "value": "0.1", "date": "01/08/13"}, {
+                    "key": "CG",
+                    "value": "0.15",
+                    "date": "01/09/13"
+                }, {"key": "CG", "value": "0.35", "date": "01/10/13"}, {
+                    "key": "CG",
+                    "value": "0.38",
+                    "date": "01/11/13"
+                }, {"key": "CG", "value": "0.22", "date": "01/12/13"}, {
+                    "key": "CG",
+                    "value": "0.16",
+                    "date": "01/13/13"
+                }, {"key": "CG", "value": "0.07", "date": "01/14/13"}, {
+                    "key": "CG",
+                    "value": "0.02",
+                    "date": "01/15/13"
+                }, {"key": "CG", "value": "0.17", "date": "01/16/13"}, {
+                    "key": "CG",
+                    "value": "0.33",
+                    "date": "01/17/13"
+                }, {"key": "CG", "value": "0.4", "date": "01/18/13"}, {
+                    "key": "CG",
+                    "value": "0.32",
+                    "date": "01/19/13"
+                }, {"key": "CG", "value": "0.26", "date": "01/20/13"}, {
+                    "key": "CG",
+                    "value": "0.35",
+                    "date": "01/21/13"
+                }, {"key": "CG", "value": "0.4", "date": "01/22/13"}, {
+                    "key": "CG",
+                    "value": "0.32",
+                    "date": "01/23/13"
+                }, {"key": "CG", "value": "0.26", "date": "01/24/13"}, {
+                    "key": "CG",
+                    "value": "0.22",
+                    "date": "01/25/13"
+                }, {"key": "CG", "value": "0.16", "date": "01/26/13"}, {
+                    "key": "CG",
+                    "value": "0.22",
+                    "date": "01/27/13"
+                }, {"key": "CG", "value": "0.1", "date": "01/28/13"}, {
+                    "key": "RI",
+                    "value": "0.1",
+                    "date": "01/08/13"
+                }, {"key": "RI", "value": "0.15", "date": "01/09/13"}, {
+                    "key": "RI",
+                    "value": "0.35",
+                    "date": "01/10/13"
+                }, {"key": "RI", "value": "0.38", "date": "01/11/13"}, {
+                    "key": "RI",
+                    "value": "0.22",
+                    "date": "01/12/13"
+                }, {"key": "RI", "value": "0.16", "date": "01/13/13"}, {
+                    "key": "RI",
+                    "value": "0.07",
+                    "date": "01/14/13"
+                }, {"key": "RI", "value": "0.02", "date": "01/15/13"}, {
+                    "key": "RI",
+                    "value": "0.17",
+                    "date": "01/16/13"
+                }, {"key": "RI", "value": "0.33", "date": "01/17/13"}, {
+                    "key": "RI",
+                    "value": "0.4",
+                    "date": "01/18/13"
+                }, {"key": "RI", "value": "0.32", "date": "01/19/13"}, {
+                    "key": "RI",
+                    "value": "0.26",
+                    "date": "01/20/13"
+                }, {"key": "RI", "value": "0.35", "date": "01/21/13"}, {
+                    "key": "RI",
+                    "value": "0.4",
+                    "date": "01/22/13"
+                }, {"key": "RI", "value": "0.32", "date": "01/23/13"}, {
+                    "key": "RI",
+                    "value": "0.26",
+                    "date": "01/24/13"
+                }, {"key": "RI", "value": "0.22", "date": "01/25/13"}, {
+                    "key": "RI",
+                    "value": "0.16",
+                    "date": "01/26/13"
+                }, {"key": "RI", "value": "0.22", "date": "01/27/13"}, {"key": "RI", "value": "0.1", "date": "01/28/13"}]
+        },
         race_big = {
             "items": {"delivered": "#975e16", "canceled": "#b92784", "transit": "#a0569a", "new": "#9043a9"},
             "data": [{"canceled": 0, "delivered": 0, "new": 0, "transit": 0, "date": "29-May-15"}, {
@@ -1578,8 +1583,6 @@ function draw_stream_graph(el, data_files, needMath) {
 
     // csv
 
-    console.log(data);
-    
     data.forEach(function (d) {
         d.date = format.parse(d.date);
         d.value = +d.value;
@@ -1648,8 +1651,8 @@ function draw_stream_graph(el, data_files, needMath) {
                 .classed("hover", true)
                 .attr("stroke", strokecolor)
                 .attr("stroke-width", "0.5px");
-            
-                //tooltip.html("<p>" + d.key + "<br>" + pro + "</p>").style("visibility", "visible");
+
+            //tooltip.html("<p>" + d.key + "<br>" + pro + "</p>").style("visibility", "visible");
 
         })
         .on("mouseout", function (d, i) {
@@ -1660,7 +1663,7 @@ function draw_stream_graph(el, data_files, needMath) {
             d3.select(this)
                 .classed("hover", false)
                 .attr("stroke-width", "0px");
-            
+
             //tooltip.html("<p>" + d.key + "<br>" + pro + "</p>").style("visibility", "hidden");
         });
 
