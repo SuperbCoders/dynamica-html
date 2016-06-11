@@ -1364,18 +1364,7 @@ function draw_stream_graph(el, data_files, needMath) {
         el.parents('.graph-unit').append(legendBlock);
     }
 
-    //for (var dt in data_files) {
-    //    if (data_files.hasOwnProperty(dt)) {
-    //        console.log(dt,data_files[dt]);
-    //        re++;
-    //        //colors.push(data_files[dt]);
-    //    }
-    //}
-
-    //return false;
-
-
-    var dates = [], area_x,
+    var datas = [], area_x,
         items = data_files.items,
         colors = [], names = [];
 
@@ -1395,18 +1384,7 @@ function draw_stream_graph(el, data_files, needMath) {
         if (items.hasOwnProperty(key)) {
             names.push(key);
             colors.push(items[key]);
-
         }
-
-        //$(data_files.data).each(function (ind) {
-        //    //console.log(this[key] );
-        //    item_data.push({
-        //        "x": ind,
-        //        "y": this[key]
-        //    });
-        //});
-
-        //data.push(item_data);
     }
 
     var tooltip = $('<table class="graph-tooltip-table" />');
@@ -1415,27 +1393,21 @@ function draw_stream_graph(el, data_files, needMath) {
         width = el.width() - margin.left - margin.right,
         height = el.height() - margin.top - margin.bottom;
 
-    // start
-
-    //chart("data.csv", "blue");
 
     var datearray = [];
     var colorrange = ["#045A8D", "#2B8CBE", "#74A9CF", "#A6BDDB", "#D0D1E6", "#F1EEF6"],
         strokecolor = colorrange[0];
 
-    var format = d3.time.format("%m/%d/%y");
-
+    var parseDate = d3.time.format("%m/%d/%y");
 
     var data = data_files.data;
 
-    //var tooltip = d3.select("body")
-    //    .append("div")
-    //    .attr("class", "remove")
-    //    .style("position", "absolute")
-    //    .style("z-index", "20")
-    //    .style("visibility", "hidden")
-    //    .style("top", "30px")
-    //    .style("left", "55px");
+    for (var day in data) {
+        if (items.hasOwnProperty(key)) {
+            names.push(key);
+            colors.push(items[key]);
+        }
+    }
 
     var x = d3.time.scale()
         .range([0, width]);
@@ -1490,58 +1462,52 @@ function draw_stream_graph(el, data_files, needMath) {
         .attr("width", width + margin.left + margin.right)
         .attr("height", height + margin.top + margin.bottom)
         .append("g")
-        .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
-        .on('mousemove', function (d) {
-                //console.log(d3.mouse(this));
-                var tooltip = d3.select("#tooltip"),
-                    tooltip_content = $("#tooltip_content"),
-                    tooltip_dot = $("#tooltip_dot"),
-                    tool_table = $('<table class="graph-tooltip-table" />'),
-                    distance = x(data_files.data[0].date) - x(data_files.data[1].date) || 0,
-                    x_mouse = d3.mouse(this)[0] + distance / 2,
-                    x0 = x.invert(x_mouse),
-                    ind;
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
-                for (var k = 0; k < dates.length; k++) {
-                    var obj1 = dates[k];
+    function mouseMoveCatcher(that) {
+        //console.log(this);
+        var distance = x(data_files.data[0].date) - x(data_files.data[1].date) || 0,
+            mouse = d3.mouse(that),
+            x0 = mouse[0] - distance / 2;
+        var invertedx = x.invert(x0);
 
-                    if (moment(x0).startOf('day').isSame(obj1, 'day')) {
-                        ind = k;
-                        break;
-                    }
-                }
+        var mousedate = datearray.indexOf(invertedx);
 
-                for (var j = 0; j < data_files.length; j++) {
-                    var color = data_files[j].color, data = data_files[j].data;
+        for (var k = 0; k < datearray[0].length; k++) {
+            var obj1 = datearray[0][k].date;
 
-                    //var i = bisectDate(data, x0, 1);
-
-                    var tooltip_item = $('<tr class="tooltip_row" />').attr('data-graph', 'family_area_' + j)
-                        .addClass(j == activeFamilyGraph ? 'active_row' : '')
-                        .addClass($('.graph-unit-legend .legend_item[data-graph=#family_area_' + j + ']').hasClass('disabled') ? 'disabled' : '')
-                        .append($('<td class="tooltip_name" />').append($('<div class="legend_name" />').css('color', color).append($('<span/>').text(data_files[j].name))))
-                        .append($('<td class="tooltip_val" />').append($('<b class="" />').text(data_files[j].data[ind].close)));
-
-                    tool_table.append(tooltip_item);
-                }
-
-                tooltip_content.empty()
-                    .append($('<div class="tooltip-title" />').text(moment(x0).format('dddd, D MMMM YYYY')))
-                    .append(tool_table);
-
-                tooltip
-                    .classed('flipped_left', x_mouse < tooltip_content.outerWidth() + 25)
-                    .style("left", x(data_files.data[ind].date) + "px");
-
-                tooltip_dot.css('top', margin.top + y(data_files.data[ind].close) - 11);
-
+            if (moment(invertedx).startOf('day').isSame(moment(obj1), 'day')) {
+                mousedate = k;
+                break;
             }
-        );
+        }
 
-    // csv
+        var tooltip = d3.select("#tooltip"),
+            tooltip_content = $("#tooltip_content"),
+            tooltip_dot = $("#tooltip_dot"),
+            tool_table = $('<table class="graph-tooltip-table" />');
+
+        for (var j = 0; j < datearray.length; j++) {
+            var color = colors[j], data = datearray[j];
+
+            var tooltip_item = $('<tr class="tooltip_row" />').attr('data-graph', 'stream_area_' + j)
+                .append($('<td class="tooltip_name" />').append($('<div class="legend_name" />').css('color', color).append($('<span/>').text(data[mousedate].key))))
+                .append($('<td class="tooltip_val" />').append($('<b class="" />').text(data[mousedate].value)));
+
+            tool_table.prepend(tooltip_item);
+        }
+
+        tooltip_content.empty()
+            .append($('<div class="tooltip-title" />').text(moment(invertedx).format('dddd, D MMMM YYYY')))
+            .append(tool_table);
+
+        tooltip
+            .classed('flipped_left', x0 < tooltip_content.outerWidth() + 35)
+            .style("left", x(invertedx) + margin.left + distance / 2 + "px");
+    }
 
     data.forEach(function (d) {
-        d.date = format.parse(d.date);
+        d.date = parseDate.parse(d.date);
         d.value = +d.value;
     });
 
@@ -1554,20 +1520,33 @@ function draw_stream_graph(el, data_files, needMath) {
         return d.y0 + d.y;
     })]);
 
+    svg.append('rect')
+        .attr('class', 'click-capture')
+        .style('opacity', '0')
+        .attr('x', 0)
+        .attr('y', 0)
+        .attr('width', width)
+        .attr('height', height)
+        .on('mousemove', function (d) {
+                //console.log('rect');
+                mouseMoveCatcher(this);
+            }
+        );
+
     svg.selectAll(".layer")
         .data(layers)
         .enter().append("path")
         .attr("class", "layer")
         .attr("d", function (d) {
+            datearray.push(d.values);
             return area(d.values);
         })
         .style("fill", function (d, i) {
-            return z(i);
+            return colors[i];
         });
 
-
     svg.append("g")
-        .attr("class", "x axis")
+        .attr("class", "x axis ")
         .attr("transform", "translate(0," + height + ")")
         .call(xAxis);
 
@@ -1580,8 +1559,15 @@ function draw_stream_graph(el, data_files, needMath) {
         .attr("class", "y axis")
         .call(yAxis.orient("left"));
 
+    svg.selectAll(".tick")
+        .attr("fill", "#a5adb3")
+        .attr("font-size", "14px");
+
     svg.selectAll(".layer")
         .attr("opacity", 1)
+        .attr("data-graph", function (d, i) {
+            return 'stream_area_' + i;
+        })
         .on("mouseover", function (d, i) {
             svg.selectAll(".layer").transition()
                 .duration(250)
@@ -1589,27 +1575,12 @@ function draw_stream_graph(el, data_files, needMath) {
                     return j != i ? 0.6 : 1;
                 })
         })
-
         .on("mousemove", function (d, i) {
-            mousex = d3.mouse(this);
-            mousex = mousex[0];
-            var invertedx = x.invert(mousex);
-            invertedx = invertedx.getMonth() + invertedx.getDate();
-            var selected = (d.values);
-            for (var k = 0; k < selected.length; k++) {
-                datearray[k] = selected[k].date
-                datearray[k] = datearray[k].getMonth() + datearray[k].getDate();
-            }
-
-            mousedate = datearray.indexOf(invertedx);
-            pro = d.values[mousedate].value;
-
             d3.select(this)
-                .classed("hover", true)
-                .attr("stroke", strokecolor)
-                .attr("stroke-width", "0.5px");
+                .classed("hover", true);
 
-            //tooltip.html("<p>" + d.key + "<br>" + pro + "</p>").style("visibility", "visible");
+            //console.log('layer');
+            mouseMoveCatcher(this);
 
         })
         .on("mouseout", function (d, i) {
@@ -1618,55 +1589,9 @@ function draw_stream_graph(el, data_files, needMath) {
                 .duration(250)
                 .attr("opacity", "1");
             d3.select(this)
-                .classed("hover", false)
-                .attr("stroke-width", "0px");
-
-            //tooltip.html("<p>" + d.key + "<br>" + pro + "</p>").style("visibility", "hidden");
+                .classed("hover", false);
         });
 
-    //var vertical = d3.select(el[0])
-    //    .append("div")
-    //    .attr("class", "remove")
-    //    .style("position", "absolute")
-    //    .style("z-index", "19")
-    //    .style("width", "1px")
-    //    .style("height", "380px")
-    //    .style("top", "10px")
-    //    .style("bottom", "30px")
-    //    .style("left", "0px")
-    //    .style("background", "#fff");
-    //
-    //d3.select(".layer")
-    //    .on("mousemove", function () {
-    //        var mouse = d3.mouse(this), mousex = mouse[0] + 5;
-    //        tooltip.css("left", mousex + "px")
-    //    })
-    //    .on("mouseover", function () {
-    //        var mouse = d3.mouse(this), mousex = mouse[0] + 5;
-    //        tooltip.css("left", mousex + "px")
-    //    });
-
-}
-
-// Inspired by Lee Byron's test data generator.
-function bumpLayer(n) {
-
-    function bump(a) {
-        var x = 1 / (.1 + Math.random()),
-            y = 2 * Math.random() - .5,
-            z = 10 / (.1 + Math.random());
-        for (var i = 0; i < n; i++) {
-            var w = (i / n - y) * z;
-            a[i] += x * Math.exp(-w * w);
-        }
-    }
-
-    var a = [], i;
-    for (i = 0; i < n; ++i) a[i] = 0;
-    for (i = 0; i < 5; ++i) bump(a);
-    return a.map(function (d, i) {
-        return {x: i, y: Math.max(0, d)};
-    });
 }
 
 $(window).resize(function () {

@@ -607,6 +607,7 @@ function draw_general_graph(el, data_files, data_colors) {
         .append("g")
         .attr("transform", "translate(" + margin.left + "," + margin.top + ")")
         .on('mousemove', function (d) {
+            console.log(this);
                 //console.log(d3.mouse(this));
                 var tooltip = d3.select("#tooltip"),
                     tooltip_content = $("#tooltip_content"),

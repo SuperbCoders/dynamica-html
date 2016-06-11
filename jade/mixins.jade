@@ -72,12 +72,12 @@ mixin popup_controls()
             button.btn.btn-info(type='button', data-toggle='modal', data-target='#confirm_address_popup') confirm_address_popup
         
 mixin popups()
-    #auth_popup.modal.fade(role='dialog')
+    #auth_popup.modal.fade.modal_vert_middle(role='dialog')
         .modal-dialog.modal_v1
             // Modal content
             .modal-content
                 .modal-header
-                    //-button.close(type='button', data-dismiss='modal') ×
+                    button.close.fa(type='button', data-dismiss='modal') ×
                     .modal-title
                         span.dynamica_loading
                         span Dynamica importing data from your Shopify
@@ -111,16 +111,16 @@ mixin popups()
                     .control-box.text-center.btn_holder
                         a.btn-link.forgot_pass_link(href='#') I forgot password
                         
-    #restore_pass_popup.modal.fade(role='dialog')
+    #restore_pass_popup.modal.fade.modal_vert_middle(role='dialog')
         .modal-dialog.modal_v1
             // Modal content
             .modal-content
                 .modal-header
-                    //-button.close(type='button', data-dismiss='modal') ×
+                    button.close.fa(type='button', data-dismiss='modal') ×
                 .modal-body
                     h3 Password recovery
                     
-                    p.text-center Enter your email and we send  <br> password to you
+                    //-p.text-center Enter your email and we send  <br> password to you
  
                 .form_holder: form(action='#')
                     .control-box
@@ -132,11 +132,12 @@ mixin popups()
                     .control-box.text-center.btn_holder
                         a.btn-link.forgot_pass_link(href='#') Back
                                                 
-    #no_access_popup.modal.fade(role='dialog')
+    #no_access_popup.modal.fade.modal_vert_middle(role='dialog')
         .modal-dialog.modal_v1
             // Modal content
             .modal-content
                 .modal-header
+                    button.close.fa(type='button', data-dismiss='modal') ×
                     .modal-title &nbsp;
                 .modal-body
                     h3 We didn’t get  <br> access to your Shopify  <br>  store, want to try again?
@@ -148,11 +149,12 @@ mixin popups()
                     .control-box.text-center.btn_holder
                         a.btn-link.forgot_pass_link(href='#') No
                                                 
-    #confirm_address_popup.modal.fade(role='dialog')
+    #confirm_address_popup.modal.fade.modal_vert_middle(role='dialog')
         .modal-dialog.modal_v1
             // Modal content
             .modal-content
                 .modal-header
+                    button.close.fa(type='button', data-dismiss='modal') ×
                     .modal-title &nbsp;
                 .modal-body.text-center
                     p Confirm your email address   <br> 
@@ -163,11 +165,12 @@ mixin popups()
                         a.btn-link(href='#') Ok, thanks!
                         
                                                                         
-    #not_ready_popup.modal.fade(role='dialog')
+    #not_ready_popup.modal.fade.modal_vert_middle(role='dialog')
         .modal-dialog.modal_v1(style='width: 728px;')
             // Modal content
             .modal-content
                 .modal-header
+                    button.close.fa(type='button', data-dismiss='modal') ×
                 .modal-body
                     .modal_dynamica_logo.text-center
                         img(src='images/dynamica.svg')
