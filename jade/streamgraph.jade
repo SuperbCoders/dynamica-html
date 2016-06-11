@@ -251,17 +251,21 @@ html(lang='ru')
                         a.btn.btn_v2.pagination_btn(href='#') 49
                       li
                         a.btn.btn_v2.pagination_btn(href='#') 50
-                  
+                        
+      .page-footer.footer_v2
+        .container-fluid.wide_block
+          .footer_logo
+            a.navbar-brand(href='#'): img(src='img/logo_w.svg')
 
-      .page-footer
-        .container-fluid.globalwidth
-          ul.footer-menu
-            li: a(href='#') Projects
-            li: a(href='#') Team
-            li: a(href='#') Profile
-            li: a(href='#') Billing
-            li: a(href='#') Support
-            
-          .footer-copyright All rights reserved © Osintsev. K.S. 2016
+
+          .land_footer-links
+            .footer_link_w: a(href='#') Shopify App Store
+            .footer_link_w: a(href='mailto:support@dynamica.cc') support@dynamica.cc
+
+          .land_footer-links-right
+            .footer_link_w: a(href='#') Privacy Policy
+            .footer_link_w
+              .land_copyright Copyright © 2016
+
     .page-overlay.pageOverlay
       .jawn
