@@ -167,9 +167,10 @@
 .btn-disabled-if-error {
   .error &,
   .error ~ .control-box & {
-    border-color: #b5afa7 !important;
-    background: #b5afa7 !important;
+    border-color: #cfcfcf !important;
+    background: #cfcfcf !important;
     box-shadow: none !important;
+    color: #fff !important;
     pointer-events: none;
   }
 }
