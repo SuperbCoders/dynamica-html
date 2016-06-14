@@ -22,7 +22,7 @@ $(function ($) {
     $('.validateMe').validationEngine({
         //binded                   : false,
         scroll: false,
-        showPrompts: true,
+        showPrompts: false,
         showArrow: false,
         inlineValidation: true,
         addSuccessCssClassToField: 'success',

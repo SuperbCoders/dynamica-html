@@ -205,6 +205,12 @@
       <div class="dev_control">
         <button type="button" data-toggle="modal" data-target="#welcome_popup" class="btn btn-info">welcome_popup</button>
       </div>
+      <div class="dev_control">
+        <button type="button" data-toggle="modal" data-target="#account_expired_popup" class="btn btn-info">account_expired_popup</button>
+      </div>
+      <div class="dev_control">
+        <button type="button" data-toggle="modal" data-target="#billing_period_popup" class="btn btn-info">billing_period_popup</button>
+      </div>
     </div>
     <div id="auth_popup" role="dialog" class="modal fade modal_vert_middle">
       <div class="modal-dialog modal_v1">
@@ -249,13 +255,13 @@
           <div class="modal-body">
             <h3>Password recovery</h3>
           </div>
-          <div class="form_holder">
-            <form action="#">
+          <div class="form_holder formHolder error">
+            <form action="#" class="validateMe">
               <div class="control-box">
-                <input type="text" placeholder="Email" class="form-control"/>
+                <input type="text" placeholder="Email" class="form-control validate[required, custom[email]]"/>
               </div>
               <div class="control-box text-center btn_holder">
-                <button type="submit" class="btn btn-lg btn-danger">Restore</button>
+                <button type="submit" class="btn btn-lg btn-danger btn-disabled-if-error">Restore</button>
               </div>
               <div class="control-box text-center btn_holder"><a href="#" class="btn-link forgot_pass_link">Back</a></div>
             </form>
@@ -277,6 +283,100 @@
           <div class="form_holder">
             <form action="#">
               <div class="control-box text-center btn_holder"><a type="submit" class="btn btn-lg btn-danger">Link my store now</a></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="account_expired_popup" role="dialog" class="modal fade modal_vert_middle">
+      <div style="width: 600px;" class="modal-dialog modal_v1">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" class="close fa">×</button>
+          </div>
+          <div class="modal-body">
+            <h3>Your Dynamica account <br> has expired</h3>
+            <p class="text-center">Want to Re-Start you account?</p>
+          </div>
+          <div class="form_holder">
+            <form action="#">
+              <div class="control-box text-center"><a type="submit" class="btn btn-lg btn-danger">Re-Start Dynamica now!</a></div>
+              <div class="row subscribe_block mod_1">
+                <div class="col-lg-12">
+                  <div class="pull-left">
+                    <div class="subscribe_period">
+                      <label class="radio_control">
+                        <input type="radio" name="subscribe_period"/><span class="check_text">$5 monthly</span>
+                      </label>
+                    </div>
+                    <div class="subscribe_period">
+                      <label class="radio_control">
+                        <input type="radio" name="subscribe_period"/><span class="check_text">$49 yearly, <span class="color_green">Save 20%</span></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="pull-right subscribe_switcher_w"><span>Charge from</span>
+                    <div class="subscribe_switcher">
+                      <div class="dropdown">
+                        <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">Bling-Blings account<span class="fa fa-angle-down"></span></button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                          <li><a href="#">Bling-Blings account</a></li>
+                          <li><a href="#">Apple Store</a></li>
+                          <li><a href="#">Helvetica </a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="billing_period_popup" role="dialog" class="modal fade modal_vert_middle">
+      <div style="width: 600px;" class="modal-dialog modal_v1">
+        <!-- Modal content-->
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" data-dismiss="modal" class="close fa">×</button>
+          </div>
+          <div class="modal-body">
+            <h3>Change billing period  <br> or account</h3>
+          </div>
+          <div class="form_holder">
+            <form action="#">
+              <div class="row subscribe_block mod_2">
+                <div class="col-lg-12">
+                  <div class="pull-left">
+                    <div class="subscribe_period">
+                      <label class="radio_control">
+                        <input type="radio" name="subscribe_period"/><span class="check_text">$5 monthly</span>
+                      </label>
+                    </div>
+                    <div class="subscribe_period">
+                      <label class="radio_control">
+                        <input type="radio" name="subscribe_period"/><span class="check_text">$49 yearly, <span class="color_green">Save 20%</span></span>
+                      </label>
+                    </div>
+                  </div>
+                  <div class="pull-right subscribe_switcher_w"><span>Charge from</span>
+                    <div class="subscribe_switcher">
+                      <div class="dropdown">
+                        <button type="button" data-toggle="dropdown" class="btn btn-default dropdown-toggle">Bling-Blings account<span class="fa fa-angle-down"></span></button>
+                        <ul class="dropdown-menu dropdown-menu-right">
+                          <li><a href="#">Bling-Blings account</a></li>
+                          <li><a href="#">Apple Store</a></li>
+                          <li><a href="#">Helvetica </a></li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="control-box text-center"><a type="submit" class="btn btn-lg btn-danger">Change</a></div>
+              <p class="text-center popup_tip">Next payment will charged in 30 june</p>
             </form>
           </div>
         </div>

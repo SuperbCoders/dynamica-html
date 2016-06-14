@@ -74,6 +74,10 @@ mixin popup_controls()
             button.btn.btn-info(type='button', data-toggle='modal', data-target='#confirm_address_popup') confirm_address_popup
         .dev_control
             button.btn.btn-info(type='button', data-toggle='modal', data-target='#welcome_popup') welcome_popup
+        .dev_control
+            button.btn.btn-info(type='button', data-toggle='modal', data-target='#account_expired_popup') account_expired_popup
+        .dev_control
+            button.btn.btn-info(type='button', data-toggle='modal', data-target='#billing_period_popup') billing_period_popup
         
 mixin popups()
     #auth_popup.modal.fade.modal_vert_middle(role='dialog')
@@ -123,15 +127,13 @@ mixin popups()
                     button.close.fa(type='button', data-dismiss='modal') ×
                 .modal-body
                     h3 Password recovery
-                    
-                    //-p.text-center Enter your email and we send  <br> password to you
  
-                .form_holder: form(action='#')
+                .form_holder.formHolder.error: form.validateMe(action='#')
                     .control-box
-                        input.form-control(type='text', placeholder='Email')
+                        input.form-control(type='text', placeholder='Email' class='validate[required, custom[email]]')
 
                     .control-box.text-center.btn_holder
-                        button.btn.btn-lg.btn-danger(type='submit') Restore
+                        button.btn.btn-lg.btn-danger.btn-disabled-if-error(type='submit') Restore
                         
                     .control-box.text-center.btn_holder
                         a.btn-link.forgot_pass_link(href='#') Back
@@ -152,6 +154,84 @@ mixin popups()
                     .control-box.text-center.btn_holder
                         a.btn.btn-lg.btn-danger(type='submit') Link my store now
 
+    #account_expired_popup.modal.fade.modal_vert_middle(role='dialog')
+        .modal-dialog.modal_v1(style='width: 600px;')
+            // Modal content
+            .modal-content
+                .modal-header
+                    button.close.fa(type='button', data-dismiss='modal') ×
+                .modal-body
+                    h3 Your Dynamica account <br> has expired
+                    
+                    p.text-center
+                        | Want to Re-Start you account?
+ 
+                .form_holder: form(action='#')
+                    .control-box.text-center
+                        a.btn.btn-lg.btn-danger(type='submit') Re-Start Dynamica now!
+                    .row.subscribe_block.mod_1: .col-lg-12
+                        .pull-left
+                            .subscribe_period: label.radio_control
+                                input(type='radio' name='subscribe_period')
+                                span.check_text $5 monthly
+                            .subscribe_period: label.radio_control
+                                input(type='radio' name='subscribe_period')
+                                span.check_text $49 yearly, 
+                                    span.color_green Save 20%
+                        .pull-right.subscribe_switcher_w
+                            span Charge from
+                            .subscribe_switcher: .dropdown
+                                button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                                    | Bling-Blings account
+                                    span.fa.fa-angle-down
+
+                                ul.dropdown-menu.dropdown-menu-right
+                                    li
+                                        a(href='#') Bling-Blings account
+                                    li
+                                        a(href='#') Apple Store
+                                    li
+                                        a(href='#') Helvetica 
+                                        
+    #billing_period_popup.modal.fade.modal_vert_middle(role='dialog')
+        .modal-dialog.modal_v1(style='width: 600px;')
+            // Modal content
+            .modal-content
+                .modal-header
+                    button.close.fa(type='button', data-dismiss='modal') ×
+                .modal-body
+                    h3 Change billing period  <br> or account
+                     
+                .form_holder: form(action='#')
+                    .row.subscribe_block.mod_2: .col-lg-12
+                        .pull-left
+                            .subscribe_period: label.radio_control
+                                input(type='radio' name='subscribe_period')
+                                span.check_text $5 monthly
+                            .subscribe_period: label.radio_control
+                                input(type='radio' name='subscribe_period')
+                                span.check_text $49 yearly, 
+                                    span.color_green Save 20%
+                        .pull-right.subscribe_switcher_w
+                            span Charge from
+                            .subscribe_switcher: .dropdown
+                                button.btn.btn-default.dropdown-toggle(type='button', data-toggle='dropdown')
+                                    | Bling-Blings account
+                                    span.fa.fa-angle-down
+
+                                ul.dropdown-menu.dropdown-menu-right
+                                    li
+                                        a(href='#') Bling-Blings account
+                                    li
+                                        a(href='#') Apple Store
+                                    li
+                                        a(href='#') Helvetica 
+                                        
+                    .control-box.text-center
+                        a.btn.btn-lg.btn-danger(type='submit') Change
+                                        
+                    p.text-center.popup_tip Next payment will charged in 30 june
+                        
     #no_access_popup.modal.fade.modal_vert_middle(role='dialog')
         .modal-dialog.modal_v1
             // Modal content
