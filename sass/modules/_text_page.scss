@@ -213,6 +213,7 @@
 
     .btn {
       font-size: 16px;
+      font-weight: 300;
     }
 
     &.btn_holder {
@@ -225,7 +226,7 @@
     &.error {
       border-color: #ff370d !important;
     }
-    
+
     &.success {
       border-color: #5ec65d !important;
     }

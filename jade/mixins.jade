@@ -72,6 +72,8 @@ mixin popup_controls()
             button.btn.btn-info(type='button', data-toggle='modal', data-target='#not_ready_popup') not_ready_popup
         .dev_control
             button.btn.btn-info(type='button', data-toggle='modal', data-target='#confirm_address_popup') confirm_address_popup
+        .dev_control
+            button.btn.btn-info(type='button', data-toggle='modal', data-target='#welcome_popup') welcome_popup
         
 mixin popups()
     #auth_popup.modal.fade.modal_vert_middle(role='dialog')
@@ -133,7 +135,23 @@ mixin popups()
                         
                     .control-box.text-center.btn_holder
                         a.btn-link.forgot_pass_link(href='#') Back
-                                                
+                                                                        
+    #welcome_popup.modal.fade.modal_vert_middle(role='dialog')
+        .modal-dialog.modal_v1(style='width: 600px;')
+            // Modal content
+            .modal-content
+                .modal-header
+                    button.close.fa(type='button', data-dismiss='modal') ×
+                .modal-body
+                    h3 Welcome to Dynamica!
+                    
+                    p.text-center
+                        | We are happy to see you here, let’s link up your shop to start to analyze your store
+ 
+                .form_holder: form(action='#')
+                    .control-box.text-center.btn_holder
+                        a.btn.btn-lg.btn-danger(type='submit') Link my store now
+
     #no_access_popup.modal.fade.modal_vert_middle(role='dialog')
         .modal-dialog.modal_v1
             // Modal content
