@@ -19,6 +19,8 @@
     <script type="text/javascript" src="js/vendor/moment.min.js"></script>
     <script type="text/javascript" src="js/vendor/bootstrap-datepicker.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
+    <script type="text/javascript" src="js/jquery.validationEngine.js"></script>
+    <script type="text/javascript" src="js/jquery.validationEngine-en.js"></script>
     <script type="text/javascript" src="js/text_page.js"></script>
   </head>
   <body>
@@ -216,17 +218,17 @@
             <div class="control-box"><a href="#" class="btn-social-auth btn-facebook"><i class="icon fa fa-facebook"></i>Facebook</a></div>
             <div class="control-box"><a href="#" class="btn-social-auth btn-google"><i class="icon fa fa-google-plus"></i>Google plus</a></div>
           </div>
-          <div class="form_holder">
-            <form action="#">
+          <div class="form_holder formHolder error">
+            <form id="auth_popup_form" action="#" class="validateMe">
               <div class="alternal_auth">OR ENTER EMAIL MANUALY</div>
-              <div class="control-box">
-                <input type="text" placeholder="Email" class="form-control"/>
+              <div class="control-box formCell">
+                <input type="text" placeholder="Email" class="form-control validate[required, custom[email]]"/>
               </div>
-              <div class="control-box">
-                <input type="password" placeholder="Password" class="form-control"/>
+              <div class="control-box formCell">
+                <input type="password" placeholder="Password" class="form-control validate[required, minSize[3]]"/>
               </div>
               <div class="control-box text-center btn_holder">
-                <button type="submit" class="btn btn-lg btn-danger">Go</button>
+                <button type="submit" class="btn btn-lg btn-danger btn-disabled-if-error">Go</button>
               </div>
               <div class="control-box text-center btn_holder"><a href="#" class="btn-link forgot_pass_link">I forgot password</a></div>
             </form>

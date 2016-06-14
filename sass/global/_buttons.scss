@@ -163,3 +163,13 @@
   margin-left: 20px;
   border-radius: 22px;
 }
+
+.btn-disabled-if-error {
+  .error &,
+  .error ~ .control-box & {
+    border-color: #b5afa7 !important;
+    background: #b5afa7 !important;
+    box-shadow: none !important;
+    pointer-events: none;
+  }
+}

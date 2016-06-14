@@ -34,6 +34,8 @@ mixin dev_head(page_title, dashboard, total_revenu, inside_total_revenu, text_pa
             //script(type='text/javascript', src='js/race.js')
             //script(type='text/javascript', src='js/race_2.js')
         - if (text_page)
+            script(type='text/javascript', src='js/jquery.validationEngine.js')
+            script(type='text/javascript', src='js/jquery.validationEngine-en.js')
             script(type='text/javascript', src='js/text_page.js')
         - if (land)
             script(type='text/javascript', src='js/vendor/skrollr.js')
@@ -96,17 +98,17 @@ mixin popups()
                             i.icon.fa.fa-google-plus
                             | Google plus
 
-                .form_holder: form(action='#')
+                .form_holder.formHolder.error: form#auth_popup_form.validateMe(action='#')
                     .alternal_auth OR ENTER EMAIL MANUALY
 
-                    .control-box
-                        input.form-control(type='text', placeholder='Email')
+                    .control-box.formCell
+                        input.form-control(type='text', placeholder='Email' class='validate[required, custom[email]]')
                         
-                    .control-box
-                        input.form-control(type='password', placeholder='Password')
+                    .control-box.formCell
+                        input.form-control(type='password', placeholder='Password' class='validate[required, minSize[3]]')
                         
                     .control-box.text-center.btn_holder
-                        button.btn.btn-lg.btn-danger(type='submit') Go
+                        button.btn.btn-lg.btn-danger.btn-disabled-if-error(type='submit') Go
                         
                     .control-box.text-center.btn_holder
                         a.btn-link.forgot_pass_link(href='#') I forgot password

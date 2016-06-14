@@ -79,7 +79,7 @@
 
 .modal_vert_middle {
   text-align: center;
-  
+
   &:before {
     content: '';
     display: inline-block;
@@ -209,6 +209,7 @@
 
   .control-box {
     margin-bottom: 10px;
+    position: relative;
 
     .btn {
       font-size: 16px;
@@ -216,6 +217,17 @@
 
     &.btn_holder {
       margin-top: 20px;
+    }
+  }
+
+  .form-control {
+
+    &.error {
+      border-color: #ff370d !important;
+    }
+    
+    &.success {
+      border-color: #5ec65d !important;
     }
   }
 }
