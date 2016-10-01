@@ -650,7 +650,6 @@ function draw_general_graph(el, data_files, data_colors) {
                     .style("left", area_x(data_files[activeFamilyGraph].data[ind].date) + "px");
 
                 tooltip_dot.css('top', margin.top + area_y(data_files[activeFamilyGraph].data[ind].close) - 11);
-
             }
         );
 
