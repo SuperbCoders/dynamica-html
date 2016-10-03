@@ -63,23 +63,29 @@ html.land_page_4(lang='ru')
         // page 2
         .page
             .page_inner.major_data_section_2
-                .gl_table: .gl_table_cell
-                    section
-                        .container-fluid.globalwidth
-                            .row.dashboard-title-row.land_v4
-                                .col-sm-12
-                                    h2.text-center Dynamica gathers raw data from your store. Then we process this data to calculate metrics and create charts. The setup is easy and takes 1 minute, then everything works by itself to provide you up to date information.
-                                                           
-        // page 3
-        .page
-            .page_inner.major_data_section_2
-                .gl_table: .gl_table_cell
-                    section
-                        .container-fluid.globalwidth
-                            .row.dashboard-title-row.land_v4
-                                .col-sm-12
-                                    h3.text-center Dynamica is a pretty and simple tool. 
-                                    
+                section
+                    .container-fluid.globalwidth
+                        .row.dashboard-title-row.land_v4
+                            .col-sm-12
+                                h2.text-center(
+                                data-100p-top='transform: translate(0%,200%); opacity: 0;'
+                                data-70p-top='transform: translate(0%,0%); opacity: 1;'
+                                data-10p-top='transform: translate(0%,0%); opacity: 1;'
+                                data-0-top='transform: translate(0%,-100%); opacity: 0;'
+                                ) Dynamica gathers raw data from your store. Then we process this data to calculate metrics and create charts. The setup is easy and takes 1 minute, then everything works by itself to provide you up to date information.
+                                                       
+    
+                section
+                    .container-fluid.globalwidth
+                        .row.dashboard-title-row.land_v4
+                            .col-sm-12
+                                h3.text-center(
+                                data-100p-top='transform: translate(0%,200%); opacity: 0;'
+                                data-70p-top='transform: translate(0%,0%); opacity: 1;'
+                                data-10p-top='transform: translate(0%,0%); opacity: 1;'
+                                data-0-top='transform: translate(0%,-100%); opacity: 0;'
+                                ) Dynamica is a pretty and simple tool. 
+                                
         // page 4
         .page
             .page_inner.major_data_section_2
@@ -88,7 +94,12 @@ html.land_page_4(lang='ru')
                         .container-fluid.globalwidth
                             .row.dashboard-title-row.land_v4
                                 .col-sm-12
-                                    h2.text-center(style='margin-top: 30px;') There is a chart with main sales metrics.  You can see how metrics correspond with  each other and how they change with time. 
+                                    h2.text-center(style='margin-top: 30px;'
+                                        data-100p-top='transform: translate(0%,200%); opacity: 0;'
+                                        data-70p-top='transform: translate(0%,0%); opacity: 1;'
+                                        data-10p-top='transform: translate(0%,0%); opacity: 1;'
+                                        data-0-top='transform: translate(0%,-100%); opacity: 0;'
+                                ) There is a chart with main sales metrics.  You can see how metrics correspond with  each other and how they change with time. 
                                     
                                     .graph-unit-holder: .graph-unit
                                         .graph-unit-large
@@ -112,69 +123,66 @@ html.land_page_4(lang='ru')
                                         a.hover_on_link(href='#') HOVER ON
         // page 5
         .page
-            .page_inner.major_data_section_2 
-                .gl_table: .gl_table_cell
-                    section
-                        .container-fluid.wide_block.land_v1
-                            .row: .customers_orders
-                                h3.text-center And you have special ecommerce metrics on your dashboard. Each of them has an individual chart.
-                                
-                .section_border
-                    .container-fluid.wide_block
-        
-        // page 6
-        .page
-            .page_inner
-                .gl_table: .gl_table_cell
-                    section.metrics_section
-                        .container-fluid.narrow_block(style='position: relative; z-index: 10;')
-                            .row.dashboard-title-row.land_v3
-                                .col-sm-12
-                                    h2.text-center(
-                                    data-100p-top='transform: translate(0%,200%); opacity: 0;'
-                                    data-70p-top='transform: translate(0%,0%); opacity: 1;'
-                                    data-10p-top='transform: translate(0%,0%); opacity: 1;'
-                                    data-0-top='transform: translate(0%,-100%); opacity: 0;'
-                                    ) Most relevant metrics
-                                        
-                                    ul.relevant_list.land_v3
-                                        li
-                                            .relevant_block
-                                                .relevant_caption Finance
-                                                ul.relevant_metrics
-                                                    li Monthly Recurring 
-                                                    li Net Revenue
-                                                    li Average Revenue Per User
-                                                    li Failed Charges
-                                                    li Lifetime Value
-                                        li
-                                            .relevant_block
-                                                .relevant_caption Customers
-                                                ul.relevant_metrics
-                                                    li Monthly Recurring 
-                                                    li Net Revenue
-                                                    li Average Revenue Per User
-                                                    li Failed Charges
-                                                    li Lifetime Value
-                                        li
-                                            .relevant_block
-                                                .relevant_caption Products
-                                                ul.relevant_metrics
-                                                    li Monthly Recurring 
-                                                    li Net Revenue
-                                                    li Average Revenue Per User
-                                                    li Failed Charges
-                                                    li Lifetime Value
+            .page_inner.major_data_section_2
+                section
+                    .container-fluid.wide_block.land_v1
+                        .row: .customers_orders
+                            h3.text-center(
+                            data-100p-top='transform: translate(0%,200%); opacity: 0;'
+                            data-70p-top='transform: translate(0%,0%); opacity: 1;'
+                            data-10p-top='transform: translate(0%,0%); opacity: 1;'
+                            data-0-top='transform: translate(0%,-100%); opacity: 0;'
+                            ) And you have special ecommerce metrics on your dashboard. Each of them has an individual chart.
 
-                        .container-fluid
-                            .metrics_map
-                                //img(src='img/metrics_map.png')
-                                .metric_unit(
-                                data-100p-top='box-shadow: 0px 2px 2px rgba(0, 0, 0, .15);'
-                                data-70p-top='box-shadow: 0px 2px 2px rgba(0, 0, 0, .15);'
-                                data-50p-top='box-shadow: 60px 60px 90px rgba(0, 0, 0, .45);')
-                                    img.retina_only(src='img/metric_unit@2x.png' width=300 height=277)
-                                    img.no_retina(src='img/metric_unit.png' width=300 height=277)
+                section.metrics_section
+                    .container-fluid.narrow_block(style='position: relative; z-index: 10;')
+                        .row.dashboard-title-row.land_v3
+                            .col-sm-12
+                                h2.text-center(
+                                data-100p-top='transform: translate(0%,200%); opacity: 0;'
+                                data-70p-top='transform: translate(0%,0%); opacity: 1;'
+                                data-10p-top='transform: translate(0%,0%); opacity: 1;'
+                                data-0-top='transform: translate(0%,-100%); opacity: 0;'
+                                ) Most relevant metrics
+                                    
+                                ul.relevant_list.land_v3
+                                    li
+                                        .relevant_block
+                                            .relevant_caption Finance
+                                            ul.relevant_metrics
+                                                li Monthly Recurring 
+                                                li Net Revenue
+                                                li Average Revenue Per User
+                                                li Failed Charges
+                                                li Lifetime Value
+                                    li
+                                        .relevant_block
+                                            .relevant_caption Customers
+                                            ul.relevant_metrics
+                                                li Monthly Recurring 
+                                                li Net Revenue
+                                                li Average Revenue Per User
+                                                li Failed Charges
+                                                li Lifetime Value
+                                    li
+                                        .relevant_block
+                                            .relevant_caption Products
+                                            ul.relevant_metrics
+                                                li Monthly Recurring 
+                                                li Net Revenue
+                                                li Average Revenue Per User
+                                                li Failed Charges
+                                                li Lifetime Value
+
+                    .container-fluid
+                        .metrics_map
+                            //img(src='img/metrics_map.png')
+                            .metric_unit(
+                            data-100p-top='box-shadow: 0px 2px 2px rgba(0, 0, 0, .15);'
+                            data-70p-top='box-shadow: 0px 2px 2px rgba(0, 0, 0, .15);'
+                            data-50p-top='box-shadow: 60px 60px 90px rgba(0, 0, 0, .45);')
+                                img.retina_only(src='img/metric_unit@2x.png' width=300 height=277)
+                                img.no_retina(src='img/metric_unit.png' width=300 height=277)
                                     
         // page 7
             
@@ -189,7 +197,13 @@ html.land_page_4(lang='ru')
                     section
                         .container-fluid.wide_block
                             .analitycs_table
-                                img(src='img/table.png' 
+                                img.retina_only(src='img/table@2x.png' width=895 height=585 data--35p-top='box-shadow: 0 20px 40px rgba(60, 65, 98, .45);'
+                                data--20p-top='box-shadow: 0px 0px 0px rgba(60, 65, 98, 0);'
+                                data--5p-top='box-shadow: 0px 0px 0px rgba(60, 65, 98, 0);')
+                                img.no_retina(src='img/table.png' width=895 height=585 data--35p-top='box-shadow: 0 20px 40px rgba(60, 65, 98, .45);'
+                                data--20p-top='box-shadow: 0px 0px 0px rgba(60, 65, 98, 0);'
+                                data--5p-top='box-shadow: 0px 0px 0px rgba(60, 65, 98, 0);')
+                                //-img(src='img/table.png' 
                                     data-100p-top='box-shadow: 0px 0px 0px rgba(60, 65, 98, 0);'
                                     data-70p-top='box-shadow: 0px 0px 0px rgba(60, 65, 98, 0);'
                                     data-50p-top='box-shadow: 0 20px 40px rgba(60, 65, 98, .45);')
